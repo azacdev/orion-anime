@@ -1,4 +1,5 @@
 import SearchIcon from '../search.svg'
+import constants from './utils/constants'
 
 const Root = () => {
 
@@ -9,7 +10,7 @@ const Root = () => {
 
         <div className="search">
           <input
-            placeholder="Search..."
+            placeholder="search..."
             // value={searchTerm}
             // onChange={(e) => setSeacrhTerm(e.target.value)}
           />
@@ -19,8 +20,12 @@ const Root = () => {
             // onClick={() => searchMovies(searchTerm)}
           />
         </div>
-
       </nav>
+      <main>
+        <div className='side-bar'>
+          
+        </div>
+      </main>
     </div>
   )
 }
