@@ -1,7 +1,15 @@
-import SearchIcon from '../search.svg'
-import constants from './utils/constants'
+import { useState, useEffect } from 'react';
+import SearchIcon from '../search.svg' ;
+import { fetchFromAPI } from './utils/fetchFromAPI';
+import { categories } from './utils/constants' ;
 
 const Root = () => {
+  const [animesList, setAnimeList] = useState()
+
+  useEffect(() => (
+    fetchFromAPI(`search?part=snippet&q=naruto`)
+    .then(data => console.log(data))
+  ))
 
   return (
     <div className="container">
