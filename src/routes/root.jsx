@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
 import SearchIcon from '../search.svg' ;
 import { fetchFromAPI } from './utils/fetchFromAPI';
-import { categories } from './utils/constants' ;
+// import { categories } from './utils/constants' ;
 
 const Root = () => {
-  const [animesList, setAnimeList] = useState()
+  const [animeList, setAnimeList] = useState()
+  const anime = "Naruto"
+  
+  useEffect( () => {
+    // fetchFromAPI(`?&search=${anime}`)
+    // .then(data => setAnimeList(data.title))
+    
+  }, [])
 
-  useEffect(() => (
-    fetchFromAPI(`search?part=snippet&q=naruto`)
-    .then(data => console.log(data))
-  ))
+  console.log(animeList);
+  const page = `?&search=${anime}`
 
   return (
     <div className="container">
