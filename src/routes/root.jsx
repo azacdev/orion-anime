@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import SearchIcon from '../search.svg' ;
 import { fetchFromAPI } from './utils/fetchFromAPI';
-// import { categories } from './utils/constants' ;
+
 
 const Root = () => {
   const [animeList, setAnimeList] = useState()
   const anime = "Naruto"
   
   useEffect( () => {
-    // fetchFromAPI(`?&search=${anime}`)
-    // .then(data => setAnimeList(data.title))
+    fetchFromAPI(`?&search=${anime}`)
+    .then(data => setAnimeList(data.title))
+    .catch( err => console.error(err))
     
   }, [])
 
