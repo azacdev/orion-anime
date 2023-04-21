@@ -7,15 +7,15 @@ const Root = () => {
   const [animeList, setAnimeList] = useState()
   const anime = "Naruto"
   
-  useEffect( () => {
-    fetchFromAPI(`?&search=${anime}`)
-    .then(data => setAnimeList(data.title))
-    .catch( err => console.error(err))
-    
-  }, [])
+  // useEffect( () => {
+  //   fetchFromAPI(`?&search=${anime}`)
+  //   .then(data => setAnimeList(data.title))
+  //   .catch( err => console.error(err))
+  
+  // }, [])
 
-  console.log(animeList);
-  const page = `?&search=${anime}`
+  // console.log(animeList);
+  // const page = `?&search=${anime}`
 
   return (
     <div className="container">
@@ -37,6 +37,10 @@ const Root = () => {
       </nav>
       <main>
         <div className='side-bar'>
+          
+        </div>
+
+        <div className="content">
           
         </div>
       </main>
