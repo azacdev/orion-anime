@@ -21,7 +21,11 @@ const Root = () => {
     <div className="container">
       <nav>
         <a className='logo' href="">Orion <span>Anime</span></a>
-
+        <div>
+          <a href="">Home</a>
+          <a href="">Genre</a>
+          <a href="">Ranking</a>
+        </div>
         <div className="search">
           <input
             placeholder="search..."
