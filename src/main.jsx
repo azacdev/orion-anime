@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './error-page'
 import Root from './routes/root'
-import Home from './routes/Home'
 import './App.css'
-
+import Genre from './routes/Genre'
 
 const router = createBrowserRouter([
   {
@@ -17,8 +16,8 @@ const router = createBrowserRouter([
     // ]
   },
   {
-    path: "/home/:id",
-    element: <Home />
+    path: "/genre/",
+    element: <Genre />
   }
 ])
 
