@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 
-const Animes = ({videos}) => {
+const AnimeCard = ({video, key}) => {
   return (
-    <div className="anime-card">
-      <Link to="/anime/">
-        <img src={videos.image} className="anime-image" alt="anime-image" />
-        <p className="title">{videos.title}</p>
+    <div className="anime-content">
+      <Link to="/anime/" className="anime-card" key={key}>
+        <img src={video.image} className="anime-image" alt="anime-image" />
+        <p className="anime-title">{video.title}</p>
       </Link>
     </div>
   )
 }
 
-export default Animes
+export default AnimeCard

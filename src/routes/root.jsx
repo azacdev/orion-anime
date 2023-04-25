@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import SearchIcon from '../search.svg' ;
 import { fetchFromAPI } from './utils/fetchFromAPI';
-import AnimeCard from './AnimeCard';
+import AnimeCard from './AnimeCard'
 
 const Root = () => {
   const [animeList, setAnimeList] = useState([])
@@ -29,11 +29,9 @@ const Root = () => {
           <Link to="/" className='nav-link'>
             <p>Home</p>
           </Link> 
-
           <Link to="/genre/" className='nav-link'>
             <p>Genre</p>
           </Link> 
-
           <Link to="/ranking/" className='nav-link'>
             <p>Ranking</p>
           </Link> 
@@ -52,14 +50,11 @@ const Root = () => {
         </div>
       </nav>
       <main>
-
-        {animeList.map((item, idx) => {
-          <div className="animes" key={idx}>
-            {item && <AnimeCard video={item}/>}
-          </div>
-          })
-        }
-
+        <div className="animes">
+          {animeList.map((item, idx) =>
+            (item && <AnimeCard video={item} key={idx}/>)
+          )}
+        </div>
       </main>
     </div>
   )
