@@ -54,7 +54,7 @@ const Root = () => {
       <main>
 
         {animeList.map((item, idx) => {
-          <div className="videos" key={idx}>
+          <div className="animes" key={idx}>
             {item && <AnimeCard video={item}/>}
           </div>
           })
