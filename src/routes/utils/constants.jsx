@@ -1,8 +1,10 @@
-import { GiMaterialsScience, GiPunch, GiPuzzle, GiAlienStare, GiMagicPortal, GiFullPizza, GiFullPizza, GiLovers, GiDramaMasks  } from "react-icons/gi"
+import { GiMaterialsScience, GiPunch, GiPuzzle, GiAlienStare, GiMagicPortal, GiFullPizza, GiDramaMasks  } from "react-icons/gi"
 import { BsArrowThroughHeartFill, BsAward } from "react-icons/bs"
 import { TbPumpkinScary } from "react-icons/tb"
 import { MdSportsSoccer, MdOutlineTheaterComedy } from "react-icons/md"
 import { BiMovie } from "react-icons/bi"
+import { FaMountain } from "react-icons/fa"
+import { HiSparkles } from "react-icons/hi"
 
 export const categories = [
   { name: 'Action', icon: <GiPunch /> },
@@ -20,5 +22,5 @@ export const categories = [
   { name: 'Adventure', icon: <FaMountain />, },    
   { name: 'Romance', icon: <BsArrowThroughHeartFill />, },    
   { name: 'Sci-Fi', icon: <GiMaterialsScience />, },    
-  { name: 'Hentai', icon: <HiSparkles />, }    
+  { name: 'Hentai', icon: <HiSparkles />, } 
 ]

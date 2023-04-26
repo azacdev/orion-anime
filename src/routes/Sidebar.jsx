@@ -3,7 +3,7 @@ import { categories } from './utils/constants';
 
 const Sidebar = () => {
   return (
-    <>
+    <div>
       <div className='nav-links'>
         <Link to="/" className='nav-link'>
           <h3>Home</h3>
@@ -15,6 +15,7 @@ const Sidebar = () => {
           <h3>Ranking</h3>
         </Link> 
       </div>
+
       <div className="genre">
         {categories.map((category) => (
           <div className='category-btn'>
@@ -23,7 +24,7 @@ const Sidebar = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
