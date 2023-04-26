@@ -27,7 +27,7 @@ const Root = () => {
         <a className='logo' href="">Orion <span>Anime</span></a>
         <div className='nav-links'>
           <Link to="/" className='nav-link'>
-            <p>Home</p>
+            <p>Top Rated</p>
           </Link> 
           <Link to="/genre/" className='nav-link'>
             <p>Genre</p>
@@ -50,6 +50,9 @@ const Root = () => {
         </div>
       </nav>
       <main>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
         <div className="animes">
           {animeList.map((item, idx) =>
             (item && <AnimeCard video={item} key={idx}/>)
