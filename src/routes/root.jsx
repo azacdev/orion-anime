@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import SearchIcon from '../search.svg' ;
+import Sidebar from "./Sidebar"
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import AnimeCard from './AnimeCard'
 
 const Root = () => {
+  const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
   
   useEffect( () => {
-  
     fetchFromAPI(`?&search=${anime}`)
     .then(data => setAnimeList(data.data))
-  
   }, [anime])
 
-  const titles = animeList.map( (title) => {
+  const titles = animeList.map((title) => {
     return title.title
   })
 
@@ -25,17 +25,6 @@ const Root = () => {
     <div className="container">
       <nav>
         <a className='logo' href="">Orion <span>Anime</span></a>
-        <div className='nav-links'>
-          <Link to="/" className='nav-link'>
-            <p>Top Rated</p>
-          </Link> 
-          <Link to="/genre/" className='nav-link'>
-            <p>Genre</p>
-          </Link> 
-          <Link to="/ranking/" className='nav-link'>
-            <p>Ranking</p>
-          </Link> 
-        </div>
         <div className="search">
           <input
             placeholder="search..."
