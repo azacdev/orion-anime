@@ -39,7 +39,7 @@ const Root = () => {
         </div>
       </nav>
       <main>
-        <div className="sidebar">
+        <div className="section">
           <Sidebar />
         </div>
         <div className="animes">
