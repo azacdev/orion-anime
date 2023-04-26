@@ -39,10 +39,10 @@ const Root = () => {
         </div>
       </nav>
       <main className="section">
-        <div >
+        <div className='sidebar'>
           <Sidebar />
         </div>
-        
+
         <div className="animes">
           {animeList.map((item, idx) =>
             (item && <AnimeCard video={item} key={idx}/>)

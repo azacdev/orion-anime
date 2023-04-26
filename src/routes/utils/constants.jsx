@@ -6,6 +6,7 @@ import { BiMovie } from "react-icons/bi"
 import { FaMountain } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
 
+
 export const categories = [
   { name: 'Action', icon: <GiPunch /> },
   { name: 'Award Winning', icon: <BsAward />, },
