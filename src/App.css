@@ -109,6 +109,11 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
+  color: var(--title-color);
+}
+
+li {
+  list-style: none;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -129,7 +134,7 @@ a {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -138,75 +143,44 @@ a {
 
 header {
   background-color: blue;
-  padding: var(--mb-1);
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; */
   position: sticky;
   left: 0;
   top: 0;
   height: 100vh;
   width: 250px;
+  padding: 1.1rem;
+  color: var(--title-color);
   overflow-y: auto;
   border-right: 1px solid gray;
 }
 
 .logo {
-  /* font-family: var(--font-raleway); */
+  margin-top: 2rem;
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   font-weight: 700;
   color: var(--text-color);
 }
 
 .logo span {
   color: var(--title-color);
+  margin-left: 0.5rem;
 }
 
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 
-.nav-link {
-  display: flex;
-  color: var(--title-color);
-  font-family: var(--font-roboto);
-  font-size: var(--mb-1-25);
-}
 
-.nav-link:hover {
-  color: var(--text-color);
-}
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  text-align: center;
-}
 
-.category-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--title-color);
-}
 
-.btn {
-  font-weight: bold !important;
-  cursor:pointer;
-  background: transparent;
-  color: var(--title-color);
-  outline: none;
-  border: none;
-  padding: 7px 15px;
-  margin: 10px 0px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+ /* ================= MAIN ===================== */
+
+main {
+  flex: 1;
+  padding: 20px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
 }
 
 .search {
@@ -237,15 +211,6 @@ header {
   width: 25px;
   height: 25px;
   cursor: pointer;
-}
-
- /* ================= MAIN ===================== */
-
-main {
-  flex: 1;
-  padding: 20px;
-  height: calc(100vh - 50px);
-  overflow-y: auto;
 }
 
 .content {

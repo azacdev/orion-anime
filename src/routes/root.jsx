@@ -25,14 +25,14 @@ const Root = () => {
     <div className="container">
       <header className='scroll-bar'>
         <nav>
-          <a className='logo' href="">Orion <span>Anime</span></a>
+          <a className='logo' href="">Orion<span>Anime</span></a>
           <div className='sidebar'>
             <Sidebar />
           </div>
         </nav>
       </header>
 
-      <main className="section">
+      <main className="section scroll-bar">
         <div className="search">
           <input
             placeholder="search..."

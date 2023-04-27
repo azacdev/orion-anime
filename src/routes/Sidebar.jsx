@@ -6,6 +6,7 @@ import { AiOutlineStar } from "react-icons/ai"
 const Sidebar = () => {
   return (
     <div>
+      <h3>Categories</h3>
       <ul className='nav-links'>
         <li>
           <Link to="/" className='nav-link'>
@@ -21,8 +22,8 @@ const Sidebar = () => {
         </li>
       </ul>
 
+      <h3>Genre</h3>
       <ul className="genre">
-        <span>Genre</span>
         {categories.map((category) => (
           <li className='category-btn'>
             <button className='btn'>{category.icon}</button>
