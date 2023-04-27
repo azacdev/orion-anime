@@ -134,13 +134,14 @@ nav {
 }
 
 .nav-links {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem; */
 }
 
 .nav-link {
+  display: flex;
   color: var(--title-color);
   font-family: var(--font-roboto);
   font-size: var(--mb-1-25);
@@ -191,11 +192,28 @@ nav {
 
 .category-btn {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--title-color);
 }
+
+.btn {
+  font-weight: bold !important;
+  cursor:pointer;
+  background: transparent;
+  color: var(--title-color);
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  margin: 10px 0px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
 
 .animes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--mb-0-75);
   align-items: center;
 }

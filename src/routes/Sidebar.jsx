@@ -8,10 +8,10 @@ const Sidebar = () => {
     <>
       <div className='nav-links'>
         <Link to="/" className='nav-link'>
-          <button><BiHomeAlt2/></button><h3>Home</h3>
+          <button className='btn'><BiHomeAlt2/></button><h3>Home</h3>
         </Link> 
         <Link to="/ranking/" className='nav-link'>
-          <button><AiOutlineStar/></button><h3>Ranking</h3>
+          <button className='btn'><AiOutlineStar/></button><h3>Ranking</h3>
         </Link> 
       </div>
 
@@ -19,7 +19,7 @@ const Sidebar = () => {
         <span>Genre</span>
         {categories.map((category) => (
           <div className='category-btn'>
-            <button>{category.icon}</button>
+            <button className='btn'>{category.icon}</button>
             <h4>{category.name}</h4>
           </div>
         ))}
