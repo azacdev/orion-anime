@@ -5,26 +5,32 @@ import { AiOutlineStar } from "react-icons/ai"
 
 const Sidebar = () => {
   return (
-    <>
-      <div className='nav-links'>
-        <Link to="/" className='nav-link'>
-          <button className='btn'><BiHomeAlt2/></button><h3>Home</h3>
-        </Link> 
-        <Link to="/ranking/" className='nav-link'>
-          <button className='btn'><AiOutlineStar/></button><h3>Ranking</h3>
-        </Link> 
-      </div>
+    <div>
+      <ul className='nav-links'>
+        <li>
+          <Link to="/" className='nav-link'>
+            <button className='btn'><BiHomeAlt2/></button>
+            <h3>Home</h3>
+          </Link>
+        </li>
+        <li>
+          <Link to="/ranking/" className='nav-link'>
+            <button className='btn'><AiOutlineStar/></button>
+            <h3>Ranking</h3>
+          </Link> 
+        </li>
+      </ul>
 
-      <div className="genre">
+      <ul className="genre">
         <span>Genre</span>
         {categories.map((category) => (
-          <div className='category-btn'>
+          <li className='category-btn'>
             <button className='btn'>{category.icon}</button>
-            <h4>{category.name}</h4>
-          </div>
+            <h3>{category.name}</h3>
+          </li>
         ))}
-      </div>
-    </>
+      </ul>
+    </div>
   )
 }
 

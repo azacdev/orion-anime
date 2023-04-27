@@ -10,21 +10,29 @@ const Root = () => {
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
   
-  useEffect( () => {
-    fetchFromAPI(`?&search=${anime}`)
-    .then(data => setAnimeList(data.data))
-  }, [anime])
+  // useEffect( () => {
+  //   fetchFromAPI(`?&search=${anime}`)
+  //   .then(data => setAnimeList(data.data))
+  // }, [anime])
 
-  const titles = animeList.map((title) => {
-    return title.title
-  })
+  // const titles = animeList.map((title) => {
+  //   return title.title
+  // })
 
-  console.log(titles);
+  // console.log(titles);
 
   return (
     <div className="container">
-      <nav>
-        <a className='logo' href="">Orion <span>Anime</span></a>
+      <header className='scroll-bar'>
+        <nav>
+          <a className='logo' href="">Orion <span>Anime</span></a>
+          <div className='sidebar'>
+            <Sidebar />
+          </div>
+        </nav>
+      </header>
+
+      <main className="section">
         <div className="search">
           <input
             placeholder="search..."
@@ -36,11 +44,6 @@ const Root = () => {
             alt="search"
             // onClick={() => searchMovies(searchTerm)}
           />
-        </div>
-      </nav>
-      <main className="section">
-        <div className='sidebar'>
-          <Sidebar />
         </div>
 
         <div className="animes">
