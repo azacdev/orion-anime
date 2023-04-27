@@ -143,10 +143,12 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; */
+  position: sticky;
   left: 0;
   top: 0;
+  height: 100vh;
   width: 250px;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-right: 1px solid gray;
 }
 
@@ -239,7 +241,14 @@ header {
 
  /* ================= MAIN ===================== */
 
-.animes {
+main {
+  flex: 1;
+  padding: 20px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+.content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--mb-0-75);
