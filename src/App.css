@@ -25,9 +25,9 @@
   --hue: 0;
   --sat: 0%;
   --title-color: #fff;
-  --title-color-dark: #ccc;
+  --title-color-dark: #a5a5a5;
   --text-color: rgba(249, 211, 180, 1);
-  --body-color: #212426;
+  --body-color: rgb(18, 18, 18);
   --container-color: #212426;
 
   /*========== Font and typography ==========*/
@@ -121,9 +121,6 @@ li {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.section {
-  padding: 6rem 0 2rem;
-}
 
 .section__title {
   font-size: var(--h1-font-size);
@@ -201,7 +198,7 @@ header {
 }
 
 .btn-link:hover {
-  background-color: #ccc;
+  background-color: rgba(220, 220, 220, 0.1);
 }
 
 .categoty-name{
@@ -219,9 +216,39 @@ header {
 
 main {
   flex: 1;
-  padding: 20px;
   height: 100vh;
   overflow-y: scroll;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--container-color);
+  padding: 1.5rem;
+}
+
+.login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: var(--title-color);
+  background: transparent;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: rgba(220, 220, 220, 0.1);
+}
+
+.nav-icons {
+  color: var(--title-color);
+  margin-left: 0.5rem;
+  font-size: 2rem;
+  margin-top: 0.3rem;
 }
 
 .search {
@@ -239,7 +266,7 @@ main {
   font-weight: 500;
   padding-right: 1rem;
   outline: none;
-  color: #a1a1a1;
+  color: var(--title-color);
   background: transparent;
 }
 
