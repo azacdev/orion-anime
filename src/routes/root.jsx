@@ -24,13 +24,7 @@ const Root = () => {
   return (
     <div className="container">
       <header className='scroll-bar'>
-        <nav>
-          <a className='logo' href="">Orion<span>Anime</span></a>
-          <hr />
-          <div className='sidebar'>
-            <Sidebar />
-          </div>
-        </nav>
+        <Sidebar />
       </header>
 
       <main className="section scroll-bar">

@@ -173,9 +173,6 @@ header {
   margin-left: 0.5rem;
 }
 
-.sidebar {
-  margin: 0;
-}
 
 .category {
   font-size: var(--normal-font-size);

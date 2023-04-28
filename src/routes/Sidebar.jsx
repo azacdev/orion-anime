@@ -6,6 +6,8 @@ import { AiOutlineStar } from "react-icons/ai"
 const Sidebar = () => {
   return (
     <div>
+      <a className='logo' href="">Orion<span>Anime</span></a>
+      <hr />
       <ul className='btn'>
         <p className='category'>Categories</p>
         <li>
@@ -34,11 +36,6 @@ const Sidebar = () => {
             </li>
         ))}
       </ul>
-        
-
-      
-
-
     </div>
   )
 }
