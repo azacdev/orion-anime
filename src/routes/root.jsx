@@ -26,6 +26,7 @@ const Root = () => {
       <header className='scroll-bar'>
         <nav>
           <a className='logo' href="">Orion<span>Anime</span></a>
+          <hr />
           <div className='sidebar'>
             <Sidebar />
           </div>

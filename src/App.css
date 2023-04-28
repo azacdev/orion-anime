@@ -98,18 +98,22 @@ body::-webkit-scrollbar {
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {
-  background-color: rgb(114, 113, 113);
-  border-radius: 10px;
+  background-color: var(--text-color);
+  /* border-radius: 10px; */
   height: 200px;
 }
 
 .scroll-bar::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--title-color);
 }
 
 a {
   text-decoration: none;
   color: var(--title-color);
+}
+
+hr {
+  border: 1px solid gray;
 }
 
 li {
@@ -118,8 +122,6 @@ li {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
-  display: grid;
-  grid-template-columns: 0.3fr 0.7fr;
   padding: 6rem 0 2rem;
 }
 
@@ -134,6 +136,8 @@ li {
 }
 
 .container {
+  display: flex;
+  flex-wrap: wrap;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -142,20 +146,20 @@ li {
  /* ================= HEADER ===================== */
 
 header {
-  background-color: blue;
+  /* background-color: blue; */
   position: sticky;
   left: 0;
   top: 0;
   height: 100vh;
   width: 250px;
-  padding: 1.1rem;
   color: var(--title-color);
   overflow-y: auto;
-  border-right: 1px solid gray;
+  /* border-right: 1px solid gray; */
 }
 
 .logo {
-  margin-top: 2rem;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
   font-size: 2rem;
   display: flex;
   justify-content: center;
@@ -169,23 +173,51 @@ header {
   margin-left: 0.5rem;
 }
 
+.sidebar {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.category {
+  margin-top: 1rem;
+  text-align: center;
+}
 
 
+.nav-links {
+  margin: 0;
+  padding: 1.1rem;
+}
 
+.nav-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  column-gap: 1rem;
+}
 
+.btn {
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--title-color);
+}
 
  /* ================= MAIN ===================== */
 
 main {
   flex: 1;
   padding: 20px;
-  height: calc(100vh - 50px);
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .search {
   /* width: 71%; */
-
   display: flex;
   border-bottom: 1px solid white;
   align-items: center;
