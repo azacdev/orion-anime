@@ -210,7 +210,9 @@ header {
   padding-right: 1rem;
 }
 
-
+.icon {
+  font-size: 1.5rem;
+}
 
 
  /* ================= MAIN ===================== */

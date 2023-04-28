@@ -10,14 +10,14 @@ const Sidebar = () => {
       <ul className='btn'>
         <li>
           <Link to="/" className='btn-link'>
-            <span className='icon-btn'><BiHomeAlt2/></span>
+            <span className='icon'><BiHomeAlt2/></span>
             <span>Home</span>
           </Link>
         </li>
 
         <li>
           <Link to="/ranking/" className='btn-link'>
-            <span className='icon-btn'><AiOutlineStar/></span>
+            <span className='icon'><AiOutlineStar/></span>
             <span>Ranking</span>
           </Link>
         </li>
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <ul className='btn'>
           <li>
             <div className='btn-link'>
-              <span className='icon-btn'>{category.icon}</span>
+              <span className='icon'>{category.icon}</span>
               <span>{category.name}</span>
             </div>
           </li>
