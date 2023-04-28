@@ -7,31 +7,35 @@ const Sidebar = () => {
   return (
     <div>
       <p className='category'>Categories</p>
-      <ul className='nav-links'>
+      <ul className='btn'>
         <li>
-          <Link to="/" className='nav-link'>
-            <button className='btn'><BiHomeAlt2/></button>
-            <h3>Home</h3>
+          <Link to="/" className='btn-link'>
+            <span className='icon-btn'><BiHomeAlt2/></span>
+            <span>Home</span>
           </Link>
         </li>
+
         <li>
-          <Link to="/ranking/" className='nav-link'>
-            <button className='btn'><AiOutlineStar/></button>
-            <h3>Ranking</h3>
+          <Link to="/ranking/" className='btn-link'>
+            <span className='icon-btn'><AiOutlineStar/></span>
+            <span>Ranking</span>
           </Link>
         </li>
       </ul>
+        
 
       <hr />
       <p className='category'>Genres</p>
-      <ul className='nav-links'>
-        {categories.map((category) => (
-          <li className='nav-link'>
-            <button className='btn'>{category.icon}</button>
-            <h3>{category.name}</h3>
+      {categories.map((category) => (
+        <ul className='btn'>
+          <li>
+            <div className='btn-link'>
+              <span className='icon-btn'>{category.icon}</span>
+              <span>{category.name}</span>
+            </div>
           </li>
-        ))}
-      </ul>
+        </ul>
+      ))}
     </div>
   )
 }
