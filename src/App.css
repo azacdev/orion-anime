@@ -178,7 +178,7 @@ header {
 }
 
 .category {
-  margin: 1.5rem 0 1.5rem 1rem;
+  margin: 1.5rem 0 1.5rem 1.5rem;
 }
 
 .btn {
@@ -196,7 +196,8 @@ header {
 .btn-link {
   display: flex;
   align-items: center;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1.5rem;
+  gap: 1rem;
   margin-bottom: 1rem;
   width: 100%;
 }
@@ -205,13 +206,14 @@ header {
   background-color: #ccc;
 }
 
-.btn-link > span {
+.categoty-name{
   font-size: var(--normal-font-size);
   padding-right: 1rem;
+  text-align: center;
 }
 
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 

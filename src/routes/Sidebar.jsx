@@ -11,14 +11,14 @@ const Sidebar = () => {
         <li>
           <Link to="/" className='btn-link'>
             <span className='icon'><BiHomeAlt2/></span>
-            <span>Home</span>
+            <span className='categoty-name'>Home</span>
           </Link>
         </li>
 
         <li>
           <Link to="/ranking/" className='btn-link'>
             <span className='icon'><AiOutlineStar/></span>
-            <span>Ranking</span>
+            <span className='categoty-name'>Ranking</span>
           </Link>
         </li>
       </ul>
@@ -31,7 +31,7 @@ const Sidebar = () => {
           <li>
             <div className='btn-link'>
               <span className='icon'>{category.icon}</span>
-              <span>{category.name}</span>
+              <span className='categoty-name'>{category.name}</span>
             </div>
           </li>
         </ul>
