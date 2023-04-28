@@ -229,9 +229,9 @@ main {
 .search {
   /* width: 71%; */
   display: flex;
-  border-bottom: 1px solid white;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid white;
   padding: .5rem 1rem;
 }
 
