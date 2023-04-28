@@ -6,8 +6,8 @@ import { AiOutlineStar } from "react-icons/ai"
 const Sidebar = () => {
   return (
     <div>
-      <p className='category'>Categories</p>
       <ul className='btn'>
+        <p className='category'>Categories</p>
         <li>
           <Link to="/" className='btn-link'>
             <span className='icon'><BiHomeAlt2/></span>
@@ -21,21 +21,24 @@ const Sidebar = () => {
             <span className='categoty-name'>Ranking</span>
           </Link>
         </li>
+
+        <hr />
+        <p className='category'>Genres</p>
+        {categories.map((category) => (
+
+            <li>
+              <div className='btn-link'>
+                <span className='icon'>{category.icon}</span>
+                <span className='categoty-name'>{category.name}</span>
+              </div>
+            </li>
+        ))}
       </ul>
         
 
-      <hr />
-      <p className='category'>Genres</p>
-      {categories.map((category) => (
-        <ul className='btn'>
-          <li>
-            <div className='btn-link'>
-              <span className='icon'>{category.icon}</span>
-              <span className='categoty-name'>{category.name}</span>
-            </div>
-          </li>
-        </ul>
-      ))}
+      
+
+
     </div>
   )
 }
