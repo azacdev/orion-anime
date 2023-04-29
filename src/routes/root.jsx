@@ -11,11 +11,15 @@ export const ThemeContext = createContext(null)
 
 
 const Root = () => {
-  const [theme, setTheme] = useState(null)
+  const [theme, setTheme] = useState("dark")
   const [isDarkMode, setisDarkMode] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "dark" ? "light" : "dark"))
+  }
   
   // useEffect( () => {
   //   fetchFromAPI(`?&search=${anime}`)
@@ -29,8 +33,8 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <ThemeContext.Provider value={theme, setTheme}>
-      <div className="container" id="dark">
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div className="container" id={theme}>
         <header className='scroll-bar'>
           <Sidebar />
         </header>

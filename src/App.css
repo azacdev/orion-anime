@@ -56,14 +56,12 @@
   --z-modal: 1000;
 }
 
-#light {
+:root {
   --title-color: #212121;
   --title-color-dark: #a5a5a5;
   --text-color: rgba(249, 211, 180, 1);
   --body-color: #FFFFFF;
   --container-color: #E0E0E0;
-  color: #424242;
-  color: #616161;
 }
 
 /* Responsive typography */
