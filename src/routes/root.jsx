@@ -24,7 +24,7 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <div className="container">
+    <div className="container" id="dark">
       <header className='scroll-bar'>
         <Sidebar />
       </header>
