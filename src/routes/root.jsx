@@ -30,7 +30,7 @@ const Root = () => {
 
       <main className="section scroll-bar">
         <nav>
-          <a className='nav-icons'>
+          <a href='#' className='nav-icons'>
             <CgDarkMode/>
           </a>
 
@@ -48,8 +48,8 @@ const Root = () => {
           </div>
 
           <div className='login'>
-            <h3>LOGIN</h3>
-            <a className='nav-icons'>
+            <p>LOGIN</p>
+            <a href='#' className='nav-icons'>
               <IoIosContact/>
             </a>
           </div>

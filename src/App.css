@@ -208,7 +208,8 @@ header {
 }
 
 .icon {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
 }
 
 
@@ -247,8 +248,9 @@ nav {
 .nav-icons {
   color: var(--title-color);
   margin-left: 0.5rem;
-  font-size: 2rem;
-  margin-top: 0.3rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .search {
