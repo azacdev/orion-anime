@@ -7,6 +7,7 @@ import { fetchFromAPI } from './utils/fetchFromAPI';
 import AnimeCard from './AnimeCard'
 
 const Root = () => {
+  const [isDarkMode, setisDarkMode] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
