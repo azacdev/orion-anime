@@ -11,7 +11,7 @@ export const ThemeContext = createContext(null)
 
 
 const Root = () => {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
   const [isDarkMode, setisDarkMode] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])

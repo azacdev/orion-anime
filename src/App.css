@@ -7,6 +7,24 @@
   box-sizing: border-box;
 }
 
+#light {
+  background-color: #fff;
+  --title-color-dark: #a5a5a5;
+  --text-color: rgba(249, 211, 180, 1);
+  --body-color: #FFFFFF;
+  --container-color: #E0E0E0;
+}
+
+#dark {
+  background-color: rgb(18, 18, 18);
+  /* --title-color: #fff;
+  --title-color-dark: #a5a5a5;
+  --text-color: rgba(249, 211, 180, 1);
+  --body-color: rgb(18, 18, 18);
+  --container-color: #212426; */
+}
+
+
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
@@ -14,11 +32,16 @@
 
   /*========== Colors ==========*/
 
+  /* --title-color: #fff;
   --title-color: #fff;
+  
   --title-color-dark: #a5a5a5;
+  --title-color-dark: #212121;
   --text-color: rgba(249, 211, 180, 1);
-  --body-color: rgb(18, 18, 18);
-  --container-color: #212426;
+  --body-color-light: #fff;
+  --body-color-dark: rgb(18, 18, 18);
+  --container-color: #E0E0E0;
+  --container-color-dark: #212426; */
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -56,13 +79,6 @@
   --z-modal: 1000;
 }
 
-:root {
-  --title-color: #212121;
-  --title-color-dark: #a5a5a5;
-  --text-color: rgba(249, 211, 180, 1);
-  --body-color: #FFFFFF;
-  --container-color: #E0E0E0;
-}
 
 /* Responsive typography */
 @media screen and (max-width: 992px) {
@@ -83,7 +99,6 @@ html {
 
 body {
   font-family: var(--font-roboto);
-  background-color: var(--body-color);
 }
 
 body::-webkit-scrollbar {
@@ -96,22 +111,22 @@ body::-webkit-scrollbar {
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {
-  background-color: var(--title-color-dark);
+  background-color: #a5a5a5;
   /* border-radius: 10px; */
   height: 200px;
 }
 
 .scroll-bar::-webkit-scrollbar-track {
-  background-color: var(--title-color);
+  background-color: #DADEDF;
 }
 
 a {
   text-decoration: none;
-  color: var(--title-color);
+  color: #fff;
 }
 
 hr {
-  border: 1px solid gray;
+  border: 1px solid #DADEDF;
 }
 
 li {
@@ -131,15 +146,17 @@ li {
  /* ================= HEADER ===================== */
 
 header {
-  /* background-color: blue; */
   position: sticky;
   left: 0;
   top: 0;
   height: 100vh;
   width: 250px;
-  color: var(--title-color);
+  color:  #fff;
   overflow-y: auto;
-  /* border-right: 1px solid gray; */
+}
+
+#light header{
+  color: rgb(18, 18, 18);
 }
 
 .logo {
@@ -150,12 +167,20 @@ header {
   justify-content: center;
   text-align: center;
   font-weight: 700;
-  color: var(--text-color);
+  color: rgba(249, 211, 180, 1);
+}
+
+#light .logo {
+  color: rgba(249, 211, 180, 1);
 }
 
 .logo span {
-  color: var(--title-color);
+  color: #fff;
   margin-left: 0.5rem;
+}
+
+#light .logo span {
+  color: rgb(18, 18, 18);
 }
 
 
@@ -172,8 +197,12 @@ header {
   border: none;
   outline: none;
   background: transparent;
-  color: var(--title-color);
+  color: #fff;
   cursor: pointer;
+}
+
+#light .btn {
+  color: rgb(18, 18, 18);
 }
 
 .btn-link {
@@ -183,12 +212,20 @@ header {
   gap: 1rem;
   margin-bottom: 1rem;
   width: 100%;
+  color: #fff;
+}
+
+#light .btn-link {
+  color: rgb(18, 18, 18);
 }
 
 .btn-link:hover {
   background-color: rgba(220, 220, 220, 0.1);
 }
 
+#light .btn-link:hover {
+  background-color: rgba(220, 220, 220, 0.3);
+}
 .categoty-name{
   font-size: var(--normal-font-size);
   padding-right: 1rem;
@@ -213,8 +250,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--container-color);
+  background-color: #212426;
   padding: 1.5rem;
+}
+
+#light nav {
+  background-color: #E0E0E0;
 }
 
 .login {
@@ -222,23 +263,31 @@ nav {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  color: var(--title-color);
+  color: #fff;
   background: transparent;
   padding: 0 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
+#light .login {
+  color: rgb(18, 18, 18);
+}
+
 .login:hover {
-  background-color: rgba(220, 220, 220, 0.1);
+  background-color: rgba(220, 220, 220, 0.3);
 }
 
 .nav-icons {
-  color: var(--title-color);
+  color: #fff;
   margin-left: 0.5rem;
   font-size: 1.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
   cursor: pointer;
+}
+
+#light .nav-icons {
+  color: rgb(18, 18, 18);
 }
 
 .search {
@@ -256,12 +305,16 @@ nav {
   font-weight: 500;
   padding-right: 1rem;
   outline: none;
-  color: var(--title-color);
+  color: #fff;
   background: transparent;
 }
 
+#light .search input {
+  color: rgb(18, 18, 18);
+}
+
 .search:hover {
-  border-color: var(--text-color);
+  border-color: rgba(249, 211, 180, 1);
 }
 
 .search img {
@@ -281,7 +334,6 @@ nav {
 .anime-content {
   display: grid;
   place-items: center;
-  /* background-color: var(--text-color); */
 }
 
 .anime-card {
@@ -317,7 +369,11 @@ nav {
   text-overflow: ellipsis;
   padding: 10px;
   width: 100%;
-  color: var(--title-color);
+  color: #fff;
+}
+
+#light .anime-title {
+  color: rgb(18, 18, 18);
 }
 
 /*=============== BREAKPOINTS ===============*/
