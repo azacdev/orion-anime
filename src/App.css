@@ -9,21 +9,8 @@
 
 #light {
   background-color: #fff;
-  --title-color-dark: #a5a5a5;
-  --text-color: rgba(249, 211, 180, 1);
-  --body-color: #FFFFFF;
-  --container-color: #E0E0E0;
-}
 
-#dark {
-  background-color: rgb(18, 18, 18);
-  /* --title-color: #fff;
-  --title-color-dark: #a5a5a5;
-  --text-color: rgba(249, 211, 180, 1);
-  --body-color: rgb(18, 18, 18);
-  --container-color: #212426; */
 }
-
 
 :root {
   --font-roboto: "Roboto Slab", serif;
@@ -96,6 +83,7 @@ html {
 
 body {
   font-family: var(--font-roboto);
+  background-color: var(--body-color-dark);
 }
 
 body::-webkit-scrollbar {
@@ -139,6 +127,18 @@ li {
   margin-right: auto;
 }
 
+.btn {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
  /* ================= HEADER ===================== */
 
 header {
@@ -152,7 +152,7 @@ header {
 }
 
 #light header{
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .logo {
@@ -163,11 +163,7 @@ header {
   justify-content: center;
   text-align: center;
   font-weight: 700;
-  color: rgba(249, 211, 180, 1);
-}
-
-#light .logo {
-  color: rgba(249, 211, 180, 1);
+  color: var(--text-color);
 }
 
 .logo span {
@@ -176,7 +172,7 @@ header {
 }
 
 #light .logo span {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 
@@ -198,7 +194,7 @@ header {
 }
 
 #light .btn {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .btn-link {
@@ -212,7 +208,7 @@ header {
 }
 
 #light .btn-link {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .btn-link:hover {
@@ -246,12 +242,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #212426;
+  background-color: var(--container-color-dark);
   padding: 1.5rem;
 }
 
 #light nav {
-  background-color: #E0E0E0;
+  background-color: var(--container-color);
 }
 
 .login {
@@ -267,7 +263,7 @@ nav {
 }
 
 #light .login {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .login:hover {
@@ -275,15 +271,13 @@ nav {
 }
 
 .nav-icons {
-  color: var(--title-color);
   margin-left: 0.5rem;
-  font-size: 1.5rem;
   margin-top: 0.45rem;
   cursor: pointer;
 }
 
 #light .nav-icons {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .search {
@@ -306,11 +300,11 @@ nav {
 }
 
 #light .search input {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 .search:hover {
-  border-color: rgba(249, 211, 180, 1);
+  border-color: var(--text-color);
 }
 
 .search img {
@@ -369,7 +363,7 @@ nav {
 }
 
 #light .anime-title {
-  color: rgb(18, 18, 18);
+  color: var(--body-color-dark);
 }
 
 /*=============== BREAKPOINTS ===============*/

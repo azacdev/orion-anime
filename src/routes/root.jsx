@@ -11,7 +11,7 @@ export const ThemeContext = createContext(null)
 
 
 const Root = () => {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
   const [isDarkMode, setisDarkMode] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
@@ -41,9 +41,9 @@ const Root = () => {
 
         <main className="section scroll-bar">
           <nav>
-            <a href='#' className='nav-icons'>
+            <button className='btn nav-icons'>
               <CgDarkMode/>
-            </a>
+            </button>
 
             <div className="search">
               <input
