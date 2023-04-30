@@ -32,11 +32,9 @@
 
   /*========== Colors ==========*/
 
-  /* --title-color: #fff;
+  /*
   --title-color: #fff;
-  
   --title-color-dark: #a5a5a5;
-  --title-color-dark: #212121;
   --text-color: rgba(249, 211, 180, 1);
   --body-color-light: #fff;
   --body-color-dark: rgb(18, 18, 18);
@@ -111,7 +109,7 @@ body::-webkit-scrollbar {
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {
-  background-color: #a5a5a5;
+  background-color: var(--title-color-dark);
   /* border-radius: 10px; */
   height: 200px;
 }
