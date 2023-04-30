@@ -32,14 +32,13 @@
 
   /*========== Colors ==========*/
 
-  /*
+  
   --title-color: #fff;
   --title-color-dark: #a5a5a5;
   --text-color: rgba(249, 211, 180, 1);
-  --body-color-light: #fff;
   --body-color-dark: rgb(18, 18, 18);
   --container-color: #E0E0E0;
-  --container-color-dark: #212426; */
+  --container-color-dark: #212426;
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -110,7 +109,6 @@ body::-webkit-scrollbar {
 
 .scroll-bar::-webkit-scrollbar-thumb {
   background-color: var(--title-color-dark);
-  /* border-radius: 10px; */
   height: 200px;
 }
 
@@ -120,7 +118,7 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--title-color);
 }
 
 hr {
@@ -149,7 +147,7 @@ header {
   top: 0;
   height: 100vh;
   width: 250px;
-  color:  #fff;
+  color:  var(--title-color);
   overflow-y: auto;
 }
 
@@ -173,7 +171,7 @@ header {
 }
 
 .logo span {
-  color: #fff;
+  color: var(--title-color);
   margin-left: 0.5rem;
 }
 
@@ -195,7 +193,7 @@ header {
   border: none;
   outline: none;
   background: transparent;
-  color: #fff;
+  color: var(--title-color);
   cursor: pointer;
 }
 
@@ -210,7 +208,7 @@ header {
   gap: 1rem;
   margin-bottom: 1rem;
   width: 100%;
-  color: #fff;
+  color: var(--title-color);
 }
 
 #light .btn-link {
@@ -261,7 +259,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: var(--title-color);
   background: transparent;
   padding: 0 0.5rem;
   border-radius: 0.5rem;
@@ -277,7 +275,7 @@ nav {
 }
 
 .nav-icons {
-  color: #fff;
+  color: var(--title-color);
   margin-left: 0.5rem;
   font-size: 1.5rem;
   margin-top: 0.45rem;
@@ -303,7 +301,7 @@ nav {
   font-weight: 500;
   padding-right: 1rem;
   outline: none;
-  color: #fff;
+  color: var(--title-color);
   background: transparent;
 }
 
@@ -367,7 +365,7 @@ nav {
   text-overflow: ellipsis;
   padding: 10px;
   width: 100%;
-  color: #fff;
+  color: var(--title-color);
 }
 
 #light .anime-title {
