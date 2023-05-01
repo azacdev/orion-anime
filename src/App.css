@@ -400,6 +400,7 @@ nav {
 @media screen and (max-width: 576px) {
 
   .dim {
+    background-color: rgb(18, 18, 18);
   }
 
   header {
