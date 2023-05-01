@@ -402,6 +402,10 @@ nav {
     position: fixed;
     transform: translateX(-100%);
   }
+
+  .menu-btn {
+    display: block;
+  }
   .logo {
     font-size: 2rem;
   }
