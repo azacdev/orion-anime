@@ -122,6 +122,9 @@ li {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+.dim {
+  background: rgba(0,0,0,0.3);
+}
 
 .container {
   display: flex;
@@ -400,7 +403,17 @@ nav {
 @media screen and (max-width: 576px) {
   header {
     position: fixed;
+    width: 50%;
+    background-color: var(--container-color-dark);
     transform: translateX(-100%);
+  }
+
+  .scroll-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .show-menu {
+    transform: translateX(0);
   }
 
   .menu-btn {

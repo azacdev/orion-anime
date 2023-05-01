@@ -7,6 +7,7 @@ import { fetchFromAPI } from './utils/fetchFromAPI';
 import AnimeCard from './AnimeCard'
 
 const Root = () => {
+  const [toggleMenu, setToggleMenu] = useState(false)
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
@@ -28,14 +29,14 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <div className="container" id={theme}>
-      <header className='scroll-bar'>
+    <div className="container dim" id={theme}>
+      <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
         <Sidebar />
       </header>
 
-      <main className="section scroll-bar">
+      <main className="scroll-bar" onClick={() =>setToggleMenu(!toggleMenu)}>
         <nav>
-          <button className='btn menu-btn'><BiMenuAltLeft/></button>
+          <button className='btn menu-btn' onClick={() =>setToggleMenu(!toggleMenu)}><BiMenuAltLeft/></button>
 
           <button className='btn nav-icons' onClick={toggleDarkMode}>
             {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
