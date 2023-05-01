@@ -122,9 +122,6 @@ li {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.dim {
-  background: rgba(0,0,0,0.3);
-}
 
 .container {
   display: flex;
@@ -401,6 +398,10 @@ nav {
 }
 
 @media screen and (max-width: 576px) {
+
+  .dim {
+  }
+
   header {
     position: fixed;
     width: 50%;
