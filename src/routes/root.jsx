@@ -1,23 +1,18 @@
 import { useState, useEffect, useContext } from 'react';
-import { createContext } from 'react';
 import SearchIcon from '../search.svg' ;
 import { IoIosContact } from "react-icons/io"
-import { CgDarkMode } from 'react-icons/cg'
+import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import Sidebar from "./Sidebar"
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import AnimeCard from './AnimeCard'
 
-export const ThemeContext = createContext(null)
-
-
 const Root = () => {
   const [theme, setTheme] = useState("dark")
-  const [isDarkMode, setisDarkMode] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
 
-  const toggleTheme = () => {
+  const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
   
@@ -33,47 +28,47 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
-      <div className="container" id={theme}>
-        <header className='scroll-bar'>
-          <Sidebar />
-        </header>
+    <div className="container" id={theme}>
+      <header className='scroll-bar'>
+        <Sidebar />
+      </header>
 
-        <main className="section scroll-bar">
-          <nav>
-            <button className='btn nav-icons'>
-              <CgDarkMode/>
-            </button>
+      <main className="section scroll-bar">
+        <nav>
+          <button className='btn menu-btn'><BiMenuAltLeft/></button>
 
-            <div className="search">
-              <input
-                // value={searchTerm}
-                // onChange={(e) => setSeacrhTerm(e.target.value)}
-              />
-              <img
-                src={SearchIcon}
-                alt="search"
-                // onClick={() => searchMovies(searchTerm)}
-              />
+          <button className='btn nav-icons' onClick={toggleDarkMode}>
+            {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
+          </button>
 
-            </div>
+          <div className="search">
+            <input
+              // value={searchTerm}
+              // onChange={(e) => setSeacrhTerm(e.target.value)}
+            />
+            <img
+              src={SearchIcon}
+              alt="search"
+              // onClick={() => searchMovies(searchTerm)}
+            />
 
-            <div className='login'>
-              <p>LOGIN</p>
-              <a href='#' className='nav-icons'>
-                <IoIosContact/>
-              </a>
-            </div>
-          </nav>
-
-          <div className="content">
-            {animeList.map((item, idx) =>
-              (item && <AnimeCard video={item} key={idx}/>)
-            )}
           </div>
-        </main>
-      </div>
-    </ThemeContext.Provider>
+
+          <button>
+            <a href='#' className='login'>
+              <p>LOGIN</p>
+              <span className='btn nav-icons'><IoIosContact/></span>
+            </a>
+          </button>
+        </nav>
+
+        <div className="content">
+          {animeList.map((item, idx) =>
+            (item && <AnimeCard video={item} key={idx}/>)
+          )}
+        </div>
+      </main>
+    </div>
   )
 }
 

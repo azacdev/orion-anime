@@ -109,6 +109,10 @@ a {
   color: var(--title-color);
 }
 
+button {
+  background-color: transparent;
+}
+
 hr {
   border: 1px solid #DADEDF;
 }
@@ -147,8 +151,14 @@ header {
   top: 0;
   height: 100vh;
   width: 250px;
+  z-index: 999;
   color:  var(--title-color);
+  background-color: var(--body-color-dark);
   overflow-y: auto;
+}
+
+#light header {
+  background-color: var(--title-color);
 }
 
 #light header{
@@ -244,6 +254,10 @@ nav {
   align-items: center;
   background-color: var(--container-color-dark);
   padding: 1.5rem;
+}
+
+.menu-btn {
+  display: none;
 }
 
 #light nav {
@@ -369,10 +383,7 @@ nav {
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {
-  .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
+  
 }
 
 /* For medium devices */
@@ -380,16 +391,19 @@ nav {
   body {
     margin: 0 0 var(--header-height) 0;
   }
+
+  .search input {
+    width: 100px;
+  }
 }
 
 @media screen and (max-width: 576px) {
-  .container {
-    margin-left: var(--mb-0-75);
-    margin-right: var(--mb-0-75);
+  header {
+    position: fixed;
+    transform: translateX(-100%);
   }
-
   .logo {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 
   .search {
@@ -403,8 +417,8 @@ nav {
   }
 
   .search img {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
 }
