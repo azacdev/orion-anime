@@ -2,7 +2,7 @@ import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
 
-const Navbar = () => {
+const Navbar = ({toggleDarkMode}) => {
   return (
     <nav>
       <button className='btn menu-btn' onClick={openMenu}><BiMenuAltLeft/></button>

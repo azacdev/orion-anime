@@ -4,8 +4,8 @@ import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 
 
-const Sidebar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false)
+const Sidebar = ({toggleMenu}) => {
+
   return (
     <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
       <a className='logo' href="">Orion<span>Anime</span></a>

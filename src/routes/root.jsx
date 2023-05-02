@@ -5,6 +5,7 @@ import AnimeCard from './AnimeCard'
 
 const Root = () => {
   const [theme, setTheme] = useState("dark")
+  const [toggleMenu, setToggleMenu] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
@@ -12,7 +13,7 @@ const Root = () => {
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
-  
+
   // useEffect( () => {
   //   fetchFromAPI(`?&search=${anime}`)
   //   .then(data => setAnimeList(data.data))
@@ -25,10 +26,10 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <div className="container" id={theme}>      
-      <Sidebar />
+    <div className="container" id={theme}>  
+      <Sidebar toggleMenu={toggleMenu}/>
       <main className={toggleMenu ? "scroll-bar dim" : "scroll-bar"} onClick={closeMenu}>
-        <Navbar/>
+        <Navbar toggleDarkMode={toggleDarkMode}/>
 
 
         <div className="content">
