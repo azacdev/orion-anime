@@ -123,6 +123,10 @@ li {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 
+.dim {
+  opacity: 0.5;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -398,11 +402,6 @@ nav {
 }
 
 @media screen and (max-width: 576px) {
-
-  .dim {
-    background-color: rgb(18, 18, 18);
-  }
-
   header {
     position: fixed;
     width: 50%;

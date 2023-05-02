@@ -3,9 +3,11 @@ import { categories } from './utils/constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 
+
 const Sidebar = () => {
+  const [toggleMenu, setToggleMenu] = useState(false)
   return (
-    <div>
+    <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
       <a className='logo' href="">Orion<span>Anime</span></a>
       <hr />
       <ul className='btn'>
@@ -36,7 +38,7 @@ const Sidebar = () => {
             </li>
         ))}
       </ul>
-    </div>
+      </header>
   )
 }
 

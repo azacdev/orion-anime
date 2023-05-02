@@ -1,13 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
-import SearchIcon from '../search.svg' ;
-import { IoIosContact } from "react-icons/io"
-import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
-import Sidebar from "./Sidebar"
+import { useState, useEffect} from 'react';
+import {Sidebar, Navbar} from "./"
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import AnimeCard from './AnimeCard'
 
 const Root = () => {
-  const [toggleMenu, setToggleMenu] = useState(false)
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
@@ -29,39 +25,11 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <div className="container dim" id={theme}>
-      <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
-        <Sidebar />
-      </header>
+    <div className="container" id={theme}>      
+      <Sidebar />
+      <main className={toggleMenu ? "scroll-bar dim" : "scroll-bar"} onClick={closeMenu}>
+        <Navbar/>
 
-      <main className="scroll-bar" onClick={() =>setToggleMenu(!toggleMenu)}>
-        <nav>
-          <button className='btn menu-btn' onClick={() =>setToggleMenu(!toggleMenu)}><BiMenuAltLeft/></button>
-
-          <button className='btn nav-icons' onClick={toggleDarkMode}>
-            {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
-          </button>
-
-          <div className="search">
-            <input
-              // value={searchTerm}
-              // onChange={(e) => setSeacrhTerm(e.target.value)}
-            />
-            <img
-              src={SearchIcon}
-              alt="search"
-              // onClick={() => searchMovies(searchTerm)}
-            />
-
-          </div>
-
-          <button>
-            <a href='#' className='login'>
-              <p>LOGIN</p>
-              <span className='btn nav-icons'><IoIosContact/></span>
-            </a>
-          </button>
-        </nav>
 
         <div className="content">
           {animeList.map((item, idx) =>
