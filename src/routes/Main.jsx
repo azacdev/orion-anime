@@ -1,18 +1,14 @@
-import { useState } from "react"
-import { AnimeCard, Navbar } from "./"
+import { AnimeCard } from "./"
 
-const Main = ({ animeList }) => {
+const Main = ({ animeList}) => {
     
   return (
-    <main className="scroll-bar">
-    <Navbar />
 
     <div className="content">
       {animeList.map((item, idx) =>
         (item && <AnimeCard video={item} key={idx}/>)
       )}
     </div>
-  </main>
   )
 }
 

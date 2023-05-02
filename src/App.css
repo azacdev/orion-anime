@@ -407,6 +407,7 @@ nav {
     width: 50%;
     background-color: var(--container-color-dark);
     transform: translateX(-100%);
+    transition: 0.3s ease-in-out;
   }
 
   .scroll-bar::-webkit-scrollbar {

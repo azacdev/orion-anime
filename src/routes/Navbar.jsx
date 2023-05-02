@@ -1,20 +1,14 @@
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
-import { useContext, useEffect } from "react";
-import { Context } from "./root";
 
-const Navbar = () => {
-  const openMenu = useContext(Context);
-  const [theme, setTheme] = useContext(Context);
-
+const Navbar = ({theme, setTheme, setToggleMenu }) => {
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
-  useEffect(() => {
-    console.log(setTheme);
-
-  })
+  const openMenu = () => {
+    setToggleMenu(curr => curr === false? true : false)
+  }
 
   return (
     <nav>

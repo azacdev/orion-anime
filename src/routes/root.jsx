@@ -1,9 +1,6 @@
 import { useState, useEffect} from 'react';
-import {Sidebar, Main} from "./"
+import {Sidebar,Navbar, Main} from "./"
 import { fetchFromAPI } from './utils/fetchFromAPI';
-import React, { createContext } from "react";
-
-export const Context = createContext()
 
 const Root = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
@@ -12,10 +9,6 @@ const Root = () => {
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
 
-  const openMenu = () => {
-    setToggleMenu(curr => !curr)
-  }
-  
   // useEffect( () => {
   //   fetchFromAPI(`?&search=${anime}`)
   //   .then(data => setAnimeList(data.data))
@@ -29,11 +22,16 @@ const Root = () => {
 
   return (
     <div className="App" id={theme}>
-      <Context.Provider value={[theme, setTheme, toggleMenu, openMenu]}>
         <Sidebar toggleMenu={toggleMenu}/>
-        <Main animeList={animeList} />
-      </Context.Provider>
-      </div>
+        <main className="scroll-bar">
+          <Navbar 
+            theme={theme} 
+            setTheme={setTheme} 
+            setToggleMenu={setToggleMenu}
+          />
+          <Main animeList={animeList}/>
+        </main>
+    </div>
   )
 }
 
