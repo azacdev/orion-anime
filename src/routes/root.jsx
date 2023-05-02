@@ -1,15 +1,15 @@
 import { useState, useEffect} from 'react';
-import {Sidebar, Navbar} from "./"
+import {Sidebar, Main} from "./"
 import { fetchFromAPI } from './utils/fetchFromAPI';
-import AnimeCard from './AnimeCard'
+import React, { createContext } from "react";
 
 const Root = () => {
+  const Context = createContext()
   const [theme, setTheme] = useState("dark")
-  const [toggleMenu, setToggleMenu] = useState(false)
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
-
+  
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
@@ -28,16 +28,7 @@ const Root = () => {
   return (
     <div className="container" id={theme}>  
       <Sidebar toggleMenu={toggleMenu}/>
-      <main className={toggleMenu ? "scroll-bar dim" : "scroll-bar"} onClick={closeMenu}>
-        <Navbar toggleDarkMode={toggleDarkMode}/>
-
-
-        <div className="content">
-          {animeList.map((item, idx) =>
-            (item && <AnimeCard video={item} key={idx}/>)
-          )}
-        </div>
-      </main>
+      <Main animeList={animeList} toggleDarkMode={toggleDarkMode}/>
     </div>
   )
 }
