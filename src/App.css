@@ -127,7 +127,7 @@ li {
   opacity: 0.5;
 }
 
-.container {
+.App {
   display: flex;
   flex-wrap: wrap;
   max-width: 1400px;

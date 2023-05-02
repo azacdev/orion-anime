@@ -3,17 +3,19 @@ import {Sidebar, Main} from "./"
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import React, { createContext } from "react";
 
+export const Context = createContext()
+
 const Root = () => {
-  const Context = createContext()
+  const [toggleMenu, setToggleMenu] = useState(false)
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
-  
-  const toggleDarkMode = () => {
-    setTheme((curr) => (curr === "dark" ? "light" : "dark"))
-  }
 
+  const openMenu = () => {
+    setToggleMenu(curr => !curr)
+  }
+  
   // useEffect( () => {
   //   fetchFromAPI(`?&search=${anime}`)
   //   .then(data => setAnimeList(data.data))
@@ -26,10 +28,12 @@ const Root = () => {
   // console.log(titles);
 
   return (
-    <div className="container" id={theme}>  
-      <Sidebar toggleMenu={toggleMenu}/>
-      <Main animeList={animeList} toggleDarkMode={toggleDarkMode}/>
-    </div>
+    <div className="App" id={theme}>
+      <Context.Provider value={[theme, setTheme, toggleMenu, openMenu]}>
+        <Sidebar toggleMenu={toggleMenu}/>
+        <Main animeList={animeList} />
+      </Context.Provider>
+      </div>
   )
 }
 

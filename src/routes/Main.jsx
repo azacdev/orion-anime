@@ -1,12 +1,11 @@
 import { useState } from "react"
 import { AnimeCard, Navbar } from "./"
 
-const Main = ({ animeList, toggleDarkMode }) => {
-  const [toggleMenu, setToggleMenu] = useState(false)
-
+const Main = ({ animeList }) => {
+    
   return (
     <main className="scroll-bar">
-    <Navbar toggleDarkMode={toggleDarkMode} toggleMenu={toggleMenu}/>
+    <Navbar />
 
     <div className="content">
       {animeList.map((item, idx) =>
