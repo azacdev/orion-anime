@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
@@ -6,9 +7,28 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
+
   const openMenu = () => {
-    setToggleMenu(curr => curr === false? true : false)
+    setToggleMenu(curr => !curr)
   }
+
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick)
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [])
+
+  const handleDocumentClick = (event) => {
+    // Close sidebar if click is outside of sidebar
+    if (
+      event.target.closest('header') === null &&
+      event.target.closest('.menu-btn') === null
+    ) {
+      setToggleMenu(false);
+    }
+  }
+  
 
   return (
     <nav>
