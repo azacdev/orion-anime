@@ -9,7 +9,7 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
   }
 
   const openMenu = () => {
-    setToggleMenu(curr => !curr)
+    setToggleMenu(true)
   }
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
       </div>
 
       <button>
-       <a href='#' className='login'>
+        <a href='#' className='login'>
           <p>LOGIN</p>
           <span className='btn nav-icons'><IoIosContact/></span>
         </a>

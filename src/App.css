@@ -256,9 +256,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: var(--container-color-dark);
   padding: 1.5rem;
 }
+
 
 .menu-btn {
   display: none;
@@ -289,8 +291,7 @@ nav {
 }
 
 .nav-icons {
-  margin-left: 0.5rem;
-  margin-top: 0.45rem;
+  margin: 0.45rem 0 0 0.5rem;
   cursor: pointer;
 }
 
@@ -420,12 +421,22 @@ nav {
 
   .menu-btn {
     display: block;
+    margin-top: 0.45rem;
   }
   .logo {
     font-size: 2rem;
   }
 
+  nav {
+    padding: 0 1rem;
+  }
+  
   .search {
+    flex-basis: 100%;
+    order: 4;
+    height: auto;
+    width: 50%;
+    margin-bottom: 1rem;
     padding: 0.25rem 0.75rem;
   }
 
@@ -446,11 +457,6 @@ nav {
 @media screen and (max-width: 350px) {
   :root {
     --big-font-size: 2.25rem;
-  }
-  
-  .container {
-    margin-left: var(--mb-0-25);
-    margin-right: var(--mb-0-25);
   }
 
   .search {
