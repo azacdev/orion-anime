@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import {Sidebar,Navbar, Main} from "./"
+import {Sidebar, Navbar, Main} from "./"
 import { fetchFromAPI } from './utils/fetchFromAPI';
 
 const Root = () => {
@@ -8,6 +8,8 @@ const Root = () => {
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
+
+  console.log(selectedGenre);
 
   // useEffect( () => {
   //   fetchFromAPI(`?&search=${anime}`)
@@ -22,7 +24,11 @@ const Root = () => {
 
   return (
     <div className="App" id={theme}>
-        <Sidebar toggleMenu={toggleMenu}/>
+        <Sidebar 
+          toggleMenu={toggleMenu} 
+          selectedGenre={selectedGenre} 
+          setSelectedGenre={setSelectedGenre}
+        />
         <main className="scroll-bar">
           <Navbar 
             theme={theme} 

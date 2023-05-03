@@ -3,7 +3,7 @@ import { categories } from './utils/constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 
-const Sidebar = ({toggleMenu}) => {
+const Sidebar = ({toggleMenu, selectedGenre, setSelectedGenre }) => {
   return (
     <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
       <a className='logo' href="">Orion<span>Anime</span></a>
@@ -27,8 +27,7 @@ const Sidebar = ({toggleMenu}) => {
         <hr />
         <p className='category'>Genres</p>
         {categories.map((category) => (
-
-            <li>
+            <li onClick={()=> setSelectedGenre(category.name)}>
               <div className='btn-link'>
                 <span className='icon'>{category.icon}</span>
                 <span className='categoty-name'>{category.name}</span>
