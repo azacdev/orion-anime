@@ -9,6 +9,7 @@ const Root = () => {
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const [searchResults, setSearchResults] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect( () => {
     fetchFromAPI(`?&genres=${selectedGenre}`)
@@ -22,7 +23,7 @@ const Root = () => {
           selectedGenre={selectedGenre} 
           setSelectedGenre={setSelectedGenre}
         />
-        
+
         <main className="scroll-bar">
           <Navbar 
             theme={theme} 
