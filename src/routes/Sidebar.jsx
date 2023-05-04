@@ -3,35 +3,29 @@ import { categories } from './utils/constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 
-const Sidebar = ({toggleMenu, selectedGenre, setSelectedGenre }) => {
+const Sidebar = ({toggleMenu, setSelectedGenre }) => {
   return (
     <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
       <a className='logo' href="">Orion<span>Anime</span></a>
       <hr />
       <ul className='btn'>
         <p className='category'>Categories</p>
-        <li>
-          <Link to="/" className='btn-link'>
-            <span className='icon'><BiHomeAlt2/></span>
-            <span className='categoty-name'>Home</span>
-          </Link>
+        <li className='btn-link' onClick={()=> setSelectedGenre("")}>
+          <span className='icon'><BiHomeAlt2/></span>
+          <span className='categoty-name'>Home</span>
         </li>
 
-        <li>
-          <Link to="/ranking/" className='btn-link'>
-            <span className='icon'><AiOutlineStar/></span>
-            <span className='categoty-name'>Ranking</span>
-          </Link>
+        <li className='btn-link' onClick={()=> setSelectedGenre("")}>
+          <span className='icon'><AiOutlineStar/></span>
+          <span className='categoty-name'>Ranking</span>
         </li>
 
         <hr />
         <p className='category'>Genres</p>
         {categories.map((category) => (
-            <li onClick={()=> setSelectedGenre(category.name)}>
-              <div className='btn-link'>
-                <span className='icon'>{category.icon}</span>
-                <span className='categoty-name'>{category.name}</span>
-              </div>
+            <li className='btn-link' onClick={()=> setSelectedGenre(category.name)}>
+              <span className='icon'>{category.icon}</span>
+              <span className='categoty-name'>{category.name}</span>
             </li>
         ))}
       </ul>

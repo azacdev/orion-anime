@@ -1,8 +1,9 @@
 import { useState, useEffect} from 'react';
-import {Sidebar, Navbar, Main} from "./"
+import {Sidebar, Navbar, Main} from "./";
 import { fetchFromAPI } from './utils/fetchFromAPI';
 
 const Root = () => {
+  
   const [toggleMenu, setToggleMenu] = useState(false)
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
@@ -10,16 +11,16 @@ const Root = () => {
   const anime = "Naruto"
   console.log(selectedGenre);
 
-  // useEffect( () => {
-  //   fetchFromAPI(`?&genres=${selectedGenre}`)
-  //   .then(data => setAnimeList(data.data))
-  // }, [selectedGenre])
+  useEffect( () => {
+    fetchFromAPI(`?&genres=${selectedGenre}`)
+    .then(data => setAnimeList(data.data))
+  }, [selectedGenre])
 
-  // const titles = animeList.map((title) => {
-  //   return title.title
-  // })
+  const titles = animeList.map((title) => {
+    return title.title
+  })
 
-  // console.log(titles);
+  console.log(titles);
 
   return (
     <div className="App" id={theme}>
