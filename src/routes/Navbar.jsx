@@ -3,7 +3,7 @@ import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
 
-const Navbar = ({theme, setTheme, setToggleMenu }) => {
+const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm }) => {
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
@@ -41,8 +41,8 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
       <div className="search">
         <div className="search-content">
           <input
-            // value={searchTerm}
-            // onChange={(e) => setSeacrhTerm(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <img
             src={SearchIcon}

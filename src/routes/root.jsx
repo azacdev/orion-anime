@@ -9,7 +9,7 @@ const Root = () => {
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const [searchResult, setSearchResult] = useState([])
-  const [searchTerm, setSearchTerm] = useState("Naruto")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect( () => {
     fetchFromAPI(`?&genres=${selectedGenre}`)
@@ -19,9 +19,12 @@ const Root = () => {
   const searchAnime = () => {
     fetchFromAPI(`?&search=${searchTerm}`)
     .then(data => setSearchResult(data.data))
-  } 
+  }
   
-  searchAnime()
+  useEffect(() => {
+    searchAnime()
+  })
+
   console.log(searchResult);
 
   return (
@@ -37,10 +40,12 @@ const Root = () => {
             theme={theme} 
             setTheme={setTheme} 
             setToggleMenu={setToggleMenu}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
           />
 
           <Main 
-            animeList={animeList} 
+            animeList={animeList}
             searchResult={searchResult}
           />
         </main>
