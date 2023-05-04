@@ -329,7 +329,7 @@ nav {
   color: var(--body-color-dark);
 }
 
-.search:hover {
+.search-content:hover {
   border-color: var(--text-color-dark);
 }
 
@@ -348,7 +348,6 @@ nav {
   grid-template-columns: repeat(4, 1fr);
   gap: var(--mb-0-75);
   align-items: center;
-  background-color: green;
 }
 
 .anime-content {

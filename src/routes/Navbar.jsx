@@ -7,7 +7,7 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
-
+  
   const openMenu = () => {
     setToggleMenu(true)
   }

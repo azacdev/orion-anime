@@ -8,13 +8,12 @@ const Root = () => {
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const anime = "Naruto"
-
   console.log(selectedGenre);
 
   // useEffect( () => {
-  //   fetchFromAPI(`?&search=${anime}`)
+  //   fetchFromAPI(`?&genres=${selectedGenre}`)
   //   .then(data => setAnimeList(data.data))
-  // }, [anime])
+  // }, [selectedGenre])
 
   // const titles = animeList.map((title) => {
   //   return title.title
@@ -25,7 +24,7 @@ const Root = () => {
   return (
     <div className="App" id={theme}>
         <Sidebar 
-          toggleMenu={toggleMenu} 
+          toggleMenu={toggleMenu}
           selectedGenre={selectedGenre} 
           setSelectedGenre={setSelectedGenre}
         />
