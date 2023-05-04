@@ -39,15 +39,17 @@ const Navbar = ({theme, setTheme, setToggleMenu }) => {
       </button>
 
       <div className="search">
-        <input
-          // value={searchTerm}
-          // onChange={(e) => setSeacrhTerm(e.target.value)}
-        />
-        <img
-          src={SearchIcon}
-          alt="search"
-          // onClick={() => searchMovies(searchTerm)}
-        />
+        <div className="search-content">
+          <input
+            // value={searchTerm}
+            // onChange={(e) => setSeacrhTerm(e.target.value)}
+          />
+          <img
+            src={SearchIcon}
+            alt="search"
+            // onClick={() => searchMovies(searchTerm)}
+          />
+        </div>
 
       </div>
 

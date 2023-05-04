@@ -304,12 +304,15 @@ nav {
   color: var(--body-color-dark);
 }
 
-.search {
+.search-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid white;
   padding: .5rem 1rem;
+  display: inline-flex;
+  min-width: 0px;
+  vertical-align: top;
 }
 
 .search input {
@@ -440,9 +443,9 @@ nav {
   }
   
   .search {
+    display: flex;
     flex-basis: 100%;
     order: 4;
-    width: 50%;
     justify-content: center;
     align-self: flex-end;
     margin-bottom: 1rem;
@@ -450,8 +453,12 @@ nav {
     /* margin-left: 7rem; */
   }
 
+  .search-content {
+    padding-top: 0;
+  }
+
   .search input {
-    width: 130px;
+    width: 150px;
     padding: 0rem 0.25rem;
     font-size: 0.85rem;
   }
