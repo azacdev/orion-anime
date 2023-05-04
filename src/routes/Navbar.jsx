@@ -47,7 +47,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm }) =>
           <img
             src={SearchIcon}
             alt="search"
-            // onClick={() => searchMovies(searchTerm)}
+            onClick={() => searchAnime(searchTerm)}
           />
         </div>
 

@@ -11,19 +11,19 @@ const Root = () => {
   const [searchResult, setSearchResult] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
 
-  useEffect( () => {
-    fetchFromAPI(`?&genres=${selectedGenre}`)
-    .then(data => setAnimeList(data.data))
-  }, [selectedGenre])
+  // useEffect( () => {
+  //   fetchFromAPI(`?&genres=${selectedGenre}`)
+  //   .then(data => setAnimeList(data.data))
+  // }, [selectedGenre])
 
-  const searchAnime = () => {
-    fetchFromAPI(`?&search=${searchTerm}`)
-    .then(data => setSearchResult(data.data))
-  }
-  
-  useEffect(() => {
-    searchAnime()
-  })
+  // const searchAnime = (title) => {
+  //   fetchFromAPI(`?&search=${title}`)
+  //   .then(data => setSearchResult(data.data))
+  // }
+
+  // useEffect(() => {
+  //   searchAnime("")
+  // })
 
   console.log(searchResult);
 
