@@ -9,7 +9,7 @@ const Root = () => {
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const [searchResults, setSearchResults] = useState([])
-  
+
   useEffect( () => {
     fetchFromAPI(`?&genres=${selectedGenre}`)
     .then(data => setAnimeList(data.data))
@@ -22,13 +22,18 @@ const Root = () => {
           selectedGenre={selectedGenre} 
           setSelectedGenre={setSelectedGenre}
         />
+        
         <main className="scroll-bar">
           <Navbar 
             theme={theme} 
             setTheme={setTheme} 
             setToggleMenu={setToggleMenu}
           />
-          <Main animeList={animeList}/>
+
+          <Main 
+            animeList={animeList} 
+            searchResults={searchResults}
+          />
         </main>
     </div>
   )
