@@ -8,7 +8,8 @@ const Root = () => {
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
-
+  const [searchResults, setSearchResults] = useState([])
+  
   useEffect( () => {
     fetchFromAPI(`?&genres=${selectedGenre}`)
     .then(data => setAnimeList(data.data))
