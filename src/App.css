@@ -396,6 +396,8 @@ nav {
   color: var(--body-color-dark);
 }
 
+.anime-details
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {
