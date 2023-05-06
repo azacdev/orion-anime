@@ -1,16 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ErrorPage from './error-page'
-import Root from './routes/root'
+import { Root } from './routes/root'
+import { AnimeDetails } from './routes'
+import {ErrorPage} from './error-page'
 import './App.css'
-import Genre from './routes/Genre'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/animes/:id",
+        element: <AnimeDetails />,
+      },
+    ],
   }
 ])
 

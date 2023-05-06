@@ -11,19 +11,20 @@ const Root = () => {
   const [searchResult, setSearchResult] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
 
-  // useEffect( () => {
-  //   fetchFromAPI(`?&genres=${selectedGenre}`)
-  //   .then(data => setAnimeList(data.data))
-  // }, [selectedGenre])
+  useEffect( () => {
+    fetchFromAPI(`?&genres=${selectedGenre}`)
+    .then(data => setAnimeList(data.data))
+    .catch( console.error('error'))
+  }, [selectedGenre])
 
-  // const searchAnime = (title) => {
-  //   fetchFromAPI(`?&search=${title}`)
-  //   .then(data => setSearchResult(data.data))
-  // }
+  const searchAnime = (title) => {
+    fetchFromAPI(`?&search=${title}`)
+    .then(data => setSearchResult(data.data))
+  }
 
-  // useEffect(() => {
-  //   searchAnime("")
-  // })
+  useEffect(() => {
+    searchAnime("")
+  }, [])
 
   console.log(searchResult);
 
@@ -33,6 +34,7 @@ const Root = () => {
           toggleMenu={toggleMenu}
           selectedGenre={selectedGenre} 
           setSelectedGenre={setSelectedGenre}
+          setSearchResult={setSearchResult}
         />
 
         <main className="scroll-bar">
@@ -42,6 +44,7 @@ const Root = () => {
             setToggleMenu={setToggleMenu}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            searchAnime={searchAnime}
           />
 
           <Main 

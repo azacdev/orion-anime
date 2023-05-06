@@ -92,7 +92,7 @@ body::-webkit-scrollbar {
 }
 
 .scroll-bar::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
   height: 5px;
 }
 
@@ -197,7 +197,8 @@ header {
 
 .category {
   font-size: var(--normal-font-size);
-  margin: 1.5rem 0 1.5rem 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--title-color-dark);
 }
 
 .btn {
