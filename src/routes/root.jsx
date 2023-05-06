@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import {Sidebar, Navbar, Main} from "./";
 import { fetchFromAPI } from './utils/fetchFromAPI';
+import { Outlet } from 'react-router-dom';
 
 const Root = () => {
 
@@ -51,6 +52,10 @@ const Root = () => {
             animeList={animeList}
             searchResult={searchResult}
           />
+
+        <div id="anime-detail">
+          <Outlet />
+        </div>
         </main>
     </div>
   )
