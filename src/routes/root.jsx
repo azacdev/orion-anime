@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react';
 import {Sidebar, Navbar, Main} from "./";
 import { fetchFromAPI } from './utils/fetchFromAPI';
-import { Outlet } from 'react-router-dom';
+import { useLocation, Outlet } from 'react-router-dom';
 
 const Root = () => {
 
@@ -11,6 +11,7 @@ const Root = () => {
   const [animeList, setAnimeList] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
+  const location = useLocation();
 
   useEffect( () => {
     fetchFromAPI(`?&genres=${selectedGenre}`)
@@ -48,13 +49,18 @@ const Root = () => {
             searchAnime={searchAnime}
           />
 
-          <Main 
-            animeList={animeList}
-            searchResult={searchResult}
-          />
+          {location.pathname.startsWith('/animes/') ? (
+            <Outlet />
+            ) : (
+            <Main 
+              animeList={animeList}
+              searchResult={searchResult}
+            />
+          )}
+
 
         <div id="anime-detail">
-          <Outlet />
+          
         </div>
         </main>
     </div>
