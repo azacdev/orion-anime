@@ -19,7 +19,10 @@ const AnimeDetails = () => {
   , type} = animeDetails 
   return (
     <div className='anime-details'>
-      <img src={image} alt="anime-image" className='anime-image'/>
+      <div className="details-left">
+        <img src={image} alt="anime-image" className='anime-image'/>
+      </div>
+      <div className="details-right"></div>
       <h2>{title}</h2>
     </div>
   )
