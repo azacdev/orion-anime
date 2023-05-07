@@ -10,6 +10,8 @@ const AnimeDetails = () => {
     fetchFromAPI(`anime/by-id/${id}`)
     .then(data => setAnimeDetails(data.data))
   }, [id])
+
+  console.log(animeDetails);
   return (
     <div className='anime-details'>AnimeDetails</div>
   )
