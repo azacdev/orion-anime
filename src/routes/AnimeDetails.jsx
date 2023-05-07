@@ -10,10 +10,15 @@ const AnimeDetails = () => {
     fetchFromAPI(`by-id/${id}`)
     .then(data => setAnimeDetails(data))
   }, [id])
-  
+
   console.log(animeDetails);
+
+  if (!animeDetails) return "Loading"
+
   return (
-    <div className='anime-details'>AnimeDetails</div>
+    <div className='anime-details'>
+      
+    </div>
   )
 }
 
