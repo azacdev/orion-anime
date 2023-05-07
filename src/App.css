@@ -316,6 +316,10 @@ nav {
   vertical-align: top;
 }
 
+.hide-search{
+  display: none;
+}
+
 .search input {
   font-size: 1.25rem;
   font-family: var(--font-raleway);

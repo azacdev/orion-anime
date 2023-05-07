@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, searchAnime }) => {
+
+  const location = useLocation();
+
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
@@ -38,21 +42,21 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
         {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
       </button>
 
-      <div className="search">
-        <div className="search-content">
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <img
-            src={SearchIcon}
-            alt="search"
-            onClick={() => searchAnime(searchTerm)}
-          />
+      {location.pathname.startsWith('/animes/') ?  null : 
+        <div className="search">
+          <div className="search-content">
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <img
+              src={SearchIcon}
+              alt="search"
+              onClick={() => searchAnime(searchTerm)}
+            />
+          </div>
         </div>
-
-      </div>
-
+      }
       <button>
         <a href='#' className='login'>
           <p>LOGIN</p>

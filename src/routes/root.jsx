@@ -58,7 +58,6 @@ const Root = () => {
             />
           )}
 
-
         <div id="anime-detail">
           
         </div>
