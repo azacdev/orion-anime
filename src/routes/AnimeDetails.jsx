@@ -15,9 +15,11 @@ const AnimeDetails = () => {
 
   if (!animeDetails) return "Loading"
 
+  const { title, image, link, synopsis, alternativeTitles
+  , type} = animeDetails 
   return (
     <div className='anime-details'>
-      
+      {/* <img src= alt="" /> */}
     </div>
   )
 }
