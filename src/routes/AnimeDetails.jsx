@@ -19,7 +19,8 @@ const AnimeDetails = () => {
   , type} = animeDetails 
   return (
     <div className='anime-details'>
-      {/* <img src= alt="" /> */}
+      <img src={image} alt="anime-image" className='anime-image'/>
+      <h2>{title}</h2>
     </div>
   )
 }
