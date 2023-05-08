@@ -445,11 +445,35 @@ nav {
   padding: 1rem 0;
 }
 
+.alternate-title {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  justify-content: space-around;
+}
+
+.anime-type {
+  padding: 1rem 0;
+}
+
 .anime-details-genres {
   margin: 10px 0 !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.anime-overview > p {
+  padding: 1rem 0;
+}
+
+.watch-link {
+  margin-top: 1rem;
+  color: rgb(144, 202, 249);
+  border: 1px solid rgb(144, 202, 249);
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem;
+  background: transparent;
 }
 
 /*=============== BREAKPOINTS ===============*/
