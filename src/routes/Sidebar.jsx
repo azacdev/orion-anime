@@ -6,7 +6,9 @@ import { AiOutlineStar } from "react-icons/ai"
 const Sidebar = ({toggleMenu, setSelectedGenre, setSearchResult }) => {
   return (
     <header className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
-      <a className='logo' href="">Orion<span>Anime</span></a>
+      <Link to="/">
+        <a className='logo' href="">Orion<span>Anime</span></a>
+      </Link>
 
       <ul className='btn'>
         <p className='category'>Categories</p>
