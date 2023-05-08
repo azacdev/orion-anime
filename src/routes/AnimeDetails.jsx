@@ -25,7 +25,15 @@ const AnimeDetails = () => {
       </div>
 
       <div className="details-right">
-        <h2>{title}</h2>
+
+        <div className="titles">
+          <h2>{title}</h2>
+          <div className="alternate-titles">
+            {alternativeTitles.map( titles => (
+              <span>{titles}</span>
+            ))}
+          </div>
+        </div>
 
         <div className="anime-genres">
           {genres.map(genre => (
@@ -33,6 +41,11 @@ const AnimeDetails = () => {
           ))}
         </div>
 
+        <div className="overview">
+          <h2>Overview</h2>
+          <p>{synopsis}</p>
+        </div>
+        
       </div>
     </div>
   )
