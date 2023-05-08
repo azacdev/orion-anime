@@ -24,7 +24,8 @@ const Sidebar = ({toggleMenu, setSelectedGenre, setSearchResult }) => {
 
         <p className='category'>Genres</p>
         {categories.map((category) => (
-            <li className='btn-link' 
+          <Link to="/">
+            <li className='btn-link'
               onClick={()=>(
                 setSearchResult([]),
                 setSelectedGenre(category.name)
@@ -32,6 +33,7 @@ const Sidebar = ({toggleMenu, setSelectedGenre, setSearchResult }) => {
               <span className='icon'>{category.icon}</span>
               <span className='categoty-name'>{category.name}</span>
             </li>
+          </Link>
         ))}
       </ul>
       </header>
