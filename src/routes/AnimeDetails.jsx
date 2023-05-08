@@ -15,30 +15,39 @@ const AnimeDetails = () => {
 
   if (!animeDetails) return "Loading"
 
-  const { title, image, genres, link, synopsis, alternativeTitles
+  const { title, image, genres, status, link, synopsis, alternativeTitles
   , type} = animeDetails 
   return (
     <div className='anime-details'>
-      
+
       <div className="details-left">
-        <img src={image} alt="anime-image" className='anime-image'/>
+        <img src={image} alt="anime-detail-img" className='anime-detail-img'/>
       </div>
 
       <div className="details-right">
 
         <div className="titles">
-          <h2>{title}</h2>
+          <h2 className='anime-details-title'>{title}</h2>
           <div className="alternate-titles">
+            <h3>Alternate Titiles</h3>
             {alternativeTitles.map( titles => (
               <span>{titles}</span>
             ))}
           </div>
         </div>
 
-        <div className="anime-genres">
+        <div className="anime-details-genres">
           {genres.map(genre => (
             <p>{genre}</p>
           ))}
+        </div>
+
+        <div className="anime-status">
+          {status}
+        </div>
+
+        <div className="anime-type">
+          <p>{type}</p>
         </div>
 
         <div className="overview">

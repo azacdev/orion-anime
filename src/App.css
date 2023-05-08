@@ -401,7 +401,55 @@ nav {
 }
 
 .anime-details {
-  color: red;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  /* justify-content: space-between; */
+  gap: 3rem;
+  color: var(--title-color);
+}
+
+.details-left {
+  flex-basis: 33.3333%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 33.3333%;
+}
+
+.anime-detail-img {
+  width: 80%;
+  /* height: 350px; */
+  box-shadow: 0.5em 1em 1em rgb(64, 64, 70);
+  border-radius: 20px;
+}
+
+.details-right {
+  flex-basis: 58.3333%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 58.3333%;
+}
+
+.anime-details-title {
+  margin: 0px 0px 0.35em;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.167;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.alternate-titles {
+  padding: 1rem 0;
+}
+
+.anime-details-genres {
+  margin: 10px 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /*=============== BREAKPOINTS ===============*/
