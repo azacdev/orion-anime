@@ -384,6 +384,10 @@ nav {
   width: 200px;
 }
 
+.anime-image:hover {
+  transform: scale(0.2);
+}
+
 .anime-title {
   font-size: var(--mb-1-25);
   font-weight: bold;
@@ -408,6 +412,10 @@ nav {
   /* justify-content: space-between; */
   gap: 3rem;
   color: var(--title-color);
+}
+
+#light .anime-details {
+  color: var(--body-color-dark);
 }
 
 .details-left {

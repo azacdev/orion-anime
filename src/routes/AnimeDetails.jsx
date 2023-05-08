@@ -58,7 +58,7 @@ const AnimeDetails = () => {
         </div>
 
         <div>
-          <a href={link} className="watch-link">Watch</a>
+          <a href={link} target="_blank" className="watch-link">Watch</a>
         </div>
         
       </div>
