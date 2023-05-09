@@ -7,7 +7,7 @@ const Main = ({ animeList, searchResult }) => {
         (
           <div className="content">
             {searchResult.map((item, idx) => (
-              <div key={idx}>
+              <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
             ))}
@@ -17,7 +17,7 @@ const Main = ({ animeList, searchResult }) => {
         (
           <div className="content">
             {animeList.map((item, idx) => (
-              <div key={idx}>
+              <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
             ))}

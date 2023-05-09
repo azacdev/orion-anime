@@ -349,16 +349,21 @@ nav {
 }
 
 .content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--mb-0-75);
-  align-items: center;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem; */
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  overflow: auto;
+  justify-content: space-between;
+  /* gap: var(--mb-0-75); */
+  /* align-items: center; */
   padding: 2rem;
 }
 
 .anime-content {
-  display: grid;
-  place-items: center;
+  padding: 1rem;
 }
 
 .anime-card {
@@ -367,10 +372,14 @@ nav {
   justify-content: center;
   flex-direction: column;
   height: 350px;
-  width: 250px;
-  /* border: 1px solid #ccc; */
-  border-radius: 0.5rem;
-  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.anime-content {
+  flex-basis: 25%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 25%;
 }
 
 .anime-content:hover {
@@ -487,7 +496,23 @@ nav {
 
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
+  .anime-content {
+    flex-basis: 33.3333%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 33.3333%;
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+  .anime-content {
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
   
 }
 
@@ -495,6 +520,13 @@ nav {
 @media screen and (max-width: 768px) {
   body {
     margin: 0 0 var(--header-height) 0;
+  }
+
+  .anime-content {
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
   }
 
   .search input {
@@ -505,9 +537,11 @@ nav {
 @media screen and (max-width: 576px) {
   header {
     position: fixed;
-    width: 50%;
+    /* width: 50%; */
+    height: 100%;
     background-color: var(--container-color-dark);
     transform: translateX(-100%);
+    overflow-y: auto;
     transition: 0.3s ease-in-out;
   }
 
@@ -557,6 +591,17 @@ nav {
     height: 20px;
     cursor: pointer;
   }
+
+  .anime-content {
+    flex-basis: 100%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
 }
 
 /* For small devices */
@@ -576,7 +621,4 @@ nav {
     font-size: 1rem;
   }
 
-  .logo {
-    font-size: 1.25rem;
-  }
 }
