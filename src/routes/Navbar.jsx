@@ -58,7 +58,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
         </div>
       }
       <button>
-        <a href='#' className='login'>
+        <a href="https://myanimelist.net/login" target="_blank" className='login'>
           <p>LOGIN</p>
           <span className='btn nav-icons'><IoIosContact/></span>
         </a>

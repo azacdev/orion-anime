@@ -382,10 +382,11 @@ nav {
   object-fit: cover;
   height: 300px;
   width: 200px;
+  transition: 0.1s ease-in-out;
 }
 
 .anime-image:hover {
-  transform: scale(0.2);
+  transform: scale(1.04);
 }
 
 .anime-title {
@@ -522,9 +523,9 @@ nav {
     display: block;
     margin-top: 0.45rem;
   }
-  .logo {
+  /* .logo {
     font-size: 2rem;
-  }
+  } */
 
   nav {
     padding: 0 1rem;
