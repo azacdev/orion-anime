@@ -531,6 +531,17 @@ nav {
   .search input {
     width: 100px;
   }
+
+  .details-left {
+    flex-basis: 100%;
+    flex-grow: 0;
+    max-width: 100%;
+  }
+
+  .details-right {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -593,12 +604,6 @@ nav {
     cursor: pointer;
   }
 
-  .anime-content {
-    flex-basis: 100%;
-    -webkit-box-flex: 0;
-    flex-grow: 0;
-    max-width: 100%;
-  }
 }
 
 /* For small devices */
