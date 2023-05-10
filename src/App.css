@@ -258,12 +258,22 @@ main {
 }
 
 nav {
+  position: relative;
+  transition: top 0.3s ease-in-out;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--container-color-dark);
   padding: 1.5rem;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* z-index: 1; */
 }
 
 
@@ -613,12 +623,6 @@ nav {
     max-width: 100%;
   }
 
-  /* .details-left {
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    width: 100%;
-  } */
 }
 
 /* For small devices */

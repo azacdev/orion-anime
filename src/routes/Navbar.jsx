@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
@@ -7,23 +7,6 @@ import { useLocation } from "react-router-dom";
 const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, searchAnime }) => {
 
   const location = useLocation();
-  const [isNavbarSticky, setIsNavbarSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.querySelector('nav');
-      const navbarHeight = navbar.offsetHeight;
-      const scrollHeight = window.scrollY;
-      setIsNavbarSticky(scrollHeight > navbarHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  
 
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
@@ -52,7 +35,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
   
 
   return (
-    <nav className={isNavbarSticky ? 'sticky' : ''}>
+    <nav className='sticky'>
       <button className='btn menu-btn' onClick={openMenu}><BiMenuAltLeft/></button>
 
       <button className='btn nav-icons' onClick={toggleDarkMode}>
