@@ -533,6 +533,8 @@ nav {
   }
 
   .details-left {
+    display: flex;
+    justify-content: center;
     flex-basis: 100%;
     flex-grow: 0;
     max-width: 100%;
@@ -604,6 +606,19 @@ nav {
     cursor: pointer;
   }
 
+  .anime-content {
+    flex-basis: 100%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 100%;
+  }
+
+  /* .details-left {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 100%;
+  } */
 }
 
 /* For small devices */

@@ -12,15 +12,19 @@ const Sidebar = ({toggleMenu, setSelectedGenre, setSearchResult }) => {
 
       <ul className='btn'>
         <p className='category'>Categories</p>
-        <li className='btn-link' onClick={()=> setSelectedGenre("")}>
-          <span className='icon'><BiHomeAlt2/></span>
-          <span className='categoty-name'>Home</span>
-        </li>
+        <Link to="/">
+          <li className='btn-link' onClick={()=> setSelectedGenre("")}>
+            <span className='icon'><BiHomeAlt2/></span>
+            <span className='categoty-name'>Home</span>
+          </li>
+        </Link>
 
-        <li className='btn-link' onClick={()=> setSelectedGenre("")}>
-          <span className='icon'><AiOutlineStar/></span>
-          <span className='categoty-name'>Ranking</span>
-        </li>
+        <Link to="/">
+          <li className='btn-link' onClick={()=> setSelectedGenre("")}>
+            <span className='icon'><AiOutlineStar/></span>
+            <span className='categoty-name'>Ranking</span>
+          </li>
+        </Link>
 
         <p className='category'>Genres</p>
         {categories.map((category) => (
