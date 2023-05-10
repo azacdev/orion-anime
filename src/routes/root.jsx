@@ -39,7 +39,7 @@ const Root = () => {
           setSearchResult={setSearchResult}
         />
 
-        <main className="scroll-bar">
+        <main className={ toggleMenu ? "scroll-bar dim" : "scroll-bar"}>
           <Navbar 
             theme={theme} 
             setTheme={setTheme} 
