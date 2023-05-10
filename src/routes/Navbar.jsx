@@ -11,7 +11,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector('nav');
       const navbarHeight = navbar.offsetHeight;
       const scrollHeight = window.scrollY;
       setIsNavbarSticky(scrollHeight > navbarHeight);
