@@ -23,6 +23,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
 
   const toggleDarkMode = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
