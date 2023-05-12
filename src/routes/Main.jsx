@@ -13,13 +13,13 @@ const Main = ({ animeList, searchResult }) => {
   // Get the movies to be displayed on the current page
   const currentAnimes = animeList.slice(indexOfFirstAnime, indexOfLastAnime)
 
-    // Change the current page
+  // Change the current page
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
 
    // Calculate the total number of pages based on the number of movies and the movies per page
-   const totalPages = Math.ceil(movies.length / moviesPerPage);
+   const totalPages = Math.ceil(animeList.length / animesPerPage);
 
    // Generate an array of page numbers for the pagination buttons
    const pageNumbers = [];
@@ -42,11 +42,36 @@ const Main = ({ animeList, searchResult }) => {
         :
         (
           <div className="content">
-            {animeList.slice(currentPage * 24, (currentPage + 1) * 24).map((item, idx) => (
+            {currentAnimes.map((item, idx) => (
               <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
             ))}
+            <div className="pagination">
+              <button
+              className='btn'
+                disabled={currentPage === 1}
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                Prev
+              </button>
+              {/* {pageNumbers.map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  className={pageNumber === currentPage ? 'active' : ''}
+                >
+                  {pageNumber}
+                </button>
+              ))} */}
+              <button
+              className='btn'
+                disabled={currentPage === totalPages}
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
         )
       }
