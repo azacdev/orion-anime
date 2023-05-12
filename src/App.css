@@ -22,7 +22,6 @@
   
   --title-color: #fff;
   --title-color-dark: #a5a5a5;
-  --text-color: rgba(249, 211, 130, 1);
   --text-color-dark: rgba(249, 211, 180, 1);
   --body-color-dark: rgb(18, 18, 18);
   --container-color: #E0E0E0;
@@ -178,10 +177,6 @@ header {
   text-align: center;
   font-weight: 700;
   color: var(--text-color-dark);
-}
-
-#light .logo {
-  color: var(--text-color);
 }
 
 .logo span {
@@ -343,13 +338,6 @@ nav {
   color: var(--body-color-dark);
 }
 
-.search-content:hover {
-  border-color: var(--text-color-dark);
-}
-
-#light .search:hover {
-  color: var(--text-color);
-}
 
 .search img {
   width: 25px;
