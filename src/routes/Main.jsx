@@ -32,7 +32,7 @@ const Main = ({ animeList, searchResult }) => {
         :
         (
           <div className="content">
-            {animeList.map((item, idx) => (
+            {animeList.slice(currentPage * 20, (currentPage + 1) * 20).map((item, idx) => (
               <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
