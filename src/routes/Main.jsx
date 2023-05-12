@@ -1,4 +1,3 @@
-import ReactPaginate from 'react-paginate';
 import { AnimeCard } from "./"
 import { useState } from 'react';
 
