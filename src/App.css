@@ -127,6 +127,11 @@ li {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.react-paginate-previous,
+.react-paginate-next {
+  cursor: pointer;
+}
+
 .App {
   display: flex;
   flex-wrap: wrap;
