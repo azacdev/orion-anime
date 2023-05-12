@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import  Root  from './routes/root'
 import { AnimeDetails } from './routes'
 import ErrorPage from './error-page'
+import { store } from '@reduxjs/toolkit'
 import './App.css'
 
 const router = createBrowserRouter([
