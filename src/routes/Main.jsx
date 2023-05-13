@@ -1,13 +1,14 @@
-import { AnimeCard } from "./"
+import { AnimeCard } from "./";
 import { useState } from 'react';
 
 const Main = ({ animeList, searchResult }) => {
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(0)
   const [animesPerPage] = useState(24)
 
   // Calculate the index of the first and last movies to be displayed on the current page
   const indexOfLastAnime = currentPage * animesPerPage; // 24
   const indexOfFirstAnime = indexOfLastAnime - animesPerPage; // 0
+  console.log(indexOfFirstAnime);
 
   // Get the movies to be displayed on the current page
   const currentAnimes = animeList.slice(indexOfFirstAnime, indexOfLastAnime)
@@ -46,34 +47,32 @@ const Main = ({ animeList, searchResult }) => {
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
             ))}
-            <div className="pagination">
-              <button
-              className='btn'
-                disabled={currentPage === 1}
-                onClick={() => handlePageChange(currentPage - 1)}
-              >
-                Prev
-              </button>
-              {/* {pageNumbers.map((pageNumber) => (
-                <button
-                  key={pageNumber}
-                  onClick={() => handlePageChange(pageNumber)}
-                  className={pageNumber === currentPage ? 'active' : ''}
-                >
-                  {pageNumber}
-                </button>
-              ))} */}
-              <button
-              className='btn'
-                disabled={currentPage === totalPages}
-                onClick={() => handlePageChange(currentPage + 1)}
-              >
-                Next
-              </button>
-            </div>
           </div>
         )
       }
+      <div className="pagination">
+        <button
+          className='btn'
+          // disabled={currentPage === 1}
+          onClick={() => handlePageChange(currentPage - 1)}
+        >
+          Prev
+        </button>
+
+        <button
+          className="btn"
+        >
+          {currentPage}
+        </button>
+
+        <button
+        className='btn'
+          // disabled={currentPage === totalPages}
+          onClick={() => handlePageChange(currentPage + 1)}
+        >
+          Next
+        </button>
+      </div>
     </div>
       
   )

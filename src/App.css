@@ -368,15 +368,6 @@ nav {
   padding: 1rem;
 }
 
-.anime-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 350px;
-  margin: 0;
-}
-
 .anime-content {
   flex-basis: 25%;
   -webkit-box-flex: 0;
@@ -384,7 +375,17 @@ nav {
   max-width: 25%;
 }
 
-.anime-content:hover {
+.anime-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 350px;
+  border-radius: 1rem;
+  margin: 0;
+}
+
+.anime-card:hover {
   box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1)
 }
 
