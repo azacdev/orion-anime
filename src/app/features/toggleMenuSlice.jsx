@@ -9,11 +9,11 @@ export const toggleMenuSlice = createSlice({
   initialState,
   reducers: {
     handleMenu: (state) => {
-      !state.toggleMenu
+      state.toggleMenu = !state.toggleMenu
     }
   }
 })
 
 export const { handleMenu } = toggleMenuSlice.actions;
 
-export default counterSlice.reducer;
+export default toggleMenuSlice.reducer;

@@ -1,11 +1,14 @@
 import { useState, useEffect} from 'react';
 import {Sidebar, Navbar, Main} from "./";
+import {useSelector, useDispatch} from "react-redux"
+import { handleMenu } from '../app/features/toggleMenuSlice';
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import { useLocation, Outlet } from 'react-router-dom';
 
 const Root = () => {
-
-  const [toggleMenu, setToggleMenu] = useState(false)
+  const toggleMenu = useSelector((state) => state.toggleMenu.toggleMenu)
+  const dispatch = useDispatch()
+  // const [toggleMenu, setToggleMenu] = useState(false)
   const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
@@ -43,7 +46,7 @@ const Root = () => {
           <Navbar 
             theme={theme} 
             setTheme={setTheme} 
-            setToggleMenu={setToggleMenu}
+            // setToggleMenu={setToggleMenu}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             searchAnime={searchAnime}
