@@ -15,5 +15,6 @@ export const toggleMenuSlice = createSlice({
 })
 
 export const { handleMenu } = toggleMenuSlice.actions;
+export const selectToggleMenu = (state) => state.toggleMenu.toggleMenu;
 
 export default toggleMenuSlice.reducer;

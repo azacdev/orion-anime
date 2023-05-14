@@ -1,15 +1,15 @@
 import { useState, useEffect} from 'react';
 import {Sidebar, Navbar, Main} from "./";
-import {useSelector, useDispatch} from "react-redux"
-import { handleMenu } from '../app/features/toggleMenuSlice';
+import {useSelector, useDispatch} from "react-redux";
+import { selectToggleMenu } from '../app/features/toggleMenuSlice';
+import { selectTheme } from '../app/features/themeSlice';
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import { useLocation, Outlet } from 'react-router-dom';
 
 const Root = () => {
-  const toggleMenu = useSelector((state) => state.toggleMenu.toggleMenu)
-  const dispatch = useDispatch()
-  // const [toggleMenu, setToggleMenu] = useState(false)
-  const [theme, setTheme] = useState("dark")
+  const toggleMenu = useSelector(selectToggleMenu)
+  const theme = useSelector(selectTheme)
+  // const [theme, setTheme] = useState("dark")
   const [selectedGenre, setSelectedGenre ] = useState("")
   const [animeList, setAnimeList] = useState([])
   const [searchResult, setSearchResult] = useState([])
@@ -52,18 +52,14 @@ const Root = () => {
             searchAnime={searchAnime}
           />
 
-          {location.pathname.startsWith('/animes/') ? (
-            <Outlet />
-            ) : (
-            <Main 
+          {location.pathname.startsWith('/animes/') ? 
+          ( <Outlet />) 
+          : 
+          ( <Main 
               animeList={animeList}
               searchResult={searchResult}
             />
           )}
-
-        <div id="anime-detail">
-          
-        </div>
         </main>
     </div>
   )

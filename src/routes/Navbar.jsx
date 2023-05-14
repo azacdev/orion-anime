@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { handleMenu } from "../app/features/toggleMenuSlice";
+
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
