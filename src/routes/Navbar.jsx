@@ -12,7 +12,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
     setTheme((curr) => (curr === "dark" ? "light" : "dark"))
   }
   
-  const openMenu = () => {
+  const handleMenu = () => {
     setToggleMenu(true)
   }
 
@@ -36,7 +36,7 @@ const Navbar = ({theme, setTheme, setToggleMenu, searchTerm, setSearchTerm, sear
 
   return (
     <nav className='sticky'>
-      <button className='btn menu-btn' onClick={openMenu}><BiMenuAltLeft/></button>
+      <button className='btn menu-btn' onClick={handleMenu}><BiMenuAltLeft/></button>
 
       <button className='btn nav-icons' onClick={toggleDarkMode}>
         {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}

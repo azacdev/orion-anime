@@ -6,7 +6,7 @@ const options = {
   method: 'GET',
   params: {
    page: '1',
-   size: '200',
+   size: '100',
   },
   headers: {
     'X-RapidAPI-Key': 'c7bf63b846msh6cc7e3d28ec4ea4p10ce26jsnf2819acfa859',

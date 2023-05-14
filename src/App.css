@@ -417,6 +417,19 @@ nav {
   color: var(--body-color-dark);
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination-btn {
+  padding: 0.3rem 0.8rem;
+  background-color: var(--title-color-dark);
+  border-radius: 0.25rem;
+}
+
 .anime-details {
   padding: 2rem 3rem;
   display: flex;
