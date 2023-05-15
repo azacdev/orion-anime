@@ -34,7 +34,7 @@ const Root = () => {
   console.log(searchResult);
 
   return (
-    <div className="App" id={theme}>
+    <div className={"App"} id={theme}>
         <Sidebar 
           toggleMenu={toggleMenu}
           selectedGenre={selectedGenre} 
@@ -44,8 +44,8 @@ const Root = () => {
 
         <main className={ toggleMenu ? "scroll-bar dim" : "scroll-bar"}>
           <Navbar 
-            theme={theme} 
-            setTheme={setTheme} 
+            // theme={theme} 
+            // setTheme={setTheme} 
             // setToggleMenu={setToggleMenu}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}

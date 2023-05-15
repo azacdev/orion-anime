@@ -1,19 +1,17 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { handleMenu } from "../app/features/toggleMenuSlice";
-
+import { useDispatch, useSelector } from "react-redux";
+import { handleMenu, selectToggleMenu } from "../app/features/toggleMenuSlice";
+import { selectTheme, toggleTheme } from "../app/features/themeSlice";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
 import SearchIcon from '../search.svg';
 import { useLocation } from "react-router-dom";
 
-const Navbar = ({theme, setTheme, searchTerm, setSearchTerm, searchAnime }) => {
+const Navbar = ({ searchTerm, setSearchTerm, searchAnime }) => {
+
+  const theme = useSelector(selectTheme)
   const dispatch = useDispatch()
   const location = useLocation()
-
-  const toggleDarkMode = () => {
-    setTheme((curr) => (curr === "dark" ? "light" : "dark"))
-  }
 
   useEffect(() => {
     document.addEventListener('click', handleDocumentClick)
@@ -31,12 +29,12 @@ const Navbar = ({theme, setTheme, searchTerm, setSearchTerm, searchAnime }) => {
       dispatch(handleMenu())
     }
   }
-  
+
   return (
     <nav className='sticky'>
-      <button className='btn menu-btn' onClick={() => dispatch(handleMenu())}><BiMenuAltLeft/></button>
-
-      <button className='btn nav-icons' onClick={toggleDarkMode}>
+      <button className='menu-btn' onClick={() => dispatch(handleMenu())}><BiMenuAltLeft/></button>
+      
+      <button className='btn nav-icons' onClick={()=> dispatch(toggleTheme())}>
         {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
       </button>
 

@@ -6,35 +6,29 @@ const Main = ({ animeList, searchResult }) => {
   const [animesPerPage] = useState(24)
 
   // Calculate the index of the first and last animes to be displayed on the current page
-  const indexOfLastAnime = currentPage * animesPerPage; // 24
-  const indexOfFirstAnime = indexOfLastAnime - animesPerPage; // 0
-  console.log(indexOfFirstAnime);
-  console.log(indexOfLastAnime);
+  const startIndex = (currentPage - 1) * animesPerPage;
+  const endIndex = startIndex + animesPerPage;
+  console.log(startIndex);
+  console.log(endIndex);
 
   // Get the animes to be displayed on the current page
-  const currentAnimes = animeList.slice(indexOfFirstAnime, indexOfLastAnime)
-  const currentSearchAnimes = searchResult.slice(indexOfFirstAnime, indexOfLastAnime)
+  const currentAnimes = animeList.slice(startIndex, endIndex)
+  const currentSearchAnimes = searchResult.slice(startIndex, endIndex)
 
   // Change the current page
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
 
-   // Calculate the total number of pages based on the number of animes and the animes per page
-   const totalPages = Math.ceil(animeList.length / animesPerPage);
-
-   // Generate an array of page numbers for the pagination buttons
-  //  const pageNumbers = [];
-  //  for (let i = 1; i <= totalPages; i++) {
-  //    pageNumbers.push(i);
-  //  }
+  // Calculate the total number of pages based on the number of animes and the animes per page
+  const totalPages = Math.ceil(animeList.length / animesPerPage);
   
   return (
     <div>
       {searchResult.length > 0 ?
         (
           <div className="content">
-            {currentSearchAnimes.slice(currentPage * 24, (currentPage + 1) * 24).map((item, idx) => (
+            {currentSearchAnimes.map((item, idx) => (
               <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
@@ -74,7 +68,7 @@ const Main = ({ animeList, searchResult }) => {
             Next
           </button>
         </div> 
-      :
+        :
         null
       }
       
