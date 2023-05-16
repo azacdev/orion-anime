@@ -3,8 +3,7 @@ import { Sidebar, Navbar, Main } from "./";
 import { useSelector, useDispatch } from "react-redux";
 import { selectToggleMenu } from '../app/features/toggleMenuSlice';
 import { selectTheme } from '../app/features/themeSlice';
-import { setgenre} from '../app/features/genreSlice';
-import { selectSearchTerm } from '../app/features/searchTermSlice';
+import { setGenre} from '../app/features/genreSlice';
 import { fetchFromAPI } from './utils/fetchFromAPI';
 import { useLocation, Outlet } from 'react-router-dom';
 
@@ -13,8 +12,7 @@ const Root = () => {
   const [searchResult, setSearchResult] = useState([])
   const toggleMenu = useSelector(selectToggleMenu)
   const theme = useSelector(selectTheme)
-  const genre = useSelector(setgenre)
-  const searchTerm = useSelector(selectSearchTerm)
+  const genre = useSelector(setGenre)
   const location = useLocation();
 
   useEffect( () => {

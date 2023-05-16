@@ -15,6 +15,6 @@ export const genreSlice = createSlice({
 })
 
 export const { selectedGenre } = genreSlice.actions;
-export const setgenre = (state) => state.genre.genre;
+export const setGenre = (state) => state.genre.genre;
 
 export default genreSlice.reducer
