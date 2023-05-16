@@ -53,5 +53,5 @@ const animeListSlice = createSlice({
 });
 
 export const selectAnimeList = (state) => state.animeList
-// export const { someSyncAction } = dataSlice.actions;
+
 export default animeListSlice.reducer;

@@ -199,18 +199,6 @@ header {
   border-top: 1px solid var(--title-color-dark);
 }
 
-.btn {
-  display: block;
-  margin: 0;
-  padding: 0;
-  font-size: 1.5rem;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: var(--title-color);
-  cursor: pointer;
-}
-
 #light .btn {
   color: var(--body-color-dark);
 }

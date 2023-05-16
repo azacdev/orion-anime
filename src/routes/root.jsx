@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sidebar, Navbar, Main } from "./";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchApiData } from '../app/features/animeListSlice';
+import { fetchApiData, selectAnimeList } from '../app/features/animeListSlice';
 import { selectToggleMenu } from '../app/features/toggleMenuSlice';
 import { selectTheme } from '../app/features/themeSlice';
 import { setGenre} from '../app/features/genreSlice';
@@ -10,7 +10,7 @@ import { useLocation, Outlet } from 'react-router-dom';
 
 const Root = () => {
   const dispatch = useDispatch()
-  // const [animeList, setAnimeList] = useState([])
+  const animeList = useSelector(selectAnimeList)
   const [searchResult, setSearchResult] = useState([])
   const toggleMenu = useSelector(selectToggleMenu)
   const theme = useSelector(selectTheme)
@@ -18,8 +18,7 @@ const Root = () => {
   const location = useLocation();
 
   useEffect( () => {
-    const data = fetchApiData(genre);
-    dispatch(fetchApiData(data))
+    dispatch(fetchApiData(genre))
     // fetchFromAPI(`?&genres=${genre}`)
     // .then(data => setAnimeList(data.data))
     // .catch( console.error('error'))
