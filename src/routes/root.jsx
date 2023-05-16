@@ -1,6 +1,6 @@
-import { useState, useEffect} from 'react';
-import {Sidebar, Navbar, Main} from "./";
-import {useSelector, useDispatch} from "react-redux";
+import { useState, useEffect } from 'react';
+import { Sidebar, Navbar, Main } from "./";
+import { useSelector, useDispatch } from "react-redux";
 import { selectToggleMenu } from '../app/features/toggleMenuSlice';
 import { selectTheme } from '../app/features/themeSlice';
 import { setgenre} from '../app/features/genreSlice';
@@ -32,7 +32,6 @@ const Root = () => {
     searchAnime("")
   }, [])
   console.log(searchResult);
-  console.log(searchTerm);
 
   return (
     <div className={"App"} id={theme}>
