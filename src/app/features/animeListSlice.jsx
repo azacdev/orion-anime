@@ -16,13 +16,23 @@ const options = {
   }
 };
 
-// Generate, pending fullfilled and rejected action type 
-export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) => {
-  const {data} = await axios.get(
-    `${BASE_URL}/?&genres=$${params}`, options
-    )
-  return data.data
+export const fetchApiData = createApi({
+  reducerPath: "fetchApiData",
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, options}),
+  endpoints: (builder) => ({
+    fetchMoviesByGenre: builder.query({
+      query: (genre) => `/movies?genre=${genre}`,
+    }),
 })
+
+
+// Generate, pending fullfilled and rejected action type 
+// export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) => {
+//   const {data} = await axios.get(
+//     `${BASE_URL}/?&genres=$${params}`, options
+//     )
+//   return data.data
+// })
 
 console.log(fetchApiData());
 
