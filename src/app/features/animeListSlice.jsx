@@ -23,12 +23,6 @@ export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) 
   return data.data
 })
 
-export const fetchApiDataWithParams = (params) => {
-  return (dispatch) => {
-    return dispatch(fetchApiData(params));
-  };
-};
-
 console.log(fetchApiData());
 
 const initialState = {

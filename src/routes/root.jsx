@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sidebar, Navbar, Main } from "./";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchApiDataWithParams } from '../app/features/animeListSlice';
+import { fetchApiData } from '../app/features/animeListSlice';
 import { selectToggleMenu } from '../app/features/toggleMenuSlice';
 import { selectTheme } from '../app/features/themeSlice';
 import { setGenre} from '../app/features/genreSlice';
@@ -18,7 +18,8 @@ const Root = () => {
   const location = useLocation();
 
   useEffect( () => {
-    dispatch(fetchApiDataWithParams(genre))
+    const data = fetchApiData(genre);
+    dispatch(fetchApiData(data))
     // fetchFromAPI(`?&genres=${genre}`)
     // .then(data => setAnimeList(data.data))
     // .catch( console.error('error'))
