@@ -20,11 +20,11 @@ export const fetchApiData = createApi({
   reducerPath: "fetchApiData",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, options}),
   endpoints: (builder) => ({
-    fetchMoviesByGenre: builder.query({
-      query: (genre) => `/movies?genre=${genre}`,
+    fetchAnimesByGenre: builder.query({
+      query: (genre) => `?&genre=${genre}`,
     }),
+  })
 })
-
 
 // Generate, pending fullfilled and rejected action type 
 // export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) => {
