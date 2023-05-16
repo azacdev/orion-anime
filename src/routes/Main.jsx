@@ -1,7 +1,11 @@
 import { AnimeCard } from "./";
 import { useState } from 'react';
+import { useSelector } from "react-redux";
+import { selectAnimeList } from "../app/features/animeListSlice";
 
-const Main = ({ animeList, searchResult }) => {
+const Main = ({searchResult }) => {
+  const animeList = useSelector(selectAnimeList)
+
   const [currentPage, setCurrentPage] = useState(1)
   const [animesPerPage] = useState(24)
 
@@ -12,7 +16,7 @@ const Main = ({ animeList, searchResult }) => {
   console.log(endIndex);
 
   // Get the animes to be displayed on the current page
-  const currentAnimes = animeList.slice(startIndex, endIndex)
+  const currentAnimes = animeList.animeLists.slice(startIndex, endIndex)
   const currentSearchAnimes = searchResult.slice(startIndex, endIndex)
 
   // Change the current page
@@ -21,7 +25,7 @@ const Main = ({ animeList, searchResult }) => {
   }
 
   // Calculate the total number of pages based on the number of animes and the animes per page
-  const totalPages = Math.ceil(animeList.length / animesPerPage);
+  const totalPages = Math.ceil(animeList.animeLists.length / animesPerPage);
   
   return (
     <div>
@@ -38,11 +42,16 @@ const Main = ({ animeList, searchResult }) => {
         :
         (
           <div className="content">
-            {currentAnimes.map((item, idx) => (
+            {animeList.loading && <div>Loading</div>}
+            {!animeList.loading && animeList.error ? <div>Error: {animeList.error}</div> : null}
+            { !animeList.loading && animeList.animeLists.length ?
+            currentAnimes.map((item, idx) => (
               <div key={idx} className="anime-content">
                 {item && <AnimeCard video={item} key={idx}/>}
               </div>
-            ))}
+            ))
+            : null
+          }
           </div>
         )
       }

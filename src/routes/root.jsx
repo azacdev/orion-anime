@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sidebar, Navbar, Main } from "./";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchApiDataWithParams } from '../app/features/animeListSlice';
 import { selectToggleMenu } from '../app/features/toggleMenuSlice';
 import { selectTheme } from '../app/features/themeSlice';
 import { setGenre} from '../app/features/genreSlice';
@@ -8,7 +9,8 @@ import { fetchFromAPI } from './utils/fetchFromAPI';
 import { useLocation, Outlet } from 'react-router-dom';
 
 const Root = () => {
-  const [animeList, setAnimeList] = useState([])
+  const dispatch = useDispatch()
+  // const [animeList, setAnimeList] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const toggleMenu = useSelector(selectToggleMenu)
   const theme = useSelector(selectTheme)
@@ -16,9 +18,10 @@ const Root = () => {
   const location = useLocation();
 
   useEffect( () => {
-    fetchFromAPI(`?&genres=${genre}`)
-    .then(data => setAnimeList(data.data))
-    .catch( console.error('error'))
+    dispatch(fetchApiDataWithParams(genre))
+    // fetchFromAPI(`?&genres=${genre}`)
+    // .then(data => setAnimeList(data.data))
+    // .catch( console.error('error'))
   }, [genre])
 
   const searchAnime = (title) => {
@@ -29,6 +32,7 @@ const Root = () => {
   useEffect(() => {
     searchAnime("")
   }, [])
+  console.log(genre);
   console.log(searchResult);
 
   return (
@@ -47,7 +51,7 @@ const Root = () => {
           ( <Outlet />) 
           : 
           ( <Main 
-              animeList={animeList}
+              // animeList={animeList}
               searchResult={searchResult}
             />
           )}
