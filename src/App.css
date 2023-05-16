@@ -360,7 +360,7 @@ nav {
   justify-content: space-between;
   /* gap: var(--mb-0-75); */
   /* align-items: center; */
-  padding: 2rem;
+  padding: 2rem 2rem 0;
 }
 
 .anime-content {
@@ -421,6 +421,7 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .pagination-btn {
@@ -479,10 +480,11 @@ nav {
 }
 
 .alternate-title {
-  display: flex;
+  display: inline-block;
+  /* display: flex;
   flex-wrap: wrap;
   padding-top: 1rem;
-  justify-content: space-around;
+  justify-content: space-around; */
 }
 
 .anime-type {
