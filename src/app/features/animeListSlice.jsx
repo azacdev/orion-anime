@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import axios from "axios";
 
 const BASE_URL = 'https://anime-db.p.rapidapi.com/anime'
@@ -16,25 +15,14 @@ const options = {
   }
 };
 
-export const fetchApiData = createApi({
-  reducerPath: "fetchApiData",
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, options}),
-  endpoints: (builder) => ({
-    fetchAnimesByGenre: builder.query({
-      query: (genre) => `?&genre=${genre}`,
-    }),
-  })
+// Generate, pending fullfilled and rejected action type 
+export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) => {
+  const {data} = await axios.get(
+    `${BASE_URL}/?&genres=$${params}`, options
+    )
+  return data.data
 })
 
-// Generate, pending fullfilled and rejected action type 
-// export const fetchApiData = createAsyncThunk('data/fetchApiData', async(params) => {
-//   const {data} = await axios.get(
-//     `${BASE_URL}/?&genres=$${params}`, options
-//     )
-//   return data.data
-// })
-
-console.log(fetchApiData());
 
 const initialState = {
   loading: false,

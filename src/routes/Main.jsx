@@ -12,8 +12,6 @@ const Main = ({searchResult }) => {
   // Calculate the index of the first and last animes to be displayed on the current page
   const startIndex = (currentPage - 1) * animesPerPage;
   const endIndex = startIndex + animesPerPage;
-  console.log(startIndex);
-  console.log(endIndex);
 
   // Get the animes to be displayed on the current page
   const currentAnimes = animeList.animeLists.slice(startIndex, endIndex)
