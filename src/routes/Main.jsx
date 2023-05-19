@@ -78,7 +78,7 @@ const Main = ({searchResult }) => {
                 :
                 null
               }
-            </>
+          </>
         ) 
         :
         (
@@ -100,11 +100,11 @@ const Main = ({searchResult }) => {
                 >
                   Prev
                 </button>
-      
+    
                 <button className="btn">
                   {currentPage}
                 </button>
-      
+    
                 <button
                   className="btn pagination-btn"
                   disabled={currentPage === totalPages}
@@ -119,10 +119,7 @@ const Main = ({searchResult }) => {
           </>
         )
       }
-      
-      
     </div>
-      
   )
 }
 

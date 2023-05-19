@@ -15,7 +15,7 @@ const Root = () => {
   const searchAnime = (title) => {
     fetchFromAPI(`?&search=${title}`)
     .then((data) => setSearchResult(data.data))
-  };
+  }
 
   useEffect(() => {
     searchAnime("");
@@ -32,6 +32,7 @@ const Root = () => {
         className={toggleMenu ? 
         "scroll-bar dim" : 
         "scroll-bar"}>
+
         <Navbar searchAnime={searchAnime} />
 
         {location.pathname.startsWith("/animes/") ? (
