@@ -1,4 +1,4 @@
-import { AnimeCard } from "./";
+import { AnimeCard } from "./Index";
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 import { useFetchAnimeByGenreQuery } from "../app/features/fetchAnimeApiSlice";
@@ -7,11 +7,19 @@ import { setGenre } from "../app/features/genreSlice";
 
 const Main = ({searchResult }) => {
   const genre = useSelector(setGenre)
-  const { data }= useFetchAnimeByGenreQuery({genre: genre})
+  const { data, error, isLoading }= useFetchAnimeByGenreQuery({genre: genre})
   // const animeList = useSelector(selectAnimeList)
   const animeList = data && data.data ? data.data : null 
 
   console.log(animeList)
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   const [currentPage, setCurrentPage] = useState(1)
   const [animesPerPage] = useState(24)

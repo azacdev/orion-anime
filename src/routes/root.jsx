@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Sidebar, Navbar, Main } from "./";
+import { Sidebar, Navbar, Main } from "./Index";
 import { useSelector } from "react-redux";
 import { selectToggleMenu } from "../app/features/toggleMenuSlice";
 import { selectTheme } from "../app/features/themeSlice";
-import { setGenre } from "../app/features/genreSlice";
 import { fetchFromAPI } from "./utils/fetchFromAPI";
 import { useLocation, Outlet } from "react-router-dom";
 

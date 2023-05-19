@@ -5,7 +5,7 @@ const BASE_URL = 'https://anime-db.p.rapidapi.com/anime'
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': 'c7bf63b846msh6cc7e3d28ec4ea4p10ce26jsnf2819acfa859',
+    'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
     'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
   }
 };

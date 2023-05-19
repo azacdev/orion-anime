@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useDispatch } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import { selectedGenre } from '../app/features/genreSlice';
-import { categories } from './utils/constants';
+import { categories } from './Constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 
