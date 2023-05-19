@@ -17,11 +17,11 @@ const Root = () => {
   const genre = useSelector(setGenre);
   const location = useLocation();
   
-  const { data, error } = useFetchAnimeByGenreQuery();
+  const { data } = useFetchAnimeByGenreQuery({genre: "Horror"});
   // const animeList = data.data || [];
   useEffect(() => {
     console.log(data);
-    console.log(error);
+    // console.log(error);
   });
 
   useEffect(() => {

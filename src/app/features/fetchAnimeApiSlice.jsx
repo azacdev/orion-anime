@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 const BASE_URL = 'https://anime-db.p.rapidapi.com/anime'
-const page = 1
-const size = 500
 
 const options = {
   method: 'GET',
@@ -15,7 +13,7 @@ const options = {
 export const fetchAnimeApi = createApi({
   reducerPath: "fetchApiData",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${BASE_URL}/?page=${page}&size=${size}`,
+    baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
       headers.set('X-RapidAPI-Key', options.headers['X-RapidAPI-Key']);
       headers.set('X-RapidAPI-Host', options.headers['X-RapidAPI-Host']);
@@ -24,7 +22,11 @@ export const fetchAnimeApi = createApi({
   }),
   endpoints: (builder) => ({
     fetchAnimeByGenre: builder.query({
-      query: (genre) => ({genre}),
+      query: ({genre}) => {
+        // Modify the request URL to include dynamic page and size parameters
+        const url = `${BASE_URL}/?page=1&size=100&genres=${genre}`;
+        return { url }
+      },
     }),
   })
 })
