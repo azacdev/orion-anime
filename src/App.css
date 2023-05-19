@@ -17,8 +17,6 @@
   --header-height: 3rem;
 
   /*========== Colors ==========*/
-
-  
   --title-color: #fff;
   --title-color-dark: #a5a5a5;
   --text-color-dark: rgba(249, 211, 180, 1);
@@ -89,20 +87,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.scroll-bar::-webkit-scrollbar {
-  width: 7px;
-  height: 5px;
-}
-
-.scroll-bar::-webkit-scrollbar-thumb {
-  background-color: var(--title-color-dark);
-  height: 200px;
-}
-
-.scroll-bar::-webkit-scrollbar-track {
-  background-color: #DADEDF;
-}
-
 a {
   text-decoration: none;
   color: var(--title-color);
@@ -121,6 +105,20 @@ li {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+
+.scroll-bar::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: var(--title-color-dark);
+  height: 200px;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+  background-color: #DADEDF;
+}
 
 .dim {
   background-color: rgba(0, 0, 0, 0.5);
@@ -152,7 +150,7 @@ li {
 
  /* ================= HEADER ===================== */
 
-header {
+aside {
   position: sticky;
   left: 0;
   top: 0;
@@ -164,11 +162,8 @@ header {
   overflow-y: auto;
 }
 
-#light header {
+#light aside {
   background-color: var(--title-color);
-}
-
-#light header{
   color: var(--body-color-dark);
 }
 
@@ -235,7 +230,6 @@ header {
   margin-top: 0.3rem;
 }
 
-
  /* ================= MAIN ===================== */
 
 main {
@@ -262,7 +256,6 @@ nav {
   width: 100%;
   z-index: 1;
 }
-
 
 .menu-btn {
   display: none;
@@ -330,7 +323,6 @@ nav {
   color: var(--body-color-dark);
 }
 
-
 .search img {
   width: 25px;
   height: 25px;
@@ -338,16 +330,11 @@ nav {
 }
 
 .content {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem; */
   display: flex;
   flex-flow: row wrap;
   width: 100%;
   overflow: auto;
   justify-content: space-between;
-  /* gap: var(--mb-0-75); */
-  /* align-items: center; */
   padding: 2rem 2rem 0;
 }
 
@@ -423,7 +410,6 @@ nav {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  /* justify-content: space-between; */
   gap: 3rem;
   color: var(--title-color);
 }
@@ -469,10 +455,6 @@ nav {
 
 .alternate-title {
   display: inline-block;
-  /* display: flex;
-  flex-wrap: wrap;
-  padding-top: 1rem;
-  justify-content: space-around; */
 }
 
 .anime-type {
@@ -553,7 +535,7 @@ nav {
 }
 
 @media screen and (max-width: 576px) {
-  header {
+  aside {
     position: fixed;
     height: 100%;
     width: 240px;
@@ -584,9 +566,6 @@ nav {
     color: var(--title-color);
     cursor: pointer;
   }
-  /* .logo {
-    font-size: 2rem;
-  } */
 
   nav {
     padding: 0 1rem;

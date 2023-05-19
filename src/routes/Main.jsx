@@ -1,10 +1,17 @@
 import { AnimeCard } from "./";
 import { useState } from 'react';
 import { useSelector } from "react-redux";
-import { selectAnimeList } from "../app/features/animeListSlice";
+import { useFetchAnimeByGenreQuery } from "../app/features/fetchAnimeApiSlice";
+// import { selectAnimeList } from "../app/features/animeListSlice";
+import { setGenre } from "../app/features/genreSlice";
 
 const Main = ({searchResult }) => {
-  const animeList = useSelector(selectAnimeList)
+  const genre = useSelector(setGenre)
+  const { data }= useFetchAnimeByGenreQuery({genre: genre})
+  // const animeList = useSelector(selectAnimeList)
+  const animeList = data && data.data ? data.data : null 
+
+  console.log(animeList)
 
   const [currentPage, setCurrentPage] = useState(1)
   const [animesPerPage] = useState(24)
@@ -24,60 +31,87 @@ const Main = ({searchResult }) => {
 
   // Calculate the total number of pages based on the number of animes and the animes per page
   const totalPages = Math.ceil(animeList.animeLists.length / animesPerPage);
+  const totalSearchPages = Math.ceil(searchResult.length / animesPerPage);
   
   return (
     <div>
       {searchResult.length > 0 ?
         (
-          <div className="content">
-            {currentSearchAnimes.map((item, idx) => (
-              <div key={idx} className="anime-content">
-                {item && <AnimeCard video={item} key={idx}/>}
-              </div>
-            ))}
-          </div>
+          <>
+            <div className="content">
+              {currentSearchAnimes.map((item, idx) => (
+                <div key={idx} className="anime-content">
+                  {item && <AnimeCard video={item} key={idx}/>}
+                </div>
+              ))}
+            </div>
+            {currentSearchAnimes.length > 0 ? 
+                <div className="pagination">
+                  <button
+                    className="btn pagination-btn"
+                    disabled={currentPage === 1}
+                    onClick={() => handlePageChange(currentPage - 1)}
+                  >
+                    Prev
+                  </button>
+        
+                  <button className="btn">
+                    {currentPage}
+                  </button>
+        
+                  <button
+                    className="btn pagination-btn"
+                    disabled={currentPage === totalSearchPages}
+                    onClick={() => handlePageChange(currentPage + 1)}
+                  >
+                    Next
+                  </button>
+                </div> 
+                :
+                null
+              }
+            </>
         ) 
         :
         (
-          <div className="content">
-            {animeList.loading && <div>Loading</div>}
-            {!animeList.loading && animeList.error ? <div>Error: {animeList.error}</div> : null}
-            { !animeList.loading && animeList.animeLists.length ?
-            currentAnimes.map((item, idx) => (
-              <div key={idx} className="anime-content">
-                {item && <AnimeCard video={item} key={idx}/>}
-              </div>
-            ))
-            : null
-          }
-          </div>
+          <>
+            <div className="content">
+              {currentAnimes.map((item, idx) => (
+                <div key={idx} className="anime-content">
+                  {item && <AnimeCard video={item}/>}
+                </div>
+              ))
+              }
+            </div>
+            {currentAnimes.length > 0 ? 
+              <div className="pagination">
+                <button
+                  className="btn pagination-btn"
+                  disabled={currentPage === 1}
+                  onClick={() => handlePageChange(currentPage - 1)}
+                >
+                  Prev
+                </button>
+      
+                <button className="btn">
+                  {currentPage}
+                </button>
+      
+                <button
+                  className="btn pagination-btn"
+                  disabled={currentPage === totalPages}
+                  onClick={() => handlePageChange(currentPage + 1)}
+                >
+                  Next
+                </button>
+              </div> 
+              :
+              null
+            }
+          </>
         )
       }
-      {currentAnimes.length > 0 || currentSearchAnimes.length > 0 ? 
-        <div className="pagination">
-          <button
-            className="btn pagination-btn"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-          >
-            Prev
-          </button>
-
-          <button className="btn">
-            {currentPage}
-          </button>
-
-          <button
-            className="btn pagination-btn"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-          >
-            Next
-          </button>
-        </div> 
-        :
-        null
-      }
+      
       
     </div>
       
