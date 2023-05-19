@@ -17,18 +17,15 @@ const Root = () => {
   const genre = useSelector(setGenre);
   const location = useLocation();
   
-  const { data } = useFetchAnimeByGenreQuery({genre: "Horror"});
+  const { data } = useFetchAnimeByGenreQuery({genre: genre});
   // const animeList = data.data || [];
   useEffect(() => {
     console.log(data);
     // console.log(error);
   });
-
+  
   useEffect(() => {
     dispatch(fetchApiData(genre));
-    // fetchFromAPI(`?&genres=${genre}`)
-    // .then(data => setAnimeList(data.data))
-    // .catch( console.error('error'))
   }, [genre]);
 
   const searchAnime = (title) => {
@@ -41,26 +38,24 @@ const Root = () => {
     searchAnime("");
   }, []);
   console.log(genre);
-  // console.log(searchResult);
 
   return (
     <div className={"App"} id={theme}>
-      {/* {data.map((item, idx) => (
-        <div key={idx} className="anime-content">
-          <img src={item.image} className="anime-image" alt="anime-image" />
-          <p className="anime-title">{item.title}</p>
-        </div>
-      ))} */}
-      <Sidebar toggleMenu={toggleMenu} setSearchResult={setSearchResult} />
+      <Sidebar 
+        toggleMenu={toggleMenu}
+        setSearchResult={setSearchResult} 
+      />
 
-      <main className={toggleMenu ? "scroll-bar dim" : "scroll-bar"}>
+      <main 
+        className={toggleMenu ? 
+        "scroll-bar dim" : 
+        "scroll-bar"}>
         <Navbar searchAnime={searchAnime} />
 
         {location.pathname.startsWith("/animes/") ? (
           <Outlet />
         ) : (
           <Main
-            // animeList={animeList}
             searchResult={searchResult}
           />
         )}
