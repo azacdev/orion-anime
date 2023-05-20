@@ -219,7 +219,7 @@ aside {
 #light .btn-link:hover {
   background-color: rgba(220, 220, 220, 0.3);
 }
-.categoty-name{
+.category-name{
   font-size: var(--normal-font-size);
   padding-right: 1rem;
   text-align: center;
