@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { selectedGenre } from '../app/features/genreSlice';
+import { resetCurrentPage } from '../app/features/currentPageSlice';
 import { categories } from './Constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
@@ -10,19 +11,20 @@ const Sidebar = ({toggleMenu, setSearchResult }) => {
 
   const handleCategoryClick = (genre) => {
     setSearchResult([]);
-    dispatch(selectedGenre(genre));
+    dispatch(selectedGenre(genre))
+    dispatch(resetCurrentPage())
   };
 
   return (
     <aside className={toggleMenu ? 'scroll-bar show-menu' : "scroll-bar"}>
-      <Link to="/">
+      <Link to="/" className='logo'>
         Orion<span>Anime</span>
       </Link>
 
       <ul className='btn'>
         <p className='category'>Categories</p>
         <Link to="/">
-          <li className='btn-link' onClick={handleCategoryClick("")}>
+          <li className='btn-link' onClick={()=> handleCategoryClick("")}>
             <span className='icon'>
               <BiHomeAlt2/>
             </span>
@@ -31,7 +33,7 @@ const Sidebar = ({toggleMenu, setSearchResult }) => {
         </Link>
 
         <Link to="/">
-          <li className='btn-link' onClick={handleCategoryClick("")}>
+          <li className='btn-link' onClick={()=> handleCategoryClick("")}>
             <span className='icon'>
               <AiOutlineStar/>
             </span>
@@ -44,7 +46,8 @@ const Sidebar = ({toggleMenu, setSearchResult }) => {
           <Link to="/" key={index}>
             <li 
               className='btn-link'
-              onClick={handleCategoryClick(category.name)}>
+              onClick={()=> handleCategoryClick(category.name)}
+              >
               <span className='icon'>{category.icon}</span>
               <span className='category-name'>{category.name}</span>
             </li>

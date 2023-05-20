@@ -9,7 +9,6 @@ import SearchIcon from '../search.svg';
 import { useLocation } from "react-router-dom";
 
 const Navbar = ({ searchAnime }) => {
-
   const theme = useSelector(selectTheme)
   const searchTerm = useSelector(selectSearchTerm)
   const dispatch = useDispatch()
@@ -36,7 +35,9 @@ const Navbar = ({ searchAnime }) => {
 
   return (
     <nav className='sticky'>
-      <button className='menu-btn' onClick={() => dispatch(openMenu())}><BiMenuAltLeft/></button>
+      <button className='menu-btn' onClick={() => dispatch(openMenu())}>
+        <BiMenuAltLeft/>
+      </button>
       
       <button className='btn nav-icons' onClick={()=> dispatch(toggleTheme())}>
         {theme === "dark" ? <BiBrightnessHalf/> : <BiBrightness/>}
@@ -68,3 +69,4 @@ const Navbar = ({ searchAnime }) => {
 }
 
 export default Navbar
+

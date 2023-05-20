@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-const BASE_URL = 'https://anime-db.p.rapidapi.com/anime'
+const BASE_URL = 'https://anime-db.p.rapidapi.com/anime?page=1&size=500'
 
 const options = {
   method: 'GET',
@@ -22,9 +22,9 @@ export const fetchAnimeApi = createApi({
   }),
   endpoints: (builder) => ({
     fetchAnimeByGenre: builder.query({
-      query: ({genre}) => {
+      query: ({params}) => {
         // Modify the request URL to include dynamic page and size parameters
-        const url = `${BASE_URL}/?page=1&size=100&genres=${genre}`;
+        const url = `${BASE_URL}/${params}`;
         return { url }
       },
     }),

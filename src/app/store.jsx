@@ -4,6 +4,7 @@ import toggleMenuReducer from "./features/toggleMenuSlice"
 import themeReducer from "./features/themeSlice"
 import genreReducer from "./features/genreSlice"
 import searchTermReducer from "./features/searchTermSlice"
+import currentPageReducer from "./features/currentPageSlice"
 import { fetchAnimeApi } from "./features/fetchAnimeApiSlice"
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     theme: themeReducer,
     genre: genreReducer,
     searchTerm: searchTermReducer,
+    currentPage: currentPageReducer,
     [fetchAnimeApi.reducerPath]: fetchAnimeApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
