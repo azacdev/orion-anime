@@ -61,7 +61,9 @@ const Navbar = ({ searchAnime }) => {
       <button>
         <a href="https://myanimelist.net/login" target="_blank" className='login'>
           <p>LOGIN</p>
-          <span className='btn nav-icons'><IoIosContact/></span>
+          <span className='btn nav-icons'>
+            <IoIosContact/>
+          </span>
         </a>
       </button>
   </nav>
