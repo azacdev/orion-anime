@@ -4,31 +4,22 @@ import { Sidebar, Navbar, Main } from "./Index";
 import { useLocation, Outlet } from "react-router-dom";
 import { selectToggleMenu } from "../app/features/toggleMenuSlice";
 import { selectTheme } from "../app/features/themeSlice";
-import { useFetchAnimeByGenreQuery } from "../app/features/fetchAnimeApiSlice";
-import { setGenre } from "../app/features/genreSlice";
-import { selectedGenre } from '../app/features/genreSlice';
-
+import { selectSearchTerm } from "../app/features/searchTermSlice";
 import { fetchFromAPI } from "./utils/fetchFromAPI";
 
 const Root = () => {
-  const dispatch = useDispatch()
-  const genre = useSelector(setGenre)
+  const searchTerm = useSelector(selectSearchTerm)
   const [searchResult, setSearchResult] = useState([]);
   const toggleMenu = useSelector(selectToggleMenu);
   const theme = useSelector(selectTheme);
   const location = useLocation();
 
-  
-  const searchAnime = (title) => {
-    const { data } = useFetchAnimeByGenreQuery({params: `&search=${search}`})
-    fetchFromAPI(`?&search=${title}`)
-    .then(data => setSearchResult(data.data))
-  }
-
   const searchAnime = (title) => {
     fetchFromAPI(`?&search=${title}`)
     .then(data => setSearchResult(data.data))
+    .catch( console.error('error'))
   }
+  console.log(searchTerm);
 
   useEffect(() => {
     searchAnime("");

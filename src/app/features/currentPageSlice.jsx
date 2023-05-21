@@ -15,7 +15,7 @@ export const currentPageSlice = createSlice({
       state.count -= 1
     },
     resetCurrentPage: (state) => {
-        state.count = 0
+        state.count = 1
     }
   }
 })

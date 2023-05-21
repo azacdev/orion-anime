@@ -1,28 +1,27 @@
 import { AnimeCard } from "./Index";
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useFetchAnimeByGenreQuery } from "../app/features/fetchAnimeApiSlice";
 import { setGenre } from "../app/features/genreSlice";
 import { setCurrentPage } from "../app/features/currentPageSlice";
 import { incrementCurrentPage, decrementCurrentPage } from "../app/features/currentPageSlice";
+import { fetchFromAPI } from "./utils/fetchFromAPI";
 
 const Main = ({ searchResult }) => {
   const dispatch = useDispatch()
   const genre = useSelector(setGenre)
-  const { data } = useFetchAnimeByGenreQuery({params: `&genres=${genre}`})
   const [animeList, setAnimeList] = useState([])
-  
+  console.log(genre);
+
   useEffect(() => {
-    const nestedData = data && data.data ? data.data : null;
-    const animeData = nestedData ? Object.values(nestedData) : [];
-    setAnimeList(animeData)
-  }, [])
+    fetchFromAPI(`?&genres=${genre}`)
+    .then(data => setAnimeList(data.data))
+    .catch( console.error('error'))
+  }, [genre]);
 
   console.log(animeList);
   
   const currentPage = useSelector(setCurrentPage)
   const [animesPerPage] = useState(24)
-  console.log(currentPage);
 
   // Calculate the index of the first and last animes to be displayed on the current page
   const startIndex = (currentPage - 1) * animesPerPage;
@@ -32,14 +31,13 @@ const Main = ({ searchResult }) => {
   const currentAnimes = animeList.slice(startIndex, endIndex)
   const currentSearchAnimes = searchResult.slice(startIndex, endIndex)
 
-  // Change the current page
-  // const handlePageChange = (pageNumber) => {
-  //   setCurrentPage(pageNumber)
-  // }
-
   // Calculate the total number of pages based on the number of animes and the animes per page
   const totalPages = Math.ceil(animeList.length / animesPerPage);
   const totalSearchPages = Math.ceil(searchResult.length / animesPerPage);
+
+  const disablePages = () => {
+
+  }
   
   return (
     <div>
@@ -65,7 +63,7 @@ const Main = ({ searchResult }) => {
           </div>
         )
       }
-      {currentSearchAnimes && currentAnimes ? 
+      {currentSearchAnimes.length > 0 || currentAnimes.length > 0 ? 
         <div className="pagination">
           <button
             className="btn pagination-btn"
