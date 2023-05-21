@@ -1,4 +1,4 @@
-import { AnimeCard } from "./AnimeCard";
+import AnimeCard from "./AnimeCard";
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { setGenre } from "../app/features/genreSlice";
