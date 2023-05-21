@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { store } from './app/store'
+import { Provider } from 'react-redux'
 import  Root  from './routes/root'
 import AnimeDetails  from './routes/AnimeDetails'
 import ErrorPage from './error-page'
-import { store } from './app/store'
-import { Provider } from 'react-redux'
 import './App.css'
 
 const router = createBrowserRouter([
