@@ -28,20 +28,20 @@ This is an Anime Website project that allows users to explore and discover vario
 
 2. Navigate to the project directory:
 
-cd anime-website
+   cd anime-website
 
 3. Install dependencies:
 
-npm install
+   npm install
 
 4. Set up environment variables:
 
-Rename the .env.example file to .env.
-Replace YOUR_RAPID_API_KEY with your RapidAPI key in the .env file.
+  Rename the .env.example file to .env.
+  Replace YOUR_RAPID_API_KEY with your RapidAPI key in the .env file.
 
 5. Start the development server:
 
-Open your browser and visit http://localhost:3000 to see the website.
+   Open your browser and visit http://localhost:3000 to see the website.
 
 Usage
 On the home page, you can browse the anime shows and movies by genre using the provided links.
