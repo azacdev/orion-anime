@@ -1,6 +1,4 @@
-# orion-anime
-
-# Anime Website
+# Orion Anime
 
 This is an Anime Website project that allows users to explore and discover various anime shows and movies. The website provides features such as browsing anime by genre, searching for specific anime titles, and viewing detailed information about each anime.
 
