@@ -120,6 +120,15 @@ li {
   background-color: #DADEDF;
 }
 
+.svg-animate {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  height: 85vh;
+}
+
 .dim {
   background-color: rgba(0, 0, 0, 0.5);
 }
