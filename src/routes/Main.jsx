@@ -1,11 +1,10 @@
 import AnimeCard from "./AnimeCard";
-import Loading from "./Loading";
 import { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { setGenre } from "../app/features/genreSlice";
 import { setCurrentPage } from "../app/features/currentPageSlice";
 import { incrementCurrentPage, decrementCurrentPage } from "../app/features/currentPageSlice";
-import { fetchFromAPI } from "./utils/fetchFromAPI";
+import {fetchFromAPI} from "./fetchFromAPI";
 
 const Main = ({ searchResult }) => {
   const dispatch = useDispatch()
@@ -15,6 +14,7 @@ const Main = ({ searchResult }) => {
   console.log(genre);
   console.log(animeList);
 
+  // Fetch Anime by Genre
   useEffect(() => {
     fetchFromAPI(`?&genres=${genre}`)
     .then(data => setAnimeList(data.data))
@@ -35,20 +35,16 @@ const Main = ({ searchResult }) => {
   // Calculate the total number of pages based on the number of animes and the animes per page
   const totalPages = Math.ceil(animeList.length / animesPerPage);
   const totalSearchPages = Math.ceil(searchResult.length / animesPerPage);
-  
+
+  // Scroll to Top and decrement currentPage
   const handlePrevPage = () => {
     dispatch(decrementCurrentPage())
-    const scrollToPosition = mainRef.current.offsetTop - 90;
-    mainRef.current.scrollIntoView({  top: scrollToPosition, behavior: "smooth" });
+    mainRef.current.scrollIntoView({top: scrollToPosition, behavior: "smooth" });
   }
-
+  // Scroll to Top and Increment currentPage
   const handleNextPage = () => {
     dispatch(incrementCurrentPage())
-    const top = mainRef.current.offsetTop
-    const scrollToPosition = mainRef.current.offsetTop - 91;
-    console.log(top);
-    console.log(scrollToPosition);
-    mainRef.current.scrollIntoView({ top: scrollToPosition, behavior: "smooth" });
+    mainRef.current.scrollIntoView({top: 0, behavior: "smooth" });
   }
 
   if (currentAnimes.length === 0) return (
@@ -80,7 +76,6 @@ const Main = ({ searchResult }) => {
   )
   
   return (
-    
     <div ref={mainRef}>
       {searchResult.length > 0 ?
         (

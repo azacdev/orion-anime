@@ -129,6 +129,10 @@ li {
   height: 85vh;
 }
 
+#light .svg-animate {
+  color: var(--body-color-dark);
+}
+
 .dim {
   background-color: rgba(0, 0, 0, 0.5);
 }

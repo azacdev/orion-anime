@@ -5,6 +5,7 @@ import { selectTheme, toggleTheme } from "../app/features/themeSlice";
 import { selectSearchTerm, setSearchTerm } from "../app/features/searchTermSlice";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi"
 import { IoIosContact } from "react-icons/io"
+import { resetCurrentPage } from '../app/features/currentPageSlice';
 import SearchIcon from '../search.svg';
 import { useLocation } from "react-router-dom";
 
@@ -33,6 +34,20 @@ const Navbar = ({ searchAnime }) => {
     }
   }
 
+  // Invoke SearchAnime and Reset currentPage with Enter Key
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      searchAnime(searchTerm)
+      dispatch(resetCurrentPage())
+    }
+  }
+
+  // Invoke SearchAnime and Reset currentPage onClick
+  const handleClicked = () => {
+    searchAnime(searchTerm)
+    dispatch(resetCurrentPage())
+  }
+
   return (
     <nav className='sticky'>
       <button className='menu-btn' onClick={() => dispatch(openMenu())}>
@@ -49,11 +64,12 @@ const Navbar = ({ searchAnime }) => {
             <input
               value={searchTerm}
               onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+              onKeyDown={handleKeyPress}
             />
             <img
               src={SearchIcon}
               alt="search"
-              onClick={() => searchAnime(searchTerm)}
+              onClick={handleClicked}
             />
           </div>
         </div>

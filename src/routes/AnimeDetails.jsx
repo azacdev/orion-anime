@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { fetchFromAPI } from './utils/fetchFromAPI'
+import {fetchFromAPI}  from './fetchFromAPI'
 
 const AnimeDetails = () => {
   const { id } = useParams()
   const [animeDetails, setAnimeDetails] = useState(null)
   
+  // Fetch Anime Details
   useEffect(() => {
     fetchFromAPI(`by-id/${id}`)
     .then(data => setAnimeDetails(data))
   }, [id])
-
-  console.log(animeDetails);
 
   if (!animeDetails) return (
     <svg className='svg-animate' version="1.1" id="L6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

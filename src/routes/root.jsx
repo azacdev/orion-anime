@@ -7,7 +7,7 @@ import { useLocation, Outlet } from "react-router-dom";
 import { selectToggleMenu } from "../app/features/toggleMenuSlice";
 import { selectTheme } from "../app/features/themeSlice";
 import { selectSearchTerm } from "../app/features/searchTermSlice";
-import { fetchFromAPI } from "./utils/fetchFromAPI";
+import {fetchFromAPI} from "./fetchFromAPI";
 
 const Root = () => {
   const searchTerm = useSelector(selectSearchTerm)
