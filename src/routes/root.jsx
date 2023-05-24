@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar"
 import Main from "./Main"
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useLocation, Outlet } from "react-router-dom";
 import { selectToggleMenu } from "../app/features/toggleMenuSlice";
 import { selectTheme } from "../app/features/themeSlice";
 import { selectSearchTerm } from "../app/features/searchTermSlice";
-import {fetchFromAPI} from "./fetchFromAPI";
+import { fetchFromAPI } from "./fetchAnimeAPI";
 
 const Root = () => {
   const searchTerm = useSelector(selectSearchTerm)
@@ -21,7 +21,6 @@ const Root = () => {
     .then(data => setSearchResult(data.data))
     .catch( console.error('error'))
   }
-  console.log(searchTerm);
 
   useEffect(() => {
     searchAnime("");

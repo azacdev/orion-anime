@@ -4,15 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setGenre } from "../app/features/genreSlice";
 import { setCurrentPage } from "../app/features/currentPageSlice";
 import { incrementCurrentPage, decrementCurrentPage } from "../app/features/currentPageSlice";
-import {fetchFromAPI} from "./fetchFromAPI";
+import {fetchFromAPI} from "./fetchAnimeAPI";
 
 const Main = ({ searchResult }) => {
   const dispatch = useDispatch()
   const genre = useSelector(setGenre)
   const [animeList, setAnimeList] = useState([])
   const mainRef = useRef(null);
-  console.log(genre);
-  console.log(animeList);
 
   // Fetch Anime by Genre
   useEffect(() => {
@@ -50,7 +48,7 @@ const Main = ({ searchResult }) => {
   if (currentAnimes.length === 0) return (
     <svg className='svg-animate' version="1.1" id="L6" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve">
-      <rect fill="none" stroke="#fff" strokeWidth="4" x="25" y="25" width="50" height="50">
+      <rect fill="none" stroke="#a5a5a5" strokeWidth="4" x="25" y="25" width="50" height="50">
         <animateTransform
           attributeName="transform"
           dur="0.5s"
@@ -61,7 +59,7 @@ const Main = ({ searchResult }) => {
           attributeType="XML"
           begin="rectBox.end"/>
       </rect>
-      <rect x="27" y="27" fill="#fff" width="46" height="50">
+      <rect x="27" y="27" fill="#a5a5a5" width="46" height="50">
         <animate
           attributeName="height"
           dur="1.3s"

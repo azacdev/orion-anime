@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {fetchFromAPI}  from './fetchFromAPI'
+import {fetchFromAPI}  from './fetchAnimeAPI'
 
 const AnimeDetails = () => {
   const { id } = useParams()
