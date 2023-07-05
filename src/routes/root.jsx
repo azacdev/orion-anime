@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar"
-import Main from "./Main"
+import Navbar from "./navbar/Navbar";
+import Sidebar from "./sidebar/Sidebar"
+import Main from "./main/Main"
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, Outlet } from "react-router-dom";

@@ -1,8 +1,9 @@
+import "./sidebar.css"
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { selectedGenre } from '../app/features/genreSlice';
-import { resetCurrentPage } from '../app/features/currentPageSlice';
-import { categories } from './Constants';
+import { selectedGenre } from '../../app/features/genreSlice';
+import { resetCurrentPage } from '../../app/features/currentPageSlice';
+import { categories } from '../Constants';
 import { BiHomeAlt2 } from "react-icons/bi"
 import { AiOutlineStar } from "react-icons/ai"
 

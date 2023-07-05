@@ -1,0 +1,131 @@
+nav {
+  position: relative;
+  transition: top 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--container-color-dark);
+  padding: 1.5rem;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.menu-btn {
+  display: none;
+}
+
+#light nav {
+  background-color: var(--container-color);
+}
+
+.login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--title-color);
+  background: transparent;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#light .login {
+  color: var(--body-color-dark);
+}
+
+.login:hover {
+  background-color: rgba(220, 220, 220, 0.3);
+}
+
+.search-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  min-width: 0px;
+  vertical-align: top;
+}
+
+.hide-search {
+  display: none;
+}
+
+.search input {
+  font-size: 1.25rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: var(--title-color);
+  background: transparent;
+}
+
+#light .search input {
+  color: var(--body-color-dark);
+}
+
+.search img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .search input {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  nav {
+    padding: 0 1rem;
+  }
+
+  .search {
+    display: flex;
+    flex-basis: 100%;
+    order: 4;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .search-content {
+    padding-top: 0;
+  }
+
+  .search input {
+    width: 150px;
+    padding: 0rem 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .search img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+/* For small devices */
+@media screen and (max-width: 350px) {
+  .search {
+    padding: 0.25rem;
+  }
+
+  .search input {
+    width: 100px;
+    padding: 0.25rem;
+    font-size: 1rem;
+  }
+}

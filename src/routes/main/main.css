@@ -1,0 +1,72 @@
+.content {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  overflow: auto;
+  justify-content: space-between;
+  padding: 2rem 2rem 0;
+}
+
+.anime-content {
+  padding: 1rem;
+}
+
+.anime-content {
+  flex-basis: 25%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 25%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pagination-btn {
+  padding: 0.3rem 0.8rem;
+  background-color: var(--title-color-dark);
+  border-radius: 0.25rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 1200px) {
+  .anime-content {
+    flex-basis: 33.3333%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 33.3333%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .anime-content {
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .anime-content {
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .anime-content {
+    flex-basis: 100%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 100%;
+  }
+}
