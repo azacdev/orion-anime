@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Feed from "./components/feed";
+import Feed from "./components/Feed";
 import AnimeDetails from "./components/animedetails/AnimeDetails";
 
 const App = () => {

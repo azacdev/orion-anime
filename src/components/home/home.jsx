@@ -17,15 +17,15 @@ const Home = ({ searchResult }) => {
   const mainRef = useRef(null);
 
   // Fetch Anime by Genre
-  const fetchSearchAnime = useCallback(() => {
+  const fetchAnimeList = useCallback(() => {
     fetchFromAPI(`?&genres=${genre}`)
       .then((data) => setAnimeList(data.data))
       .catch(console.error("error"));
-  }, []);
+  }, [genre]);
 
   useEffect(() => {
-    fetchSearchAnime();
-  }, [genre]);
+    fetchAnimeList();
+  }, [fetchAnimeList]);
 
   const currentPage = useSelector(setCurrentPage);
   const [animesPerPage] = useState(48);

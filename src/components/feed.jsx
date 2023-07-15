@@ -11,7 +11,6 @@ const Feed = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [theme, setTheme] = useState("dark");
-  const [shouldSearchAnime, setShouldSearchAnime] = useState(false);
   const toggleMenu = useSelector(selectToggleMenu);
   const location = useLocation();
 
@@ -20,17 +19,14 @@ const Feed = () => {
   };
 
   const searchAnime = useCallback(() => {
-    fetchFromAPI(`?&search=${title}`)
+    fetchFromAPI(`?&search=${searchTerm}`)
       .then((data) => setSearchResult(data.data))
       .catch(console.error("error"));
-  }, []);
+  }, [searchTerm]);
 
   useEffect(() => {
-    if (shouldSearchAnime) {
-      searchAnime("");
-      setShouldSearchAnime(false);
-    }
-  }, [shouldSearchAnime]);
+      searchAnime(); 
+  }, [searchAnime]);
 
   return (
     <div className="App" id={theme}>
