@@ -19,17 +19,10 @@ const Feed = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const searchAnime = useCallback(async (title) => {
-    try {
-      const res = await fetchFromAPI(`?&search=${title}`);
-      if (!res.ok) {
-        throw new Error("Oops! An error has occured");
-      }
-      const data = await res.json();
-      setSearchResult(data.data);
-    } catch (error) {
-      console.error(error);
-    }
+  const searchAnime = useCallback(() => {
+    fetchFromAPI(`?&search=${title}`)
+      .then((data) => setSearchResult(data.data))
+      .catch(console.error("error"));
   }, []);
 
   useEffect(() => {
