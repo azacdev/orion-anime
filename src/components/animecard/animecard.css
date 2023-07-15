@@ -1,0 +1,74 @@
+.anime-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  border-radius: 1rem;
+  margin: 0;
+}
+
+.anime-card:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+}
+
+.anime-image {
+  border-radius: 0.3rem;
+  object-fit: cover;
+  height: 170px;
+  width: 120px;
+  transition: 0.1s ease-in-out;
+}
+
+.anime-image:hover {
+  transform: scale(1.04);
+}
+
+.anime-title {
+  font-size: var(--mb-1);
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 10px;
+  width: 145px;
+  color: var(--title-color);
+}
+
+#light .anime-title {
+  color: var(--body-color-dark);
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
+  .anime-card {
+    height: 251px;
+  }
+  .anime-image {
+    height: 220px;
+    width: 160px;
+  }
+  .anime-title {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .anime-image {
+    height: 206px;
+    width: 145px;
+  }
+}

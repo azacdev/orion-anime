@@ -103,6 +103,13 @@ li {
   list-style: none;
 }
 
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 
 .scroll-bar::-webkit-scrollbar {
@@ -119,15 +126,6 @@ li {
   background-color: #dadedf;
 }
 
-.svg-animate {
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  display: grid;
-  place-items: center;
-  height: 85vh;
-}
-
 .dim {
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -135,13 +133,6 @@ li {
 .react-paginate-previous,
 .react-paginate-next {
   cursor: pointer;
-}
-
-.App {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .btn {
@@ -161,7 +152,7 @@ li {
 main {
   flex: 1;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* For medium devices */

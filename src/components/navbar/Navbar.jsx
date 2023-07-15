@@ -1,21 +1,20 @@
-import "./navbar.css"
+import "./navbar.css";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { openMenu, closeMenu } from "../../app/features/toggleMenuSlice";
-import { selectTheme, toggleTheme } from "../../app/features/themeSlice";
-import {
-  selectSearchTerm,
-  setSearchTerm,
-} from "../../app/features/searchTermSlice";
+import { useDispatch } from "react-redux";
+import { openMenu, closeMenu } from "../../slices/toggleMenuSlice";
 import { BiBrightnessHalf, BiBrightness, BiMenuAltLeft } from "react-icons/bi";
 import { IoIosContact } from "react-icons/io";
-import { resetCurrentPage } from "../../app/features/currentPageSlice";
+import { resetCurrentPage } from "../../slices/currentPageSlice";
 import SearchIcon from "../../search.svg";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Navbar = ({ searchAnime }) => {
-  const theme = useSelector(selectTheme);
-  const searchTerm = useSelector(selectSearchTerm);
+const Navbar = ({
+  searchTerm,
+  setSearchTerm,
+  searchAnime,
+  theme,
+  toggleTheme,
+}) => {
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -47,32 +46,35 @@ const Navbar = ({ searchAnime }) => {
 
   // Invoke SearchAnime and Reset currentPage onClick
   const handleClicked = () => {
+    setShouldSearchAnime(true);
     searchAnime(searchTerm);
     dispatch(resetCurrentPage());
   };
 
   return (
-    <nav className="sticky">
-      <button className="menu-btn" onClick={() => dispatch(openMenu())}>
-        <BiMenuAltLeft />
-      </button>
-
+    <nav>
+      <div className="toggle-btns">
       <button className="btn nav-icons" onClick={() => dispatch(toggleTheme())}>
         {theme === "dark" ? <BiBrightnessHalf /> : <BiBrightness />}
       </button>
+      <button className="menu-btn" onClick={() => dispatch(openMenu())}>
+        <BiMenuAltLeft />
+      </button>
+      </div>
 
       {location.pathname.startsWith("/animes/") ? null : (
         <div className="search">
           <div className="search-content">
             <input
               value={searchTerm}
-              onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+              onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={handleKeyPress}
             />
             <img src={SearchIcon} alt="search" onClick={handleClicked} />
           </div>
         </div>
       )}
+
       <button>
         <a
           href="https://myanimelist.net/login"

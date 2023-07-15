@@ -1,13 +1,10 @@
 aside {
-  position: sticky;
-  left: 0;
-  top: 0;
   height: 100vh;
   width: 250px;
-  z-index: 999;
   color: var(--title-color);
   background-color: var(--body-color-dark);
   overflow-y: auto;
+  padding-bottom: 4rem;
 }
 
 #light aside {
@@ -15,30 +12,14 @@ aside {
   color: var(--body-color-dark);
 }
 
-.logo {
-  padding: 1.1rem;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-weight: 700;
-  color: var(--text-color-dark);
-}
-
-.logo span {
-  color: var(--title-color);
-  margin-left: 0.5rem;
-}
-
-#light .logo span {
-  color: var(--body-color-dark);
+aside ul {
+  padding: 0;
 }
 
 .category {
   font-size: var(--normal-font-size);
   padding: 1.5rem 0 1.5rem 1.5rem;
-  border-top: 1px solid var(--title-color-dark);
+  border-top: 1px solid #666666;
 }
 
 #light .btn {
@@ -81,10 +62,12 @@ aside {
 @media screen and (max-width: 576px) {
   aside {
     position: fixed;
+    top: 0;
+    right: 0;
     height: 100%;
-    width: 240px;
+    width: 70%;
     background-color: var(--container-color-dark);
-    transform: translateX(-100%);
+    transform: translateX(200%);
     overflow-y: auto;
     z-index: 1200;
     transition: 0.3s ease-in-out;

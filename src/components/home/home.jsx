@@ -1,30 +1,34 @@
 import AnimeCard from "../animecard/AnimeCard";
-import "./main.css"
-import { useEffect, useRef, useState } from "react";
+import "./home.css";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setGenre } from "../../app/features/genreSlice";
-import { setCurrentPage } from "../../app/features/currentPageSlice";
+import { setGenre } from "../../slices/genreSlice";
+import { setCurrentPage } from "../../slices/currentPageSlice";
 import {
   incrementCurrentPage,
   decrementCurrentPage,
-} from "../../app/features/currentPageSlice";
-import { fetchFromAPI } from "../fetchAnimeAPI";
+} from "../../slices/currentPageSlice";
+import { fetchFromAPI } from "../utils/fetchAnimeAPI";
 
-const Main = ({ searchResult }) => {
+const Home = ({ searchResult }) => {
   const dispatch = useDispatch();
   const genre = useSelector(setGenre);
   const [animeList, setAnimeList] = useState([]);
   const mainRef = useRef(null);
 
   // Fetch Anime by Genre
-  useEffect(() => {
+  const fetchSearchAnime = useCallback(() => {
     fetchFromAPI(`?&genres=${genre}`)
       .then((data) => setAnimeList(data.data))
       .catch(console.error("error"));
+  }, []);
+
+  useEffect(() => {
+    fetchSearchAnime();
   }, [genre]);
 
   const currentPage = useSelector(setCurrentPage);
-  const [animesPerPage] = useState(24);
+  const [animesPerPage] = useState(48);
 
   // Calculate the index of the first and last animes to be displayed on the current page
   const startIndex = (currentPage - 1) * animesPerPage;
@@ -49,57 +53,56 @@ const Main = ({ searchResult }) => {
     mainRef.current.scrollIntoView({ top: -91, behavior: "smooth" });
   };
 
-  if (currentAnimes.length === 0)
-    return (
-      <svg
-        className="svg-animate"
-        version="1.1"
-        id="L6"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        viewBox="0 0 100 100"
-        enableBackground="new 0 0 100 100"
-        xmlSpace="preserve"
-      >
-        <rect
-          fill="none"
-          stroke="#a5a5a5"
-          strokeWidth="4"
-          x="25"
-          y="25"
-          width="50"
-          height="50"
-        >
-          <animateTransform
-            attributeName="transform"
-            dur="0.5s"
-            from="0 50 50"
-            to="180 50 50"
-            type="rotate"
-            id="strokeBox"
-            attributeType="XML"
-            begin="rectBox.end"
-          />
-        </rect>
-        <rect x="27" y="27" fill="#a5a5a5" width="46" height="50">
-          <animate
-            attributeName="height"
-            dur="1.3s"
-            attributeType="XML"
-            from="50"
-            to="0"
-            id="rectBox"
-            fill="freeze"
-            begin="0s;strokeBox.end"
-          />
-        </rect>
-      </svg>
-    );
 
   return (
-    <div ref={mainRef}>
+    <div ref={mainRef} className="home scroll-bar">
+      {currentAnimes.length === 0 && (
+        <svg
+          className="svg-animate"
+          version="1.1"
+          id="L6"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 100 100"
+          enableBackground="new 0 0 100 100"
+          xmlSpace="preserve"
+        >
+          <rect
+            fill="none"
+            stroke="#666666"
+            strokeWidth="4"
+            x="25"
+            y="25"
+            width="50"
+            height="50"
+          >
+            <animateTransform
+              attributeName="transform"
+              dur="0.5s"
+              from="0 50 50"
+              to="180 50 50"
+              type="rotate"
+              id="strokeBox"
+              attributeType="XML"
+              begin="rectBox.end"
+            />
+          </rect>
+          <rect x="27" y="27" fill="#666666" width="46" height="50">
+            <animate
+              attributeName="height"
+              dur="1.3s"
+              attributeType="XML"
+              from="50"
+              to="0"
+              id="rectBox"
+              fill="freeze"
+              begin="0s;strokeBox.end"
+            />
+          </rect>
+        </svg>
+      )}
       {searchResult.length > 0 ? (
         <div className="content">
           {currentSearchAnimes.map((item, idx) => (
@@ -146,4 +149,4 @@ const Main = ({ searchResult }) => {
   );
 };
 
-export default Main;
+export default Home;
