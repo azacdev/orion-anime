@@ -1,7 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import { PiSignInFill } from "react-icons/pi";
 import { FiMenu } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { openMenu } from "../features/toggleMenuSlice";
@@ -9,14 +9,25 @@ import { openMenu } from "../features/toggleMenuSlice";
 const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const hideMenu = location.pathname === "/";
   console.log(hideMenu);
-  
-  const handleSearch = () => {
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      navigate(`animes/search/${searchTerm}`);
+    }
+    setSearchTerm("");
     setExpanded(!expanded);
   };
+
+  // const handleSubmit = (e) => {
+    
+  // };
 
   const handleMenu = () => {
     dispatch(openMenu());
@@ -48,9 +59,10 @@ const Navbar = () => {
             className={`${
               expanded ? "w-32" : "hidden"
             } text-black px-2 py-[2px] border-y-[1px] border-l-[1px] border-[#666666] rounded-l-lg outline-0 transition-all duration-300`}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="" onClick={handleSearch}>
-            <BiSearch className="text-2xl cursor-pointer" />
+          <button className="text-3xl cursor-pointer" onClick={handleSearch}>
+            <BiSearch />
           </button>
         </div>
         <a

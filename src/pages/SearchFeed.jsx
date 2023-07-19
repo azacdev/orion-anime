@@ -1,33 +1,34 @@
+import { Link, useParams } from "react-router-dom";
+import { useGetSearchAnimeQuery } from "../features/apiSlice";
 import { useEffect, useState } from "react";
-import { useGetUpcomingAnimeQuery } from "../features/apiSlice";
-import { TbCategory2 } from "react-icons/tb";
-import AnimeCard from "../components/AnimeCard";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { TbCategory2 } from "react-icons/tb";
+import { FaArrowLeft } from "react-icons/fa";
+import AnimeCard from "../components/AnimeCard";
 
-const Upcoming = () => {
-  const [upcomingAnimeList, setUpcomingAnimeList] = useState([]);
-  const { data: getUpcoming } = useGetUpcomingAnimeQuery();
-  console.log(upcomingAnimeList);
+const SearchFeed = () => {
+  const { searchTerm } = useParams();
+  const [searchedAnimeList, setSearchedAnimeList] = useState([]);
+  const { data: getSearch } = useGetSearchAnimeQuery(searchTerm);
 
   useEffect(() => {
-    if (getUpcoming?.data) {
-      setUpcomingAnimeList(getUpcoming.data);
+    if (getSearch?.data) {
+      setSearchedAnimeList(getSearch.data);
     }
-  }, [getUpcoming]);
-  
+  }, [getSearch]);
+  console.log(searchedAnimeList);
+
   return (
     <div className="containerWrap pb-24">
       <Link to="/" className="flex items-start text-2xl py-2 sm:py-6">
         <FaArrowLeft />
       </Link>
       <div className="flex flex-row items-center justify-between px-1 py-3">
-        <h1 className="text-xl font-bold sm:text-xl uppercase">Upcoming</h1>
+        <h1 className="text-lg font-bold sm:text-xl uppercase">Search Results for : {searchTerm}</h1>
         <TbCategory2 className="text-2xl" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {upcomingAnimeList.map((item, idx) => (
+        {searchedAnimeList.map((item, idx) => (
           <div
             key={idx}
             className="relative text-left rounded-lg transition duration-300 easy-in-out z-0 flex flex-col justify-between h-[22rem] overflow-hidden"
@@ -36,7 +37,6 @@ const Upcoming = () => {
           </div>
         ))}
       </div>
-
       <div className="flex justify-between py-10">
         <button className="flex flex-row w-fit text-sm gap-1 py-2 bg-zinc-900 hover:bg-zinc-800 px-5 items-center transition duration-300 easy-in-out rounded-md">
           <FiChevronLeft />
@@ -51,4 +51,4 @@ const Upcoming = () => {
   );
 };
 
-export default Upcoming;
+export default SearchFeed;

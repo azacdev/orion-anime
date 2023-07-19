@@ -28,7 +28,7 @@ const AnimeCard = ({
             <p>{year}</p>
           </div>
           <p className="line-clamp-1 text-sm grow font-bold">{title}</p>
-          <p className="text-zinc-400 text-xs">{studios[0].name}</p>
+          <p className="text-zinc-400 text-xs">{studios[0]?.name}</p>
         </div>
       </div>
     </>

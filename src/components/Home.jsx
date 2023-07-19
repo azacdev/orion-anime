@@ -21,6 +21,7 @@ const Home = () => {
       setUpcomingList(getUpcoming.data);
     }
   }, [getAiring, getUpcoming]);
+  console.log(upcomingList);
   console.log(airingList);
 
   return (
