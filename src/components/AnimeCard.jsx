@@ -13,14 +13,13 @@ const AnimeCard = ({
       <Link to={mal_id && `/animes/${mal_id}`}>
         <img
           src={images.jpg.large_image_url}
-          width={200}
           height={500}
-          className="h-full hover:h-[22rem] rounded-t-lg transition-all duration-200 ease-in-out object-cover"
+          className="h-full w-full hover:h-[22rem] rounded-t-lg transition-all duration-200 ease-in-out object-cover"
           loading="lazy"
           alt="anime-image"
         />
       </Link>
-      <div className="transition-all duration-200 ease-in-out">
+      <div className="w-full">
         <div className="translate-y-0 absolute bottom-0 p-3 flex flex-col grow gap-1 bg-zinc-900 hover:bg-zinc-800 rounded-b-md w-full transition-all duration-200 ease-in-out">
           <div className="flex flex-row items-center gap-1 text-zinc-400 text-xs">
             <p>{status}</p>
