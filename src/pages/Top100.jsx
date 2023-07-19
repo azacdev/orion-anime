@@ -5,13 +5,14 @@ import { TbCategory2 } from "react-icons/tb";
 
 const Top100 = () => {
   const [topAnimeList, setTopAnimeList] = useState([]);
-  const { data } = useGetTopAnimeQuery();
+  const { data: getTop100 } = useGetTopAnimeQuery();
+  console.log(getTop100);
 
   useEffect(() => {
-    if (data?.data) {
-      setTopAnimeList(data.data);
+    if (getTop100?.data) {
+      setTopAnimeList(getTop100.data);
     }
-  }, [data]);
+  }, [getTop100]);
 
   return (
     <div className="containerWrap pb-24">
@@ -19,7 +20,7 @@ const Top100 = () => {
         <h1 className="text-lg font-bold sm:text-xl uppercase">Top 100</h1>
         <TbCategory2 className="text-2xl" />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {topAnimeList.map((item, idx) => (
           <div
             key={idx}

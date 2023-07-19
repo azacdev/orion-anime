@@ -5,14 +5,14 @@ import AnimeCard from "../components/AnimeCard";
 
 const Upcoming = () => {
   const [upcomingAnimeList, setUpcomingAnimeList] = useState([]);
-  const { data } = useGetUpcomingAnimeQuery();
+  const { data: getUpcoming } = useGetUpcomingAnimeQuery();
   console.log(upcomingAnimeList);
 
   useEffect(() => {
-    if (data?.data) {
-      setUpcomingAnimeList(data.data);
+    if (getUpcoming?.data) {
+      setUpcomingAnimeList(getUpcoming.data);
     }
-  }, [data]);
+  }, [getUpcoming]);
   return (
     <div className="containerWrap pb-24">
       <div className="flex flex-row items-center justify-between px-1 py-3">

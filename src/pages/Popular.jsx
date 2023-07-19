@@ -5,14 +5,14 @@ import { TbCategory2 } from "react-icons/tb";
 
 const Popular = () => {
   const [popularAnimeList, setpopularAnimeList] = useState([]);
-  const { data } = useGetPopularAnimeQuery();
+  const { data: getPopular } = useGetPopularAnimeQuery();
   console.log(popularAnimeList);
 
   useEffect(() => {
-    if (data?.data) {
-      setpopularAnimeList(data.data);
+    if (getPopular?.data) {
+      setpopularAnimeList(getPopular.data);
     }
-  }, [data]);
+  }, [getPopular]);
   return (
     <div className="containerWrap pb-24">
       <div className="flex flex-row items-center justify-between px-1 py-3">

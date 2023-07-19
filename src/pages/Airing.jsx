@@ -5,13 +5,15 @@ import { TbCategory2 } from "react-icons/tb";
 
 const Airing = () => {
   const [airingAnimeList, setAiringAnimeList] = useState([]);
-  const { data } = useGetAiringAnimeQuery();
+  const { data: getAiring } = useGetAiringAnimeQuery();
 
   useEffect(() => {
-    if (data?.data) {
-      setAiringAnimeList(data.data);
+    if (getAiring?.data) {
+      setAiringAnimeList(getAiring.data);
     }
-  }, [data]);
+  }, [getAiring]);
+  console.log(airingAnimeList);
+
   return (
     <div className="containerWrap pb-24">
       <div className="flex flex-row items-center justify-between px-1 py-3">

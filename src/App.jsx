@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/anime/top" element={<Top100 />} />
         <Route path="/anime/popular" element={<Popular />} />
         <Route path="/anime/upcoming" element={<Upcoming />} />
-        <Route path="/anime/popular/airing" element={<Airing />} />
+        <Route path="/anime/airing" element={<Airing />} />
         <Route path="animes/:id" element={<AnimeDetails />} />
       </Routes>
       <Footer />
