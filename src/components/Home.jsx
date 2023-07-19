@@ -5,6 +5,7 @@ import {
   useGetUpcomingAnimeQuery,
 } from "../features/apiSlice";
 import { FiArrowUpRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [airingList, setAnimeList] = useState([]);
@@ -20,15 +21,18 @@ const Home = () => {
       setUpcomingList(getUpcoming.data);
     }
   }, [getAiring, getUpcoming]);
-
+  console.log(airingList);
 
   return (
     <div className="flex flex-col w-full col-span-2">
       <div>
         <div className="flex flex-row items-center justify-between px-1 py-3">
           <h1 className="text-xl font-bold uppercase">Currently Airing</h1>
-          <FiArrowUpRight className="text-2xl" />
+          <Link to="/anime/airing">
+            <FiArrowUpRight className="text-2xl" />
+          </Link>
         </div>
+        
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {airingList.slice(0, 8).map((item, idx) => (
             <div
@@ -44,7 +48,9 @@ const Home = () => {
       <div className="pt-8 pb-24">
         <div className="flex flex-row items-center justify-between px-1 py-3">
           <h1 className="text-xl font-bold uppercase">Upcoming</h1>
-          <FiArrowUpRight className="text-2xl" />
+          <Link to="/anime/upcoming">
+            <FiArrowUpRight className="text-2xl" />
+          </Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {upcomingList.slice(0, 4).map((item, idx) => (

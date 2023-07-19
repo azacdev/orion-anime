@@ -1,17 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchFromAPI } from "../components/utils/fetchAnimeAPI";
 
 const AnimeDetails = () => {
   const { id } = useParams();
-  const [animeDetails, setAnimeDetails] = useState(null);
+  const [animeDetails, setAnimeDetails] = useState([]);
 
   // Fetch Anime Details
-  const fetchAnimeDetails = useCallback(() => {
-    fetchFromAPI(`by-id/${id}`)
-      .then((data) => setAnimeDetails(data))
-      .catch((error) => console.error(error));
-  }, []);
 
   useEffect(() => {
     fetchAnimeDetails();

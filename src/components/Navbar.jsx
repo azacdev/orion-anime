@@ -1,14 +1,19 @@
 import { BiSearch } from "react-icons/bi";
 import { PiSignInFill } from "react-icons/pi";
 import { FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { openMenu } from "../features/toggleMenuSlice";
 
 const Navbar = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
+
+  const hideMenu = location.pathname === "/";
+  console.log(hideMenu);
+  
   const handleSearch = () => {
     setExpanded(!expanded);
   };
@@ -19,11 +24,13 @@ const Navbar = () => {
 
   return (
     <nav className="containerWrap flex justify-between items-center py-6 text-white">
-      <div className="block sm:hidden">
-        <button onClick={handleMenu} className="text-2xl cursor-pointer mt-1">
-          <FiMenu />
-        </button>
-      </div>
+      {hideMenu && (
+        <div className="block sm:hidden">
+          <button onClick={handleMenu} className="text-2xl cursor-pointer mt-1">
+            <FiMenu />
+          </button>
+        </div>
+      )}
 
       <div className="flex flex-row items-center gap-8">
         <Link to="/" className={`${expanded ? "hidden sm:block" : ""} mr-auto`}>
@@ -46,7 +53,10 @@ const Navbar = () => {
             <BiSearch className="text-2xl cursor-pointer" />
           </button>
         </div>
-        <a href="#" className="flex items-center gap-2 capitalize cursor-pointer">
+        <a
+          href="#"
+          className="flex flex-row w-fit capitalize text-sm gap-1 py-2 bg-zinc-900 hover:bg-zinc-800 px-3 items-center transition duration-300 easy-in-out rounded-md"
+        >
           <PiSignInFill className="text-2xl" />
           Sign-in
         </a>

@@ -8,7 +8,6 @@ import { openMenu, selectToggleMenu } from "../features/toggleMenuSlice";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const toggleMenu = useSelector(selectToggleMenu);
-  console.log(toggleMenu);
 
   const handleMenu = () => {
     dispatch(openMenu());
@@ -25,6 +24,7 @@ const Sidebar = () => {
           <CgClose />
         </button>
       </div>
+
       <div className="flex flex-row items-center justify-between px-1 py-3">
         <h1 className="text-lg sm:text-2xl uppercase">Categories </h1>
         <TbCategory2 className="text-2xl" />

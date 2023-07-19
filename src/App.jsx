@@ -11,7 +11,7 @@ import Upcoming from "./pages/Upcoming";
 
 const App = () => {
   return (
-    <div className="App text-white">
+    <div className="App text-white p-2">
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/anime/popular" element={<Popular />} />
         <Route path="/anime/upcoming" element={<Upcoming />} />
         <Route path="/anime/airing" element={<Airing />} />
-        <Route path="animes/:id" element={<AnimeDetails />} />
+        <Route path="/animes/:id" element={<AnimeDetails />} />
       </Routes>
       <Footer />
     </div>

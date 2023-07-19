@@ -13,7 +13,6 @@ const AnimeCard = ({
       <Link to={mal_id && `/animes/${mal_id}`}>
         <img
           src={images.jpg.large_image_url}
-          height={500}
           className="h-full w-full hover:h-[22rem] rounded-t-lg transition-all duration-200 ease-in-out object-cover"
           loading="lazy"
           alt="anime-image"
@@ -29,7 +28,7 @@ const AnimeCard = ({
             <p>{year}</p>
           </div>
           <p className="line-clamp-1 text-sm grow font-bold">{title}</p>
-          <p className="text-zinc-400 text-xs">{studios.name}</p>
+          <p className="text-zinc-400 text-xs">{studios[0].name}</p>
         </div>
       </div>
     </>
