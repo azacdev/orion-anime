@@ -4,6 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 const AnimeCard = ({
   animeData: { mal_id, score, images, status, type, year, title, studios },
 }) => {
+  
   return (
     <>
       <div className="flex flex-row absolute p-1 pl-2 pr-3.5 mt-2 justify-center bg-zinc-900 rounded-r-lg duration-200 easy-in-out transition-all">
