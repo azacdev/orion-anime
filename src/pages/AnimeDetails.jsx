@@ -1,59 +1,34 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetAnimeByIdQuery } from "../features/apiSlice";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AnimeDetails = () => {
   const { id } = useParams();
-  const [animeDetails, setAnimeDetails] = useState([]);
-
-  // Fetch Anime Details
+  const [animeDetails, setanimeDetails] = useState([]);
+  const { data: animeByIdData } = useGetAnimeByIdQuery(id);
 
   useEffect(() => {
-    fetchAnimeDetails();
-  }, [id]);
+    if (animeByIdData?.data) {
+      setanimeDetails(animeByIdData.data);
+    }
+  }, [animeByIdData]);
+  console.log(animeDetails);
+
+  const { score, images, status, type, year, title, studios } = animeDetails;
 
   return (
-    <div className="containerWrap">
-      <div className="details-left">
-        <img src={animeDetails?.image} alt="anime-detail-img" className="anime-detail-img" />
+    <div className="pb-24">
+      <div className="absolute top-0 overflow-hidden">
+        <img
+          src={images?.jpg.small_image_url}
+          className="w-screen h-52 object-cover blur-lg opacity-60 z-0"
+        />
       </div>
-
-      <div className="details-right">
-        <div className="titles">
-          <h2 className="anime-details-title">{animeDetails?.title}</h2>
-          <div className="alternate-titles">
-            <h3>Alternate Titiles</h3>
-            <div className="alternate-title">
-              {animeDetails?.alternativeTitles.map((titles, idx) => (
-                <span key={idx}>{titles}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="anime-details-genres">
-          {animeDetails?.genres.map((genre, idx) => (
-            <p key={idx}>{genre}</p>
-          ))}
-        </div>
-
-        <div className="anime-status">
-          <p>Status: {animeDetails?.status}</p>
-        </div>
-
-        <div className="anime-type">
-          <p>Type: {animeDetails?.type}</p>
-        </div>
-
-        <div className="anime-overview">
-          <h2>Overview</h2>
-          <p>{animeDetails?.synopsis}</p>
-        </div>
-
-        <div>
-          <a href={animeDetails?.link} target="_blank" className="watch-link">
-            Watch
-          </a>
-        </div>
+      <div className="containerWrap px-4">
+        <Link to="/" className="flex items-start text-2xl py-2 sm:py-6">
+          <FaArrowLeft />
+        </Link>
       </div>
     </div>
   );

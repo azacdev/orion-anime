@@ -4,7 +4,7 @@ import { SiMyanimelist } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <div className="footer py-8 bg-[#0D0D0F] w-full p-2">
+    <div className="footer py-8 bg-[#0D0D0F] w-full px-4">
       <div className="containerWrap flex flex-col sm:flex-row justify-between items-center text-center sm:text-start">
         <div className="flex flex-col gap-4 capitalize">
           <div>

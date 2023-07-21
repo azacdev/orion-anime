@@ -19,6 +19,9 @@ export const animeApi = createApi({
     getSearchAnime: builder.query({
       query: (anime) => `/anime?q=${anime}&order_by=popularity&sort=asc&sfw`,
     }),
+    getAnimeById: builder.query({
+      query: (anime) => `/anime/${anime}`,
+    }),
   }),
 });
 
@@ -27,5 +30,6 @@ export const {
   useGetPopularAnimeQuery,
   useGetUpcomingAnimeQuery,
   useGetAiringAnimeQuery,
-  useGetSearchAnimeQuery
+  useGetSearchAnimeQuery,
+  useGetAnimeByIdQuery
 } = animeApi;

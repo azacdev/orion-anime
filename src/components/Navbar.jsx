@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="containerWrap flex justify-between items-center py-6 px-4 text-white">
+    <nav className="containerWrap relative flex justify-between items-center py-6 px-4 text-white z-10">
       {hideMenu && (
         <div className="block sm:hidden">
           <button onClick={handleMenu} className="text-2xl cursor-pointer mt-1">

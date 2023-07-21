@@ -33,7 +33,7 @@ const Home = () => {
             <FiArrowUpRight className="text-2xl" />
           </Link>
         </div>
-        
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {airingList.slice(0, 8).map((item, idx) => (
             <div
