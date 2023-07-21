@@ -10,17 +10,17 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [airingList, setAnimeList] = useState([]);
   const [upcomingList, setUpcomingList] = useState([]);
-  const { data: getAiring } = useGetAiringAnimeQuery();
-  const { data: getUpcoming } = useGetUpcomingAnimeQuery();
+  const { data: airingData } = useGetAiringAnimeQuery();
+  const { data: upcomingData } = useGetUpcomingAnimeQuery();
 
   useEffect(() => {
-    if (getAiring?.data) {
-      setAnimeList(getAiring.data);
+    if (airingData?.data) {
+      setAnimeList(airingData.data);
     }
-    if (getUpcoming?.data) {
-      setUpcomingList(getUpcoming.data);
+    if (upcomingData?.data) {
+      setUpcomingList(upcomingData.data);
     }
-  }, [getAiring, getUpcoming]);
+  }, [airingData, upcomingData]);
   console.log(upcomingList);
   console.log(airingList);
 

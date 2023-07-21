@@ -4,42 +4,7 @@ import { SiMyanimelist } from "react-icons/si";
 
 const Footer = () => {
   return (
-    // <div className="footer py-8 bg-[#0D0D0F] w-full">
-    //   <div className="containerWrap flex flex-col sm:flex-row justify-between text-center sm:text-start">
-    //     <div className="flex flex-col sm:flex-row justify-center sm:justify-between">
-    //       <div className="flex flex-col gap-4 capitalize">
-    //         <div>
-    //           <h1 className="uppercase text-2xl font-black">Orion Anime</h1>
-    //         </div>
-
-    //         <div className="text-sm text-zinc-400">
-    //           <p>Feel free to send any feedback</p>
-    //         </div>
-
-    //         <div className="text-sm text-zinc-400">
-    //           <p>All anime data provided by unofficial My Anime List API</p>
-    //         </div>
-
-    //         <div className="flex flex-row items-center gap-5">
-    //           <a href="https://myanimelist.net/">
-    //             <SiMyanimelist className="text-2xl" />
-    //           </a>
-    //           <a href="https://github.com/azacdev/orion-anime">
-    //             <FaGithub className="text-2xl" />
-    //           </a>
-    //           <a href="https://jikan.moe/">
-    //             <span className="bg-zinc-400 px-2.5 py-1 text-zinc-950 font-bold rounded-sm hover:bg-zinc-50 hover:scale-105 duration-300 easy-in-out transition">
-    //               j
-    //             </span>
-    //           </a>
-    //         </div>
-    //       </div>
-    //     </div>
-
-    //   </div>
-    // </div>
-
-    <div className="footer py-8 bg-[#0D0D0F] w-full">
+    <div className="footer py-8 bg-[#0D0D0F] w-full p-2">
       <div className="containerWrap flex flex-col sm:flex-row justify-between items-center text-center sm:text-start">
         <div className="flex flex-col gap-4 capitalize">
           <div>

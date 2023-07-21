@@ -5,7 +5,7 @@ export const animeApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.jikan.moe/v4" }),
   endpoints: (builder) => ({
     getTopAnime: builder.query({
-      query: () => "/top/anime",
+      query: () => `/top/anime`,
     }),
     getPopularAnime: builder.query({
       query: () => "/top/anime?filter=bypopularity",

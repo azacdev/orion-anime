@@ -14,7 +14,6 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const hideMenu = location.pathname === "/";
-  console.log(hideMenu);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -25,16 +24,12 @@ const Navbar = () => {
     setExpanded(!expanded);
   };
 
-  // const handleSubmit = (e) => {
-    
-  // };
-
   const handleMenu = () => {
     dispatch(openMenu());
   };
 
   return (
-    <nav className="containerWrap flex justify-between items-center py-6 text-white">
+    <nav className="containerWrap flex justify-between items-center py-6 px-4 text-white">
       {hideMenu && (
         <div className="block sm:hidden">
           <button onClick={handleMenu} className="text-2xl cursor-pointer mt-1">
@@ -55,6 +50,7 @@ const Navbar = () => {
         <div className="text-sm items-center flex gap-1 font-bold">
           <input
             type="text"
+            value={searchTerm}
             placeholder="Search…"
             className={`${
               expanded ? "w-32" : "hidden"

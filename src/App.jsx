@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import "./App.css"
+import "./App.css";
 import Navbar from "./components/Navbar";
 import Feed from "./pages/Feed";
 import AnimeDetails from "./pages/AnimeDetails";
@@ -12,7 +12,7 @@ import SearchFeed from "./pages/SearchFeed";
 
 const App = () => {
   return (
-    <div className="App text-white p-2">
+    <div className="App text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
