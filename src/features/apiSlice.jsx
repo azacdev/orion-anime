@@ -22,6 +22,12 @@ export const animeApi = createApi({
     getAnimeById: builder.query({
       query: (anime) => `/anime/${anime}`,
     }),
+    getAnimeCharacters: builder.query({
+      query: (anime) => `/anime/${anime}/characters`,
+    }),
+    getRelatedAnimes: builder.query({
+      query: (anime) => `/anime/${anime}/relations`,
+    }),
   }),
 });
 
@@ -31,5 +37,7 @@ export const {
   useGetUpcomingAnimeQuery,
   useGetAiringAnimeQuery,
   useGetSearchAnimeQuery,
-  useGetAnimeByIdQuery
+  useGetAnimeByIdQuery,
+  useGetAnimeCharactersQuery,
+  useGetRelatedAnimesQuery
 } = animeApi;
