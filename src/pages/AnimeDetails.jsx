@@ -75,7 +75,7 @@ const AnimeDetails = () => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? prevIndex - 1 % totalCharacters - 1 : prevIndex - 1
+      prevIndex === 0 ? totalPages(totalCharacters -1, false) : prevIndex - 1
     );
   };
 
