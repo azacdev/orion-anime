@@ -75,7 +75,7 @@ const AnimeDetails = () => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalPages(totalCharacters -1, false) : prevIndex - 1
+      prevIndex === 0 ? totalPages(totalCharacters - 1, false) : prevIndex - 1
     );
   };
 
@@ -289,7 +289,7 @@ const AnimeDetails = () => {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h1 className="text-xl font-black uppercase">RELATIONS</h1>
+            <h1 className="text-xl font-black uppercase">Related</h1>
             <div className="flex flex-row flex-wrap gap-3">
               {relatedAnimeData?.map((relData, id) => (
                 <div

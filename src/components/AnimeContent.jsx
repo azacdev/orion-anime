@@ -1,15 +1,10 @@
 import { TbCategory2 } from "react-icons/tb";
 import AnimeCard from "../components/AnimeCard";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const AnimeContent = ({ pageTitle, animeList }) => {
   return (
     <div className="containerWrap px-4 pb-24">
-      <Link to="/" className="flex items-start text-2xl py-2 sm:py-6">
-        <FaArrowLeft />
-      </Link>
       <div className="flex flex-row items-center justify-between px-1 py-3">
         <h1 className="text-xl font-bold sm:text-xl uppercase">{pageTitle}</h1>
         <TbCategory2 className="text-2xl" />

@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="flex flex-row items-center gap-8">
         <Link to="/" className={`${expanded ? "hidden sm:block" : ""} mr-auto`}>
           <h1 className="uppercase text-lg sm:text-2xl font-black">
-            Orion Anime
+            Orion <span>Anime</span>
           </h1>
         </Link>
       </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
             placeholder="Search…"
             className={`${
               expanded ? "w-32" : "hidden"
-            } text-black px-2 py-[2px] border-y-[1px] border-l-[1px] border-[#666666] rounded-l-lg outline-0 transition-all duration-300`}
+            } text-black px-2 py-[2px] border-y-[1px] border-l-[1px] border-[#666666] rounded-l-sm outline-0 transition-all duration-300`}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="text-3xl cursor-pointer" onClick={handleSearch}>
@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
         <a
           href="#"
-          className="flex flex-row w-fit capitalize text-sm gap-1 py-2 bg-zinc-900 hover:bg-zinc-800 px-3 items-center transition duration-300 easy-in-out rounded-md"
+          className="flex flex-row w-fit capitalize text-sm gap-1 py-1 bg-zinc-900 hover:bg-zinc-800 px-2 items-center transition duration-300 easy-in-out rounded-md"
         >
           <PiSignInFill className="text-2xl" />
           Sign-in

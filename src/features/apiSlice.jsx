@@ -39,5 +39,5 @@ export const {
   useGetSearchAnimeQuery,
   useGetAnimeByIdQuery,
   useGetAnimeCharactersQuery,
-  useGetRelatedAnimesQuery
+  useGetRelatedAnimesQuery,
 } = animeApi;

@@ -26,7 +26,7 @@ const Sidebar = () => {
       </div>
 
       <div className="flex flex-row items-center justify-between px-1 py-3">
-        <h1 className="text-lg sm:text-2xl uppercase">Categories </h1>
+        <h1 className="text-xl font-bold uppercase">Categories </h1>
         <TbCategory2 className="text-2xl" />
       </div>
 
@@ -34,7 +34,7 @@ const Sidebar = () => {
         to="/anime/top"
         className="rounded-md from-zinc-900 to-zinc-900/70 hover:from-zinc-800 hover:to-zinc-800/70 flex bg-gradient-to-r p-2 h-12 w-full justify-between items-center cursor-pointer"
       >
-        <h1>Top 100</h1>
+        <h1 className="text-base font-black uppercase">Top 100</h1>
         <FaArrowRight className="cursor-pointer" />
       </Link>
 
@@ -42,7 +42,7 @@ const Sidebar = () => {
         to="/anime/popular"
         className="rounded-md from-zinc-900 to-zinc-900/70 hover:from-zinc-800 hover:to-zinc-800/70 flex bg-gradient-to-r p-2 h-12 w-full justify-between items-center cursor-pointer"
       >
-        <h1>Popular</h1>
+        <h1 className="text-base font-black uppercase">Popular</h1>
         <FaArrowRight className="cursor-pointer" />
       </Link>
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
         to="/anime/airing"
         className="rounded-md from-zinc-900 to-zinc-900/70 hover:from-zinc-800 hover:to-zinc-800/70 flex bg-gradient-to-r p-2 h-12 w-full justify-between items-center cursor-pointer"
       >
-        <h1>Airing</h1>
+        <h1 className="text-base font-black uppercase">Airing</h1>
         <FaArrowRight className="cursor-pointer" />
       </Link>
 
@@ -58,7 +58,7 @@ const Sidebar = () => {
         to="/anime/upcoming"
         className="rounded-md from-zinc-900 to-zinc-900/70 hover:from-zinc-800 hover:to-zinc-800/70 flex bg-gradient-to-r p-2 h-12 w-full justify-between items-center cursor-pointer"
       >
-        <h1>Upcoming</h1>
+        <h1 className="text-base font-black uppercase">Upcoming</h1>
         <FaArrowRight className="cursor-pointer" />
       </Link>
     </aside>

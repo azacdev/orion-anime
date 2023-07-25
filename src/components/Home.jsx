@@ -25,7 +25,6 @@ const Home = () => {
   console.log(airingList);
 
   return (
-    
     <div className="flex flex-col w-full col-span-2">
       <div>
         <div className="flex flex-row items-center justify-between px-1 py-3">
