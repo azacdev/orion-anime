@@ -11,12 +11,9 @@ const AnimeContent = ({ pageTitle, animeList }) => {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {animeList.map((item, idx) => (
-          <div
-            key={idx}
-            className="relative text-left rounded-lg transition duration-300 easy-in-out z-0 flex flex-col justify-between h-[22rem] overflow-hidden"
-          >
+          <React.Fragment key={idx}>
             {item && <AnimeCard animeData={item} />}
-          </div>
+          </React.Fragment>
         ))}
       </div>
 

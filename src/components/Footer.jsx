@@ -5,8 +5,8 @@ import { SiMyanimelist } from "react-icons/si";
 const Footer = () => {
   return (
     <div className="footer py-8 bg-[#0D0D0F] w-full px-4">
-      <div className="containerWrap flex flex-col sm:flex-row justify-between items-center text-center sm:text-start">
-        <div className="flex flex-col gap-4 capitalize">
+      <div className="containerWrap flex flex-col gap-4 sm:flex-row justify-between items-center text-center">
+        <div className="flex flex-col gap-4 capitalize text-center sm:text-start">
           <div>
             <h1 className="uppercase text-2xl font-black">Orion Anime</h1>
           </div>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-4 sm:mt-0 sm:flex-row">
+        <div className="flex mt-4 flex-row gap-6 sm:gap-0">
           <div className="flex flex-col gap-1 sm:mr-32">
             <h1 className="uppercase text-lg">Pages</h1>
             <Link to="/">
@@ -57,7 +57,7 @@ const Footer = () => {
               to="/anime/top"
               className="text-sm text-zinc-400 hover:underline"
             >
-              All anime
+              All Anime
             </Link>
             <Link
               to="/anime/upcoming"
