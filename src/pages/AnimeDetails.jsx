@@ -163,7 +163,7 @@ const AnimeDetails = () => {
               </div>
 
               <div>
-                <button className="text-sm lg:text-xl text-zinc-400 flex flex-row gap-1 characters-center hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
+                <button className="text-sm lg:text-base text-zinc-400 flex flex-row gap-1 characters-center hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
                 onClick={handleTitles}
                 >
                   <TbLanguageKatakana className="text-sm lg:text-xl"/>
@@ -171,18 +171,18 @@ const AnimeDetails = () => {
                 </button>
                 <div className={`${showTitles ? "block" : "hidden"} alt-titles flex flex-col`}>
                   <div className="flex flex-row gap-1">
-                    <p className="text-sm lg:text-xl text-zinc-400">
+                    <p className="text-sm lg:text-base text-zinc-400">
                       Default: <span className="text-zinc-50">{title}</span>
                     </p>
                   </div>
                   <div className="flex flex-row gap-1">
-                    <p className="text-sm lg:text-xl text-zinc-400">
+                    <p className="text-sm lg:text-base text-zinc-400">
                       Japanese:{" "}
                       <span className="text-zinc-50">{title_japanese}</span>
                     </p>
                   </div>
                   <div className="flex flex-row gap-1">
-                    <p className="text-sm lg:text-xl text-zinc-400">
+                    <p className="text-sm lg:text-base text-zinc-400">
                       Synonyms:{" "}
                       <span className="text-zinc-50">{title_synonyms}</span>
                     </p>
@@ -191,32 +191,32 @@ const AnimeDetails = () => {
               </div>
 
               <div className="flex flex-col">
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Rating: "}
                   <span className="text-zinc-50">{rating}</span>
                 </p>
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Source: "}
                   <span className="text-zinc-50">{source}</span>
                 </p>
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Airing: "}
                   <span className="text-zinc-50">{airedDate}</span>
                 </p>
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Season: "}
                   <span className="text-zinc-50 capitalize">
                     {season} {year}
                   </span>
                 </p>
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Studios: "}
                   <span className="text-zinc-50">{studios?.[0].name}</span>
                 </p>
               </div>
 
               <div className="flex flex-row gap-1">
-                <p className="text-sm lg:text-xl text-zinc-400">
+                <p className="text-sm lg:text-base text-zinc-400">
                   {"Producers: "}
                   {producers?.map((producer, index) => (
                     <React.Fragment key={producer.name}>
@@ -226,7 +226,7 @@ const AnimeDetails = () => {
                   ))}
                 </p>
               </div>
-              <p className="text-sm lg:text-xl text-zinc-400">
+              <p className="text-sm lg:text-base text-zinc-400">
                 {"Description: "}
                 <span className="text-zinc-50">{synopsis}</span>
               </p>
@@ -250,7 +250,7 @@ const AnimeDetails = () => {
                 <h1 className="text-xl font-black uppercase">Characters</h1>
                 <div className="grid grid-cols-3 text-center">
                   <button
-                    className="flex characters-center text-sm lg:text-xl text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
+                    className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
                     onClick={handlePrev}
                   >
                     <FiChevronLeft className="text-xl mt-[1px]" />
@@ -260,7 +260,7 @@ const AnimeDetails = () => {
                     {currentIndex + 1}/{totalPages(totalCharacters)}
                   </p>
                   <button
-                    className="flex characters-center text-sm lg:text-xl text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
+                    className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
                     onClick={handleNext}
                   >
                     Right
