@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="containerWrap relative flex justify-between items-center py-6 px-4 text-white z-10">
+    <nav className="containerWrap relative flex justify-between items-center py-3 px-2 sm:py-6  sm:px-4 text-white z-10">
       {hideMenu && (
         <div className="block sm:hidden">
           <button onClick={handleMenu} className="text-2xl cursor-pointer mt-1">
@@ -57,13 +57,13 @@ const Navbar = () => {
             } text-black px-2 py-[2px] border-y-[1px] border-l-[1px] border-[#666666] rounded-l-sm outline-0 transition-all duration-300`}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="text-3xl cursor-pointer" onClick={handleSearch}>
+          <button className="text-2xl cursor-pointer" onClick={handleSearch}>
             <BiSearch />
           </button>
         </div>
         <a
           href="#"
-          className="flex flex-row w-fit capitalize text-sm gap-1 py-1 bg-zinc-900 hover:bg-zinc-800 px-2 items-center transition duration-300 easy-in-out rounded-md"
+          className="flex flex-row w-fit capitalize text-sm gap-1 py-1 px-2 items-center"
         >
           <PiSignInFill className="text-2xl" />
           Sign-in
