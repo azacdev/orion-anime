@@ -235,19 +235,19 @@ const AnimeDetails = () => {
 
           <div className="grid-cols-1 lg:grid-cols-2 grid gap-5">
             <div className="flex flex-col gap-3">
-              <h1 className="text-xl font-black uppercase">Trailer</h1>
+              <h1 className="text-base sm:text-xl font-black uppercase">Trailer</h1>
               <ReactPlayer
                 className="react-player relative z-2 rounded-md"
                 url={trailer?.embed_url}
                 controls
                 width='100%'
-                height='320px'
+                height='100%'
               />
             </div>
 
             <div className="flex flex-col gap-3">
               <div className="flex flex-row justify-between characters-center">
-                <h1 className="text-xl font-black uppercase">Characters</h1>
+                <h1 className="text-base sm:text-xl font-black uppercase">Characters</h1>
                 <div className="grid grid-cols-3 text-center">
                   <button
                     className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
@@ -269,13 +269,13 @@ const AnimeDetails = () => {
                 </div>
               </div>
 
-              <div className="grid grid-flow-col characters-carousel gap-4 h-full overflow-hidden">
+              <div className="grid grid-flow-col gap-4 h-full overflow-hidden">
                 {charactersData.length === 0 ? (
                   <p>No characters were found</p>
                 ) : (
                   charactersData.map((character, id) => (
                     <div
-                      className="character-capsule text-left bg-zinc-900 rounded-b-md transition duration-300 easy-in-out z-0 flex flex-col w-44 lg:w-36 h-80"
+                      className={`text-left bg-zinc-900 rounded-b-md transition duration-300 easy-in-out z-0 flex flex-col w-44 lg:w-36 h-80`}
                       style={{
                         transform: `translateX(-${
                           trailer?.embed_url
@@ -301,7 +301,7 @@ const AnimeDetails = () => {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h1 className="text-xl font-black uppercase">Related</h1>
+            <h1 className="text-base sm:text-xl font-black uppercase">Related</h1>
             <div className="flex flex-row flex-wrap gap-3">
               {relatedAnimeData?.map((relData, id) => (
                 <div
