@@ -22,7 +22,7 @@ const AnimeDetails = () => {
   return (
     <div className="pb-24">
       {isLoading ? (
-        <div className="h-screen grid place-content-center">
+        <div className="grid place-content-center">
           <svg
             version="1.1"
             id="L5"
