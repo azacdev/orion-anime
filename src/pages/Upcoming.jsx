@@ -4,7 +4,7 @@ import AnimeContent from "../components/AnimeContent";
 
 const Upcoming = () => {
   const [upcomingAnimeList, setUpcomingAnimeList] = useState([]);
-  const { data: upcomingData } = useGetUpcomingAnimeQuery();
+  const { data: upcomingData, isLoading } = useGetUpcomingAnimeQuery();
   console.log(upcomingAnimeList);
 
   useEffect(() => {
@@ -14,7 +14,11 @@ const Upcoming = () => {
   }, [upcomingData]);
 
   return (
-    <AnimeContent pageTitle={"Upcoming"} animeList={upcomingAnimeList} />
+    <AnimeContent
+      isLoading={isLoading}
+      pageTitle={"Upcoming"}
+      animeList={upcomingAnimeList}
+    />
   );
 };
 

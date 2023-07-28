@@ -4,7 +4,7 @@ import AnimeContent from "../components/AnimeContent";
 
 const Popular = () => {
   const [popularAnimeList, setpopularAnimeList] = useState([]);
-  const { data: popularData } = useGetPopularAnimeQuery();
+  const { data: popularData, isLoading } = useGetPopularAnimeQuery();
   console.log(popularAnimeList);
 
   useEffect(() => {
@@ -13,7 +13,13 @@ const Popular = () => {
     }
   }, [popularData]);
 
-  return <AnimeContent pageTitle={"Popular"} animeList={popularAnimeList} />;
+  return (
+    <AnimeContent
+      isLoading={isLoading}
+      pageTitle={"Popular"}
+      animeList={popularAnimeList}
+    />
+  );
 };
 
 export default Popular;

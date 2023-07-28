@@ -4,7 +4,7 @@ import AnimeContent from "../components/AnimeContent";
 
 const Airing = () => {
   const [airingAnimeList, setAiringAnimeList] = useState([]);
-  const { data: airingData } = useGetAiringAnimeQuery();
+  const { data: airingData, isLoading } = useGetAiringAnimeQuery();
 
   useEffect(() => {
     if (airingData?.data) {
@@ -12,7 +12,7 @@ const Airing = () => {
     }
   }, [airingData]);
 
-  return <AnimeContent pageTitle={"Airing"} animeList={airingAnimeList} />;
+  return <AnimeContent isLoading={isLoading} pageTitle={"Airing"} animeList={airingAnimeList} />;
 };
 
 export default Airing;

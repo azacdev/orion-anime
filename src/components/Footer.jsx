@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <h1 className="uppercase text-lg">Search anime</h1>
+            <h1 className="uppercase text-lg">Search</h1>
             <Link
               to="/anime/top"
               className="text-sm text-zinc-400 hover:underline"

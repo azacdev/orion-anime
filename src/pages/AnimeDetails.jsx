@@ -1,41 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
 import {
   useGetAnimeByIdQuery,
-  useGetAnimeCharactersQuery,
-  useGetRelatedAnimesQuery,
 } from "../features/apiSlice";
 import { BsStarFill } from "react-icons/bs";
+import AnimeCharacterDetails from "../components/AnimeCharacterDetails";
+import RelatedAnimeDetails from "../components/RelatedAnimeDetails";
 import { TbLanguageKatakana } from "react-icons/tb";
-import { FiArrowUpRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { BiBookAlt, BiSolidMoviePlay } from "react-icons/bi";
 
 const AnimeDetails = () => {
   const { id } = useParams();
   const [animeDetails, setAnimeDetails] = useState([]);
-  const [charactersData, setCharctersData] = useState([]);
-  const [relatedAnimeData, setRelatedAnimeData] = useState([]);
   const [showTitles, setShowTitles] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const { data: animeByIdData } = useGetAnimeByIdQuery(id);
-  const { data: animeCharactersData } = useGetAnimeCharactersQuery(id);
-  const { data: animeRelatedData } = useGetRelatedAnimesQuery(id);
 
   useEffect(() => {
     if (animeByIdData?.data) {
       setAnimeDetails(animeByIdData.data);
     }
-    if (animeCharactersData) {
-      setCharctersData(animeCharactersData.data);
-    }
-    if (animeRelatedData) {
-      setRelatedAnimeData(animeRelatedData.data);
-    }
-  }, [animeByIdData, animeCharactersData, animeRelatedData]);
+  }, [animeByIdData]);
   console.log(animeDetails);
-  // console.log(animeRelatedData);
-  // console.log(charactersData);
 
   const {
     score,
@@ -74,28 +59,6 @@ const AnimeDetails = () => {
     setShowTitles(!showTitles);
   };
 
-  const totalCharacters = charactersData.length;
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      Math.floor((prevIndex + 1) % totalPages(totalCharacters, false))
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalPages(totalCharacters - 1, false) : prevIndex - 1
-    );
-  };
-
-  function totalPages(totalCharacters, isTrailerExist) {
-    if (isTrailerExist) {
-      return totalCharacters > 4 ? Math.ceil(totalCharacters / 2) : 1;
-    } else {
-      return totalCharacters > 8 ? Math.ceil(totalCharacters / 4) : 1;
-    }
-  }
-
   return (
     <div className="pb-24">
       <div className="containerWrap absolute top-0 left-0 right-0 w-full">
@@ -127,7 +90,15 @@ const AnimeDetails = () => {
                     {type}
                   </h1>
                 </div>
-                <div className={` ${status === "Currently Airing" ? 'bg-amber-400' : status === "Aired" ? 'bg-amber-400': 'bg-emerald-400'} px-2 lg:px-4 p-2 flex flex-row justify-center rounded-md text-zinc-800`}>
+                <div
+                  className={` ${
+                    status === "Currently Airing"
+                      ? "bg-amber-400"
+                      : status === "Aired"
+                      ? "bg-amber-400"
+                      : "bg-emerald-400"
+                  } px-2 lg:px-4 p-2 flex flex-row justify-center rounded-md text-zinc-800`}
+                >
                   <h1 className="text-xs lg:text-xl uppercase font-black line-height-3">
                     {status}
                   </h1>
@@ -265,106 +236,10 @@ const AnimeDetails = () => {
                 />
               </div>
             )}
-
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-row justify-between characters-center items-center">
-                <h1 className="text-base sm:text-xl font-black uppercase">
-                  Characters
-                </h1>
-                <div className="grid grid-cols-3 text-center">
-                  <button
-                    className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
-                    onClick={handlePrev}
-                  >
-                    <FiChevronLeft className="text-xl mt-[1px]" />
-                    Left
-                  </button>
-                  <p className="text-zinc-50">
-                    {currentIndex + 1}/{totalPages(totalCharacters)}
-                  </p>
-                  <button
-                    className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
-                    onClick={handleNext}
-                  >
-                    Right
-                    <FiChevronRight className="text-xl mt-[1px]" />
-                  </button>
-                </div>
-              </div>
-
-              <div
-                className={`${
-                  trailer?.embed_url ? "grid grid-flow-col" : "flex flex-row"
-                } characters-carousel gap-4 h-full overflow-hidden`}
-              >
-                {charactersData.length === 0 ? (
-                  <p>No characters were found</p>
-                ) : (
-                  charactersData.map((character, id) => (
-                    <div
-                      className={`text-left bg-zinc-900 rounded-b-md transition duration-300 easy-in-out z-0 flex flex-col w-44 lg:w-36 h-80`}
-                      style={{
-                        transform: `translateX(-${
-                          trailer?.embed_url
-                            ? currentIndex * 640
-                            : currentIndex * 1280
-                        }px)`,
-                      }}
-                      key={id}
-                    >
-                      <img
-                        src={character?.character?.images?.jpg.image_url}
-                        alt="characters-image"
-                        className="relative w-full h-full max-h-64 rounded-t-md object-cover"
-                      />
-                      <p className="text-sm p-3 rounded-md">
-                        {character?.character?.name}
-                      </p>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
+            <AnimeCharacterDetails trailer={trailer} id={id} />
           </div>
 
-          <div className="flex flex-col gap-3">
-            <h1 className="text-base sm:text-xl font-black uppercase">
-              Related
-            </h1>
-            <div className="flex flex-row flex-wrap gap-3">
-              {relatedAnimeData?.map((relData, id) => (
-                <div
-                  className="w-fit justify-between bg-zinc-900 p-3 px-5 rounded-lg flex flex-row items-center gap-5 hover:bg-zinc-800 duration-300 ease-in-out transition-all"
-                  key={id}
-                >
-                  {relData.relation === "Adaptation" ? (
-                    <BiBookAlt className="text-lg lg:text-2xl" />
-                  ) : (
-                    <BiSolidMoviePlay className="text-lg lg:text-2xl" />
-                  )}
-                  <div>
-                    <div className="flex flex-row gap-1 items-center">
-                      <p className="text-xs uppercase lg:text-sm text-zinc-400">
-                        {relData.relation}
-                      </p>
-                      <p className="text-xs lg:text-sm text-zinc-400">•</p>
-                      <p className="text-xs uppercase lg:text-sm  text-zinc-400">
-                        {relData.entry[0].type}
-                      </p>
-                    </div>
-                    <p className="text-xs lg:text-sm font-bold ">
-                      {relData.entry[0].name}
-                    </p>
-                  </div>
-                  {relData.entry[0].type === "anime" && (
-                    <Link to={`/animes/${relData.entry[0].mal_id}`}>
-                      <FiArrowUpRight className="text-2xl" />
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          <RelatedAnimeDetails id={id} />
         </div>
       </div>
     </div>

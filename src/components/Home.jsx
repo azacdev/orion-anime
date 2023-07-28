@@ -6,11 +6,12 @@ import {
 } from "../features/apiSlice";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import SkeletonCard from "./SkeletonCard";
 
 const Home = () => {
   const [airingList, setAnimeList] = useState([]);
   const [upcomingList, setUpcomingList] = useState([]);
-  const { data: airingData } = useGetAiringAnimeQuery();
+  const { data: airingData, isLoading } = useGetAiringAnimeQuery();
   const { data: upcomingData } = useGetUpcomingAnimeQuery();
 
   useEffect(() => {
@@ -35,10 +36,11 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {isLoading && <SkeletonCard cards={8} />}
           {airingList.slice(0, 8).map((item, idx) => (
             <div
-              key={idx}
-              className="relative text-left rounded-lg transition duration-300 easy-in-out z-0 flex flex-col justify-between h-[22rem] overflow-hidden"
+            key={idx}
+            className="relative text-left rounded-lg transition duration-300 easy-in-out z-0 flex flex-col justify-between h-[22rem] overflow-hidden"
             >
               {item && <AnimeCard animeData={item} />}
             </div>
@@ -54,6 +56,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {isLoading && <SkeletonCard cards={4} />}
           {upcomingList.slice(0, 4).map((item, idx) => (
             <div
               key={idx}
