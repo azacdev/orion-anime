@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetAnimeCharactersQuery } from "../features/apiSlice";
+import { useGetAnimeCharactersQuery } from "../../features/apiSlice";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const AnimeCharacterDetails = ({ trailer, id }) => {

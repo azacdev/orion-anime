@@ -2,7 +2,7 @@ import React from "react";
 import { TbCategory2 } from "react-icons/tb";
 import AnimeCard from "../components/AnimeCard";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import SkeletonCard from "./SkeletonCard";
+import SkeletonCard from "./skeleton/SkeletonCard";
 
 const AnimeContent = ({isLoading, pageTitle, animeList }) => {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetRelatedAnimesQuery } from "../features/apiSlice";
+import { useGetRelatedAnimesQuery } from "../../features/apiSlice";
 import { FiArrowUpRight } from "react-icons/fi";
 import { BiBookAlt, BiSolidMoviePlay } from "react-icons/bi";
 import { Link } from "react-router-dom";
