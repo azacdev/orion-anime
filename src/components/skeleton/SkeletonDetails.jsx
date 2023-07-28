@@ -28,8 +28,8 @@ const SkeletonDetails = () => {
         <div className="flex flex-row gap-4 h-full overflow-hidden">
           <div className="flex flex-col w-44 lg:w-36 h-80 rounded-b-md">
             <div className="relative w-full h-full max-h-64 rounded-t-md">
-            <Skeleton count={8} height={"100%"}/>
-            <Skeleton/>
+              <Skeleton count={8} height={"100%"} />
+              <Skeleton />
             </div>
           </div>
         </div>
