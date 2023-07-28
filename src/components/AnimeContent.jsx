@@ -4,7 +4,7 @@ import AnimeCard from "../components/AnimeCard";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import SkeletonCard from "./skeleton/SkeletonCard";
 
-const AnimeContent = ({isLoading, pageTitle, animeList }) => {
+const AnimeContent = ({ isLoading, pageTitle, animeList }) => {
   return (
     <div className="containerWrap px-4 pb-24">
       <div className="flex flex-row items-center justify-between px-1 py-3">
@@ -12,7 +12,7 @@ const AnimeContent = ({isLoading, pageTitle, animeList }) => {
         <TbCategory2 className="text-2xl" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-      {isLoading && <SkeletonCard cards={25} />}
+        {isLoading && <SkeletonCard cards={25} />}
         {animeList.map((item, idx) => (
           <React.Fragment key={idx}>
             {item && <AnimeCard animeData={item} />}

@@ -51,7 +51,7 @@ const AnimeCharacterDetails = ({ trailer, id }) => {
             {currentIndex + 1}/{totalPages(totalCharacters)}
           </p>
           <button
-            className="flex characters-center text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
+            className="flex text-sm lg:text-base text-zinc-400 hover:text-zinc-50 transition duration-300 easy-in-out hover:underline decoration-dotted underline-offset-4 w-fit"
             onClick={handleNext}
           >
             Right
@@ -63,7 +63,7 @@ const AnimeCharacterDetails = ({ trailer, id }) => {
       <div
         className={`${
           trailer?.embed_url ? "grid grid-flow-col" : "flex flex-row"
-        } characters-carousel gap-4 h-full overflow-hidden`}
+        } gap-4 h-full overflow-hidden`}
       >
         {charactersData.length === 0 ? (
           <p>No characters were found</p>

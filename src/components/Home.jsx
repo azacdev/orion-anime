@@ -11,8 +11,10 @@ import SkeletonCard from "./skeleton/SkeletonCard";
 const Home = () => {
   const [airingList, setAnimeList] = useState([]);
   const [upcomingList, setUpcomingList] = useState([]);
-  const { data: airingData, isLoading } = useGetAiringAnimeQuery();
-  const { data: upcomingData } = useGetUpcomingAnimeQuery();
+  const { data: airingData, isLoading: isAiringLoading } =
+    useGetAiringAnimeQuery();
+  const { data: upcomingData, isLoading: isUpcomingLoading } =
+    useGetUpcomingAnimeQuery();
 
   useEffect(() => {
     if (airingData?.data) {
@@ -36,7 +38,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {isLoading && <SkeletonCard cards={8} />}
+          {isAiringLoading && <SkeletonCard cards={8} />}
           {airingList.slice(0, 8).map((item, idx) => (
             <div
               key={idx}
@@ -56,7 +58,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {isLoading && <SkeletonCard cards={4} />}
+          {isUpcomingLoading && <SkeletonCard cards={4} />}
           {upcomingList.slice(0, 4).map((item, idx) => (
             <div
               key={idx}

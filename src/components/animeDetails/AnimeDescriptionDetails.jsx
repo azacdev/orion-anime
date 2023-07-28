@@ -4,7 +4,6 @@ import { BsStarFill } from "react-icons/bs";
 
 const AnimeDescriptionDetails = ({ animeData }) => {
   const [showTitles, setShowTitles] = useState(false);
-
   const {
     score,
     images,

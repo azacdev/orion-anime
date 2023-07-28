@@ -5,11 +5,12 @@ import ReactPlayer from "react-player/youtube";
 import AnimeDescriptionDetails from "../components/animeDetails/AnimeDescriptionDetails";
 import AnimeCharacterDetails from "../components/animeDetails/AnimeCharacterDetails";
 import RelatedAnimeDetails from "../components/animeDetails/RelatedAnimeDetails";
+import SkeletonDetails from "../components/skeleton/SkeletonDetails";
 
 const AnimeDetails = () => {
   const { id } = useParams();
   const [animeDetails, setAnimeDetails] = useState([]);
-  const { data: animeByIdData, isLoading } = useGetAnimeByIdQuery(id);
+  const { data: animeByIdData } = useGetAnimeByIdQuery(id);
 
   useEffect(() => {
     if (animeByIdData?.data) {

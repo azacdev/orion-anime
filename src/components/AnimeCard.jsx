@@ -17,7 +17,7 @@ const AnimeCard = ({
         <img
           src={images.jpg.large_image_url}
           className="h-full w-full rounded-t-lg object-cover"
-          loading="lazy"
+          
           alt="anime-image"
         />
       </Link>
