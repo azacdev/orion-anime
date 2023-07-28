@@ -12,12 +12,11 @@ const AnimeCard = ({
       </div>
       <Link
         to={mal_id && `/animes/${mal_id}`}
-        className="group-hover:h-full transition-all duration-300 ease-in-out"
+        className="h-[17rem]  group-hover:h-full transition-all duration-300 ease-in-out"
       >
         <img
           src={images.jpg.large_image_url}
           className="h-full w-full rounded-t-lg object-cover"
-          
           alt="anime-image"
         />
       </Link>

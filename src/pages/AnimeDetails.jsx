@@ -5,24 +5,68 @@ import ReactPlayer from "react-player/youtube";
 import AnimeDescriptionDetails from "../components/animeDetails/AnimeDescriptionDetails";
 import AnimeCharacterDetails from "../components/animeDetails/AnimeCharacterDetails";
 import RelatedAnimeDetails from "../components/animeDetails/RelatedAnimeDetails";
-import SkeletonDetails from "../components/skeleton/SkeletonDetails";
 
 const AnimeDetails = () => {
   const { id } = useParams();
   const [animeDetails, setAnimeDetails] = useState([]);
-  const { data: animeByIdData } = useGetAnimeByIdQuery(id);
+  const { data: animeByIdData, isLoading } = useGetAnimeByIdQuery(id);
 
   useEffect(() => {
     if (animeByIdData?.data) {
       setAnimeDetails(animeByIdData.data);
     }
   }, [animeByIdData]);
-  console.log(animeDetails);
 
   const { images, trailer } = animeDetails;
 
   return (
     <div className="pb-24">
+      {isLoading && (
+        <div className="h-screen grid place-content-center">
+          <svg
+            version="1.1"
+            id="L5"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 100 100"
+            enableBackground="new 0 0 0 0"
+            xmlSpace="preserve"
+          >
+            <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+              <animateTransform
+                attributeName="transform"
+                dur="1s"
+                type="translate"
+                values="0 15 ; 0 -15; 0 15"
+                repeatCount="indefinite"
+                begin="0.1"
+              />
+            </circle>
+            <circle fill="#fff" stroke="none" cx="30" cy="50" r="6">
+              <animateTransform
+                attributeName="transform"
+                dur="1s"
+                type="translate"
+                values="0 10 ; 0 -10; 0 10"
+                repeatCount="indefinite"
+                begin="0.2"
+              />
+            </circle>
+            <circle fill="#fff" stroke="none" cx="54" cy="50" r="6">
+              <animateTransform
+                attributeName="transform"
+                dur="1s"
+                type="translate"
+                values="0 5 ; 0 -5; 0 5"
+                repeatCount="indefinite"
+                begin="0.3"
+              />
+            </circle>
+          </svg>
+        </div>
+      )}
       <div className="containerWrap absolute top-0 left-0 right-0 w-full">
         <img
           src={images?.jpg.small_image_url}
