@@ -4,13 +4,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/azacdev/orion-anime">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Orion Anime</h3>
 
   <p align="center">
-    project_description
+    Project_Description
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -41,18 +41,15 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="public/orion-anime.png" alt="page-image">
 
 An Anime Website project that allows users to explore and discover various anime shows and movies. The website provides features such as browsing anime by genre, searching for specific anime titles, and viewing detailed information about each anime.
 
