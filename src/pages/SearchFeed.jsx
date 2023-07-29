@@ -13,7 +13,6 @@ const SearchFeed = () => {
       setSearchedAnimeList(searchData.data);
     }
   }, [searchData]);
-  console.log(searchedAnimeList);
 
   return (
     <AnimeContent

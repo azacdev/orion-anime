@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { SkeletonTheme } from 'react-loading-skeleton';
+import { Routes, Route } from "react-router-dom";
+import { SkeletonTheme } from "react-loading-skeleton";
 import Navbar from "./components/Navbar";
 import Feed from "./pages/Feed";
 import AnimeDetails from "./pages/AnimeDetails";
@@ -10,11 +10,13 @@ import Popular from "./pages/Popular";
 import Airing from "./pages/Airing";
 import Upcoming from "./pages/Upcoming";
 import SearchFeed from "./pages/SearchFeed";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <div className="App text-white">
       <SkeletonTheme baseColor="#27272A" highlightColor="#3F3F46">
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Feed />} />

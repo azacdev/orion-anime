@@ -24,8 +24,6 @@ const Home = () => {
       setUpcomingList(upcomingData.data);
     }
   }, [airingData, upcomingData]);
-  console.log(upcomingList);
-  console.log(airingList);
 
   return (
     <div className="flex flex-col w-full col-span-2">
