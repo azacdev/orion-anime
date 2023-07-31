@@ -2,7 +2,7 @@ import { BiSearch } from "react-icons/bi";
 import { PiSignInFill } from "react-icons/pi";
 import { FiMenu } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { openMenu } from "../features/toggleMenuSlice";
 
@@ -15,14 +15,27 @@ const Navbar = () => {
 
   const hideMenu = location.pathname === "/";
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     if (searchTerm) {
       navigate(`animes/search/${searchTerm}`);
     }
     setSearchTerm("");
     setExpanded(!expanded);
   };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [searchTerm]);
 
   const handleMenu = () => {
     dispatch(openMenu());

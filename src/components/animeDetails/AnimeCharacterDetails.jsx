@@ -60,11 +60,7 @@ const AnimeCharacterDetails = ({ trailer, id }) => {
         </div>
       </div>
 
-      <div
-        className={`${
-          trailer?.embed_url ? "grid grid-flow-col" : "flex flex-row"
-        } gap-4 h-full overflow-hidden`}
-      >
+      <div className="grid grid-flow-col gap-4 h-full overflow-hidden">
         {charactersData.length === 0 ? (
           <p>No characters were found</p>
         ) : (
