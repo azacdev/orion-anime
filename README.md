@@ -70,9 +70,6 @@ An Anime Website project that allows users to explore and discover various anime
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
 * npm
@@ -96,7 +93,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Browse anime shows and movies by genre.
 - Search for specific anime titles using the search functionality.
-- View detailed information about each anime, including synopsis, rating, release date, trailer and more.
+- View detailed information about each anime, including synopsis, rating, release date, watch trailer and more.
 
 Usage
 On the home page, you can browse the anime shows and movies by genre using the provided links.
