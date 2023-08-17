@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import SkeletonCard from "./skeleton/SkeletonCard";
 
 const Home = () => {
+  // fetch airing and incoming anime
   const [airingList, setAnimeList] = useState([]);
   const [upcomingList, setUpcomingList] = useState([]);
   const { data: airingData, isLoading: isAiringLoading } =

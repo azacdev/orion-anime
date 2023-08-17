@@ -3,6 +3,7 @@ import { useGetUpcomingAnimeQuery } from "../features/apiSlice";
 import AnimeContent from "../components/AnimeContent";
 
 const Upcoming = () => {
+   // fetch and store upcoming anime
   const [upcomingAnimeList, setUpcomingAnimeList] = useState([]);
   const { data: upcomingData, isLoading } = useGetUpcomingAnimeQuery();
   console.log(upcomingAnimeList);

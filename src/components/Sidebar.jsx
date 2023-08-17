@@ -9,6 +9,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const toggleMenu = useSelector(selectToggleMenu);
 
+  // toggle sidemenu
   const handleMenu = () => {
     dispatch(openMenu());
   };

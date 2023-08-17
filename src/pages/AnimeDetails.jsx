@@ -8,6 +8,7 @@ import RelatedAnimeDetails from "../components/animeDetails/RelatedAnimeDetails"
 
 const AnimeDetails = () => {
   const { id } = useParams();
+  // Fetch anime details by id
   const [animeDetails, setAnimeDetails] = useState([]);
   const { data: animeByIdData, isLoading } = useGetAnimeByIdQuery(id);
 
@@ -20,7 +21,7 @@ const AnimeDetails = () => {
   const { images, trailer } = animeDetails;
 
   return (
-    <div className="pb-24">
+    <section className="pb-24">
       {isLoading ? (
         <div className="h-screen grid place-content-center">
           <svg
@@ -102,7 +103,7 @@ const AnimeDetails = () => {
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 };
 

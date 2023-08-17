@@ -15,6 +15,7 @@ const Navbar = () => {
 
   const hideMenu = location.pathname === "/";
 
+  // navigate to search page if search term is true
   const handleSearch = () => {
     if (searchTerm) {
       navigate(`animes/search/${searchTerm}`);
@@ -23,6 +24,7 @@ const Navbar = () => {
     setExpanded(!expanded);
   };
 
+  //toggle handle search with enter key
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();

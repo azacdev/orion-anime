@@ -4,6 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 
 const AnimeDescriptionDetails = ({ animeData }) => {
   const [showTitles, setShowTitles] = useState(false);
+  // destructured anime data
   const {
     score,
     images,
@@ -28,14 +29,17 @@ const AnimeDescriptionDetails = ({ animeData }) => {
   const fromDateObj = new Date(aired?.from);
   const toDateObj = new Date(aired?.to);
 
+  // get aired from date
   const airedFromDate = `${
     fromDateObj.getMonth() + 1
   }/${fromDateObj.getDate()}/${fromDateObj.getFullYear()}`;
 
+  // get aired to date
   const airedToDate = `${
     toDateObj.getMonth() + 1
   }/${toDateObj.getDate()}/${toDateObj.getFullYear()}`;
 
+  // toggle show title
   const handleTitles = () => {
     setShowTitles(!showTitles);
   };

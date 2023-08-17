@@ -6,7 +6,7 @@ import SkeletonCard from "./skeleton/SkeletonCard";
 
 const AnimeContent = ({ isLoading, pageTitle, animeList }) => {
   return (
-    <div className="containerWrap px-4 pb-24">
+    <section className="containerWrap px-4 pb-24">
       <div className="flex flex-row items-center justify-between px-1 py-3">
         <h1 className="text-xl font-bold sm:text-xl uppercase">{pageTitle}</h1>
         <TbCategory2 className="text-2xl" />
@@ -30,7 +30,7 @@ const AnimeContent = ({ isLoading, pageTitle, animeList }) => {
           <FiChevronRight />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

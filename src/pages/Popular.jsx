@@ -3,9 +3,9 @@ import { useGetPopularAnimeQuery } from "../features/apiSlice";
 import AnimeContent from "../components/AnimeContent";
 
 const Popular = () => {
+  // fetch and store popular anime
   const [popularAnimeList, setpopularAnimeList] = useState([]);
   const { data: popularData, isLoading } = useGetPopularAnimeQuery();
-  console.log(popularAnimeList);
 
   useEffect(() => {
     if (popularData?.data) {

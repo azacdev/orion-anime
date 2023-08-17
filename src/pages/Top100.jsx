@@ -3,9 +3,9 @@ import { useGetTopAnimeQuery } from "../features/apiSlice";
 import AnimeContent from "../components/AnimeContent";
 
 const Top100 = () => {
+   // fetch and store top 100 anime
   const [topAnimeList, setTopAnimeList] = useState([]);
   const { data: top100Data, isLoading } = useGetTopAnimeQuery();
-  console.log(top100Data);
 
   useEffect(() => {
     if (top100Data?.data) {

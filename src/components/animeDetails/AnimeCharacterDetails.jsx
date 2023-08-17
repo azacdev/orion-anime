@@ -3,6 +3,7 @@ import { useGetAnimeCharactersQuery } from "../../features/apiSlice";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const AnimeCharacterDetails = ({ trailer, id }) => {
+  // fetch and store anime characters data
   const [charactersData, setCharactersData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { data: animeCharactersData } = useGetAnimeCharactersQuery(id);
@@ -14,18 +15,21 @@ const AnimeCharacterDetails = ({ trailer, id }) => {
 
   const totalCharacters = charactersData.length;
 
+  // handles moving to the next page of characters.
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       Math.floor((prevIndex + 1) % totalPages(totalCharacters, false))
     );
   };
 
+  // handles moving to the previous page of characters.
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? totalPages(totalCharacters - 1, false) : prevIndex - 1
     );
   };
 
+  // Calculate the total number of pages based on the total characters and whether a trailer exists.
   function totalPages(totalCharacters, isTrailerExist) {
     if (isTrailerExist) {
       return totalCharacters > 4 ? Math.ceil(totalCharacters / 2) : 1;

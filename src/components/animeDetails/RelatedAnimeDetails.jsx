@@ -5,6 +5,7 @@ import { BiBookAlt, BiSolidMoviePlay } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const RelatedAnimeDetails = ({ id }) => {
+  // fetch and store related anime data
   const [relatedAnimeData, setRelatedAnimeData] = useState([]);
   const { data: animeRelatedData } = useGetRelatedAnimesQuery(id);
 
