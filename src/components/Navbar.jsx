@@ -8,8 +8,8 @@ import { openMenu } from "../features/toggleMenuSlice";
 
 const Navbar = () => {
   const location = useLocation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
